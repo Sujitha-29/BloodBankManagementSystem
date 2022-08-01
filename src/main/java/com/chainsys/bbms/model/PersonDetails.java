@@ -1,6 +1,6 @@
-package com.chainsys.bbms.pojo;
+package com.chainsys.bbms.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="persons_details")
-public class Person_Details 
+public class PersonDetails 
 {
 	@Id	
 	@Column(name="person_id")
@@ -19,8 +19,8 @@ public class Person_Details
 	private String person_name; 
 	@Column(name="dob")
 	private  Date dob;
-	@Column(name="Blood_group")
-	private String blood_group;
+	@Column(name="Blood_group_id")
+	private int blood_group_id;
 	@Column(name="phone_no ")
 	private long phone_no;
 	@Column(name="Gender ")
@@ -48,11 +48,11 @@ public class Person_Details
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	public String getBlood_group() {
-		return blood_group;
+	public int getBlood_group_id() {
+		return blood_group_id;
 	}
-	public void setBlood_group(String blood_group) {
-		this.blood_group = blood_group;
+	public void setBlood_group_id(int blood_group_id) {
+		this.blood_group_id = blood_group_id;
 	}
 	public long getPhone_no() {
 		return phone_no;
@@ -70,7 +70,7 @@ public class Person_Details
 		return address;
 	}
 	public void setAddress(String address) {
-		address = address;
+		this.address = address;
 	}
 	public String getEmail_id() {
 		return email_id;

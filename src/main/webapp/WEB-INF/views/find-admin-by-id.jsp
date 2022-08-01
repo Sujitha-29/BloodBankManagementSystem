@@ -34,7 +34,7 @@
 				<div>
 					<label for="designation">Designation</label>
 					<div>
-						<form:input path="admin_id" />
+						<form:input path="designation" />
 					</div>
 				</div>
 				<div>

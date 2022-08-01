@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.bbms.pojo.AdminDetail;
+import com.chainsys.bbms.model.AdminDetail;
 
 public interface AdminRepository extends CrudRepository<AdminDetail,Integer>
 {

@@ -40,7 +40,7 @@
   <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/embed/tomcat-embed-jasper/9.0.62/tomcat-embed-jasper-9.0.62.jar" sourcepath="M2_REPO/org/apache/tomcat/embed/tomcat-embed-jasper/9.0.62/tomcat-embed-jasper-9.0.62-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/eclipse/jdt/ecj/3.18.0/ecj-3.18.0.jar" sourcepath="M2_REPO/org/eclipse/jdt/ecj/3.18.0/ecj-3.18.0-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/taglibs/standard/1.1.2/standard-1.1.2.jar" sourcepath="M2_REPO/taglibs/standard/1.1.2/standard-1.1.2-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/oracle/database/jdbc/ojdbc11/21.1.0.0/ojdbc11-21.1.0.0.jar" sourcepath="M2_REPO/com/oracle/database/jdbc/ojdbc11/21.1.0.0/ojdbc11-21.1.0.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/oracle/database/jdbc/ojdbc11/21.3.0.0/ojdbc11-21.3.0.0.jar" sourcepath="M2_REPO/com/oracle/database/jdbc/ojdbc11/21.3.0.0/ojdbc11-21.3.0.0-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/boot/spring-boot-starter-data-jpa/2.6.7/spring-boot-starter-data-jpa-2.6.7.jar" sourcepath="M2_REPO/org/springframework/boot/spring-boot-starter-data-jpa/2.6.7/spring-boot-starter-data-jpa-2.6.7-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/boot/spring-boot-starter-aop/2.6.7/spring-boot-starter-aop-2.6.7.jar" sourcepath="M2_REPO/org/springframework/boot/spring-boot-starter-aop/2.6.7/spring-boot-starter-aop-2.6.7-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/aspectj/aspectjweaver/1.9.7/aspectjweaver-1.9.7.jar" sourcepath="M2_REPO/org/aspectj/aspectjweaver/1.9.7/aspectjweaver-1.9.7-sources.jar"/>

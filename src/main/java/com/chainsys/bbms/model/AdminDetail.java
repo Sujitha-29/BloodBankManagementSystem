@@ -1,4 +1,4 @@
-package com.chainsys.bbms.pojo;
+package com.chainsys.bbms.model;
 
 import java.util.Date;
 

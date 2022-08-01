@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.chainsys.bbms.pojo.AdminDetail;
+import com.chainsys.bbms.model.AdminDetail;
 import com.chainsys.bbms.repository.AdminRepository;
 
 @Service
@@ -16,8 +16,8 @@ public class AdminService
 	
 	public List<AdminDetail> getAdmins()
 	{
-		List<AdminDetail> adminList = adrepo.findAll();
-		return adminList;		
+		List<AdminDetail> adminlist = adrepo.findAll();
+		return adminlist;		
 	}
 	
 	public AdminDetail save(AdminDetail ad)

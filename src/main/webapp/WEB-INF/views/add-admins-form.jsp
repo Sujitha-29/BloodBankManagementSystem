@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Add Admin</title>
 </head>
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="add" method="post" modelAttribute=" addadmin">
+			<form:form action="addad" method="post" modelAttribute="addadmin">
 				<div>
 					<label for="admin_id">Admin Id</label>
 					<div>
@@ -27,13 +27,20 @@
 				<div>
 					<label for="admin_password">Admin Password</label>
 					<div>
-						<form:input path="admin_Password" />
+						<form:input path="admin_password" />
 					</div>
 				</div>
 				<div>
+					<label for="date_of_joining">Date Of Joining</label>
+					<div>
+						<form:input path="date_of_joining" />
+					</div>
+				</div>
+
+				<div>
 					<label for="designation">Designation</label>
 					<div>
-						<form:input path="admin_id" />
+						<form:input path="designation" />
 					</div>
 				</div>
 				<div>
@@ -47,6 +54,6 @@
 				</div>
 			</form:form>
 		</div>
-		</div>
+	</div>
 </body>
 </html>

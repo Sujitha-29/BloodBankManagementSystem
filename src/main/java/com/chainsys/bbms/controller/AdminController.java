@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.bbms.pojo.AdminDetail;
+import com.chainsys.bbms.model.AdminDetail;
 import com.chainsys.bbms.service.AdminService;
 
 @Controller
@@ -23,8 +23,8 @@ public class AdminController
 	@GetMapping("/list")
 	public String getAllAdmin(Model model)
 	{
-		List<AdminDetail> adminList=adservice.getAdmins();
-		model.addAttribute("alladmins",adminList);
+		List<AdminDetail> adminlist=adservice.getAdmins();
+		model.addAttribute("alladmins",adminlist);
 		return "list-admin";
 	}
 	
@@ -36,7 +36,7 @@ public class AdminController
 		return "add-admins-form";
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("/addad")
 	public String addNewAdmin(@ModelAttribute("addadmin") AdminDetail theadmin)
 	{
 		adservice.save(theadmin);

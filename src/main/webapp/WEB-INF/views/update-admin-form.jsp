@@ -9,10 +9,11 @@
 <title>Update Admin Form</title>
 </head>
 <body>
-<div id="root">
-<div id="form">
-<form:form action="updatead" method="post" modelAttribute="updateadmin">
-<div>
+	<div id="root">
+		<div id="form">
+			<form:form action="updatead" method="post"
+				modelAttribute="updateadmin">
+				<div>
 					<label for="admin_id">Admin Id</label>
 					<div>
 						<form:input path="admin_id" />
@@ -27,13 +28,19 @@
 				<div>
 					<label for="admin_password">Admin Password</label>
 					<div>
-						<form:input path="admin_Password" />
+						<form:input path="admin_password" />
+					</div>
+				</div>
+				<div>
+					<label for="date_of_joining">Date Of Joining</label>
+					<div>
+						<form:input path="date_of_joining" />
 					</div>
 				</div>
 				<div>
 					<label for="designation">Designation</label>
 					<div>
-						<form:input path="admin_id" />
+						<form:input path="designation" />
 					</div>
 				</div>
 				<div>
@@ -45,8 +52,8 @@
 				<div>
 					<form:button>Update</form:button>
 				</div>
-</form:form>
-</div>
-</div>
+			</form:form>
+		</div>
+	</div>
 </body>
 </html>
