@@ -12,24 +12,24 @@ import com.chainsys.bbms.repository.AdminRepository;
 public class AdminService 
 {
 	@Autowired
-	private AdminRepository adrepo;
+	private AdminRepository adminRepository;
 	
 	public List<AdminDetail> getAdmins()
 	{
-		List<AdminDetail> adminlist = adrepo.findAll();
+		List<AdminDetail> adminlist = adminRepository.findAll();
 		return adminlist;		
 	}
 	
 	public AdminDetail save(AdminDetail ad)
 	{
-		return adrepo.save(ad);
+		return adminRepository.save(ad);
 	}
 	public AdminDetail findById(int id)
 	{
-		return adrepo.findById(id);
+		return adminRepository.findById(id);
 	}
 	public void deleteById(int id)
 	{
-		adrepo.deleteById(id);
+		adminRepository.deleteById(id);
 	}
 }

@@ -11,60 +11,60 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.bbms.model.PersonDetails;
+import com.chainsys.bbms.model.PersonDetail;
 import com.chainsys.bbms.service.PersonDetailsService;
 
 @Controller
 @RequestMapping("/person")
 public class PersonDetailsController {
 	@Autowired
-	PersonDetailsService pdservice;
-	@GetMapping("/list")
+	PersonDetailsService personDetailService;
+	@GetMapping("/listpersondetails")
 	public String getAllPersonDetails(Model model)
 	{
-		List<PersonDetails> personlist=pdservice.getPersons();
-		model.addAttribute("allpersons",personlist);
+		List<PersonDetail> personlist=personDetailService.getPersons();
+		model.addAttribute("allperson",personlist);
 		return "list-persondetails";
 	}
 	
-	@GetMapping("/addform")
-	public String showAddForm(Model model)
+	@GetMapping("/addpersonform")
+	public String showPersonDetailAddForm(Model model)
 	{
-		PersonDetails theperson=new PersonDetails();
+		PersonDetail theperson=new PersonDetail();
 		model.addAttribute("addperson",theperson);
 		return "add-persons-form";
 	}
 	@PostMapping("/add")
-	public String addNewPerson(@ModelAttribute("addperson") PersonDetails theperson)
+	public String addNewPerson(@ModelAttribute("addperson") PersonDetail theperson)
 	{
-		pdservice.save(theperson);
-		return "redirect:/person/list";
+		personDetailService.save(theperson);
+		return "redirect:/person/listpersondetails";
 	}
 	
-	@GetMapping("/updateform")
-	public String showUpdateForm(@RequestParam("personid") int id,Model model)
+	@GetMapping("/updatepersonform")
+	public String showPersonDeatilUpdateForm(@RequestParam("personid") int id,Model model)
 	{
-		PersonDetails theperson=pdservice.findById(id);
+		PersonDetail theperson=personDetailService.findById(id);
 		model.addAttribute("updateperson", theperson);
 		return "update-persons-form";	
 	}
 	
 	@PostMapping("/update")
-	public String updatePerson(@ModelAttribute("updateperson") PersonDetails theperson)
+	public String updatePerson(@ModelAttribute("updateperson") PersonDetail theperson)
 	{
-		pdservice.save(theperson);
-		return "redirect:/person/list";
+		personDetailService.save(theperson);
+		return "redirect:/person/listpersondetails";
 	}
 	@GetMapping("/deleteperson")
 	public String deletePerson(@RequestParam("id") int id,Model model)
 	{
-		pdservice.deleteById(id);
-		return "redirect:/person/list";
+		personDetailService.deleteById(id);
+		return "redirect:/person/listpersondetails";
 	}
 	@GetMapping("/getperson")
 	public String getPersons(@RequestParam("id") int id ,Model model)
 	{
-		PersonDetails pd=pdservice.findById(id);
+		PersonDetail pd=personDetailService.findById(id);
 		model.addAttribute("getperson",pd);
 		return "find-person-by-id";
 		

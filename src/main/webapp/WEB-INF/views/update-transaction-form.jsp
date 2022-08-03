@@ -11,23 +11,35 @@
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="updatebt" method="post" modelAttribute="updatetrans">
+			<form:form action="update" method="post" modelAttribute="updatetransaction">
 				<div>
-					<label for="bloodtransactionid">Transaction Id</label>
+					<label for="bloodTransactionId">Transaction Id</label>
 					<div>
-						<form:input path="bloodtransactionid" />
+						<form:input path="bloodTransactionId" />
 					</div>
 				</div>
 				<div>
-					<label for="requestid">Transaction Id</label>
+					<label for="requestId">Transaction Id</label>
 					<div>
-						<form:input path="requestid" />
+						<form:input path="requestId" />
 					</div>
 				</div>
 				<div>
-					<label for="transactiondate">Transaction Date</label>
+					<label for="recipientName">Recipient Name</label>
 					<div>
-						<form:input path="transactiondate" />
+						<form:input path="recipientName" />
+					</div>
+				</div>
+				<div>
+					<label for="recipientPhoneNo">Recipient Phone No</label>
+					<div>
+						<form:input path="recipientPhoneNo" />
+					</div>
+				</div>
+				<div>
+					<label for="transactionDate">Transaction Date</label>
+					<div>
+						<form:input path="transactionDate" />
 					</div>
 				</div>
 				<div>

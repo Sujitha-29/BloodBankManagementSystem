@@ -23,16 +23,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="person" items="${allpersons}">
+				<c:forEach var="person" items="${allperson}">
 					<tr>
-						<td>${person.person_id}</td>
-						<td>${person.person_name}</td>
+						<td>${person.personId}</td>
+						<td>${person.personName}</td>
 						<td>${person.dob}</td>
-						<td>${person.blood_group_id}</td>
-						<td>${person.phone_no}</td>
+						<td>${person.bloodGroupId}</td>
+						<td>${person.phoneNo}</td>
 						<td>${person.gender}</td>
 						<td>${person.address}</td>
-						<td>${person.email_id}</td>
+						<td>${person.emailId}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -12,25 +12,25 @@ import com.chainsys.bbms.repository.BloodDonationRepository;
 public class BloodDonationService 
 {
 	@Autowired
-	private BloodDonationRepository blooddonationdrepo;
+	private BloodDonationRepository bloodDonationdRepository;
 	
 	public List<BloodDonationDetail> getallDonationDetail()
 	{
-		List<BloodDonationDetail> donationlist = blooddonationdrepo.findAll();
+		List<BloodDonationDetail> donationlist = bloodDonationdRepository.findAll();
 		return donationlist;		
 	}
 	
 	public BloodDonationDetail save(BloodDonationDetail bd)
 	{
-		return blooddonationdrepo.save(bd);
+		return bloodDonationdRepository.save(bd);
 	}
 	public BloodDonationDetail findById(int id)
 	{
-		return blooddonationdrepo.findById(id);
+		return bloodDonationdRepository.findById(id);
 	}
 	public void deleteById(int id)
 	{
-		blooddonationdrepo.deleteById(id);
+		bloodDonationdRepository.deleteById(id);
 	}
 
 }

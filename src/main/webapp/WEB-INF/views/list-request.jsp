@@ -14,18 +14,18 @@
 				<tr>
 					<th>Request Id</th>
 					<th>Hospital Name</th>
-					<th>Blood Group</th>
+					<th>Blood Group Id</th>
 					<th>Request Date</th>
 					<th>Quantity</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="request" items="${getallrequest}">
+				<c:forEach var="request" items="${getallbloodrequest}">
 					<tr>
-						<td>${request.requestid}</td>
-						<td>${request.hospitalname}</td>
-						<td>${request.bloodgroup}</td>
-						<td>${request.requestdate}</td>
+						<td>${request.requestId}</td>
+						<td>${request.hospitalName}</td>
+						<td>${request.bloodGroupId}</td>
+						<td>${request.requestDate}</td>
 						<td>${request.quantity}</td>
 					</tr>
 				</c:forEach>

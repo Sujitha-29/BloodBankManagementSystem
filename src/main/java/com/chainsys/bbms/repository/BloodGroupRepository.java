@@ -11,7 +11,10 @@ public interface BloodGroupRepository extends CrudRepository<BloodGroupDetail,In
 	BloodGroupDetail findById(int id);
 	BloodGroupDetail save(BloodGroupDetail bloodgroup);
 	void deleteById(int blood_group_id);
-	List<BloodGroupDetail> findAll();
+	List<BloodGroupDetail> findAll(); 
+	
+	//repo at fk
+
 	
 
 }

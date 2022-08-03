@@ -1,6 +1,6 @@
 package com.chainsys.bbms.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,38 +13,38 @@ public class BloodDonationDetail
 {
 	@Id
 	@Column(name="donation_trans_id")
-	private int donationtransid;
+	private int donationTransId;
 	@Column(name="person_id ")
-	private int personid ;
+	private int personId ;
 	@Column(name="donation_date")
-	private Date donationdate;
+	private Date donationDate;
 	@Column(name="Health_Condition")
-	private String healthcondition;
+	private String healthCondition;
 	@Column(name="quantity")
 	private String quantity;
-	public int getDonationtransid() {
-		return donationtransid;
+	public int getDonationTransId() {
+		return donationTransId;
 	}
-	public void setDonationtransid(int donationtransid) {
-		this.donationtransid = donationtransid;
+	public void setDonationTransId(int donationTransId) {
+		this.donationTransId = donationTransId;
 	}
-	public int getPersonid() {
-		return personid;
+	public int getPersonId() {
+		return personId;
 	}
-	public void setPersonid(int personid) {
-		this.personid = personid;
+	public void setPersonId(int personId) {
+		this.personId = personId;
 	}
-	public Date getDonationdate() {
-		return donationdate;
+	public Date getDonationDate() {
+		return donationDate;
 	}
-	public void setDonationdate(Date donationdate) {
-		this.donationdate = donationdate;
+	public void setDonationDate(Date donationDate) {
+		this.donationDate = donationDate;
 	}
-	public String getHealthcondition() {
-		return healthcondition;
+	public String getHealthCondition() {
+		return healthCondition;
 	}
-	public void setHealthcondition(String healthcondition) {
-		this.healthcondition = healthcondition;
+	public void setHealthCondition(String healthCondition) {
+		this.healthCondition = healthCondition;
 	}
 	public String getQuantity() {
 		return quantity;
@@ -52,5 +52,5 @@ public class BloodDonationDetail
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
-		
+			
 }

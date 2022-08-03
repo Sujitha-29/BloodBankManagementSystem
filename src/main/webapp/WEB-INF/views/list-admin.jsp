@@ -23,12 +23,12 @@
 			<tbody>
 				<c:forEach var="admin" items="${alladmins}">
 					<tr>
-						<td>${admin.admin_id}</td>
-						<td>${admin.admin_name}</td>
-						<td>${admin.admin_password}</td>
-						<td>${admin.date_of_joining}</td>
+						<td>${admin.adminId}</td>
+						<td>${admin.adminName}</td>
+						<td>${admin.adminPassword}</td>
+						<td>${admin.dateOfJoining}</td>
 						<td>${admin.designation}</td>
-						<td>${admin.password_modified_date}</td>
+						<td>${admin.passwordModifiedDate}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

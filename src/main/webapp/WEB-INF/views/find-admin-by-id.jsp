@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -12,23 +11,23 @@
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="getadmin" method="post" modelAttribute="getadmin">
+			<form:form action="getadmin" method="post" modelAttribute="getadmins">
 				<div>
-					<label for="admin_id">Admin Id</label>
+					<label for="adminId">Admin Id</label>
 					<div>
-						<form:input path="admin_id" />
+						<form:input path="adminId" />
 					</div>
 				</div>
 				<div>
-					<label for="admin_name">Admin Name</label>
+					<label for="adminName">Admin Name</label>
 					<div>
-						<form:input path="admin_name" />
+						<form:input path="adminName" />
 					</div>
 				</div>
 				<div>
-					<label for="admin_password">Admin Password</label>
+					<label for="adminPassword">Admin Password</label>
 					<div>
-						<form:input path="admin_Password" />
+						<form:input path="adminPassword" />
 					</div>
 				</div>
 				<div>
@@ -38,9 +37,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="password_modified_date">password_modified_date</label>
+					<label for="passwordModifiedDate">password Modified Date</label>
 					<div>
-						<form:input path="password_modified_date" />
+						<form:input path="passwordModifiedDate" />
 					</div>
 				</div>
 			</form:form>

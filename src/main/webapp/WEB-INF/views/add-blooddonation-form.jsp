@@ -11,29 +11,29 @@
 <div id="root">
 		<div id="root">
 		<div id="form">
-			<form:form action="addbd" method="post" modelAttribute="addblooddonation">
+			<form:form action="add" method="post" modelAttribute="addblooddonation">
 				<div>
-					<label for="donationtransid">Donation Id</label>
+					<label for="donationTransId">Donation Id</label>
 					<div>
-						<form:input path="donationtransid" />
+						<form:input path="donationTransId" />
 					</div>
 				</div>
 				<div>
-					<label for="personid">Person Id </label>
+					<label for="personId">Person Id </label>
 					<div>
-						<form:input path="personid" />
+						<form:input path="personId" />
 					</div>
 				</div>
 				<div>
-					<label for="donationdate">Donation Date</label>
+					<label for="donationDate">Donation Date</label>
 					<div>
-						<form:input type="date" path="donationdate" />
+						<form:input  path="donationDate" />
 					</div>
 				</div>
 				<div>
-					<label for="healthcondition">Health Condition</label>
+					<label for="healthCondition">Health Condition</label>
 					<div>
-						<form:input path="healthcondition" />
+						<form:input path="healthCondition" />
 					</div>
 				</div>
 				<div>

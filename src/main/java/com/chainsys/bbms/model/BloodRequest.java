@@ -14,44 +14,46 @@ public class BloodRequest
 {
 	@Id
 	@Column(name="request_id")
-	private int requestid;
+	private int requestId;
 	@Column(name="hospital_name")
-	private String hospitalname;
-	@Column(name="blood_group")
-	private String bloodgroup;
+	private String hospitalName;
+	@Column(name="blood_group_id")
+	private int bloodGroupId;
 	@Column(name="request_date")
-	private Date requestdate;
+	private Date requestDate;
 	@Column(name="quantity")
 	private String quantity;
 	
-	public int getRequestid() {
-		return requestid;
+	public int getRequestId() {
+		return requestId;
 	}
-	public void setRequestid(int requestid) {
-		this.requestid = requestid;
+	public void setRequestId(int requestId) {
+		this.requestId = requestId;
 	}
-	public String getHospitalname() {
-		return hospitalname;
+	public String getHospitalName() {
+		return hospitalName;
 	}
-	public void setHospitalname(String hospitalname) {
-		this.hospitalname = hospitalname;
+	public void setHospitalName(String hospitalName) {
+		this.hospitalName = hospitalName;
 	}
-	public String getBloodgroup() {
-		return bloodgroup;
+	public int getBloodGroupId() {
+		return bloodGroupId;
 	}
-	public void setBloodgroup(String bloodgroup) {
-		this.bloodgroup = bloodgroup;
+	public void setBloodGroupId(int bloodGroupId) {
+		this.bloodGroupId = bloodGroupId;
 	}
-	public Date getRequestdate() {
-		return requestdate;
+	public Date getRequestDate() {
+		return requestDate;
 	}
-	public void setRequestdate(Date requestdate) {
-		this.requestdate = requestdate;
+	public void setRequestDate(Date requestDate) {
+		this.requestDate = requestDate;
 	}
 	public String getQuantity() {
 		return quantity;
 	}
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
-	}	
+	}
+	
+			
 }

@@ -11,32 +11,31 @@
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="addad" method="post" modelAttribute="addadmin">
+			<form:form action="addadmin" method="post" modelAttribute="addadmins">
 				<div>
-					<label for="admin_id">Admin Id</label>
+					<label for="adminId">Admin Id</label>
 					<div>
-						<form:input path="admin_id" />
+						<form:input path="adminId" />
 					</div>
 				</div>
 				<div>
-					<label for="admin_name">Admin Name</label>
+					<label for="adminName">Admin Name</label>
 					<div>
-						<form:input path="admin_name" />
+						<form:input path="adminName" />
 					</div>
 				</div>
 				<div>
-					<label for="admin_password">Admin Password</label>
+					<label for="adminPassword">Admin Password</label>
 					<div>
-						<form:input path="admin_password" />
+						<form:input path="adminPassword" />
 					</div>
 				</div>
 				<div>
-					<label for="date_of_joining">Date Of Joining</label>
+					<label for="dateOfJoining">Date Of Joining</label>
 					<div>
-						<form:input path="date_of_joining" />
+						<form:input path="dateOfJoining" />
 					</div>
 				</div>
-
 				<div>
 					<label for="designation">Designation</label>
 					<div>
@@ -44,9 +43,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="password_modified_date">password_modified_date</label>
+					<label for="passwordModifiedDate">password Modified Date</label>
 					<div>
-						<form:input path="password_modified_date" />
+						<form:input path="passwordModifiedDate" />
 					</div>
 				</div>
 				<div>

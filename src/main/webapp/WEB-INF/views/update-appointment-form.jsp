@@ -10,27 +10,27 @@
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="updateda" method="post"
-				modelAttribute="updateappo">
+			<form:form action="update" method="post"
+				modelAttribute="updateappointment">
 				<div>
-					<label for="appointment_id">Appointment Id</label>
+					<label for="appointmentId">Appointment Id</label>
 					<div>
-						<form:input path="appointment_id" />
+						<form:input path="appointmentId" />
 					</div>
 				</div>
 				<div>
-					<label for="appointment_date">Appointment Date</label>
+					<label for="appointmentDate">Appointment Date</label>
 					<div>
-						<form:input path="appointment_date" />
+						<form:input path="appointmentDate" />
 					</div>
 				</div>
 				<div>
-					<label for="person_id">Person Id</label>
+					<label for="personId">Person Id</label>
 					<div>
-						<form:input path="person_id" />
+						<form:input path="personId" />
 					</div>
 					<div>
-					<form:button>Add New</form:button>
+					<form:button>Update</form:button>
 				</div>			
 			</form:form>
 		</div>

@@ -11,23 +11,23 @@ import com.chainsys.bbms.repository.DonorAppointmentRepository;
 @Service
 public class DonorAppointmentService {
 	@Autowired
-	private DonorAppointmentRepository darepo;
+	private DonorAppointmentRepository donorAppointmentRepository;
 	public List<DonorAppointment> getAppointments()
 	{
-		List<DonorAppointment> appolist=darepo.findAll();
+		List<DonorAppointment> appolist=donorAppointmentRepository.findAll();
 		return appolist;
 	}
 	public DonorAppointment save(DonorAppointment da)
 	{
-		return darepo.save(da);
+		return donorAppointmentRepository.save(da);
 	}
 	public DonorAppointment findById(int id)
 	{
-		return darepo.findById(id);
+		return donorAppointmentRepository.findById(id);
 	}
 	public void deleteById(int id)
 	{
-		darepo.deleteById(id);
+		donorAppointmentRepository.deleteById(id);
 	}
 
 }

@@ -12,23 +12,23 @@ import com.chainsys.bbms.repository.BloodRequestRepository;
 public class BloodRequestService 
 {
 	@Autowired
-	private BloodRequestRepository bloodrequestrepo;
+	private BloodRequestRepository bloodRequestRepository;
 	public List<BloodRequest> getBloodRequest()
 	{
-		List<BloodRequest> brlist = bloodrequestrepo.findAll();
+		List<BloodRequest> brlist = bloodRequestRepository.findAll();
 		return brlist;
 	}
 	public BloodRequest save(BloodRequest br)
 	{
-		return bloodrequestrepo.save(br);
+		return bloodRequestRepository.save(br);
 	}
 	public BloodRequest findById(int id)
 	{
-		return bloodrequestrepo.findById(id);
+		return bloodRequestRepository.findById(id);
 	}
 	public void deleteById(int id)
 	{
-		bloodrequestrepo.deleteById(id);
+		bloodRequestRepository.deleteById(id);
 	}
 	
 	

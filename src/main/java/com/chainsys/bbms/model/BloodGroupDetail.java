@@ -1,8 +1,12 @@
 package com.chainsys.bbms.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -11,29 +15,36 @@ public class BloodGroupDetail
 {
 	@Id
 	@Column(name="blood_group_id")
-	private int blood_group_id;		
+	private int bloodGroupId;		
 	@Column(name="Blood_group")
-	private String blood_group;
+	private String bloodGroup;
 	@Column(name="Stock_in_hand")
-	private int stock_in_hand ; 
+	private String stockInHand ;
 	
-	public int getBlood_group_id() {
-		return blood_group_id;
+	@OneToMany(mappedBy ="bloodgroup",fetch=FetchType.LAZY)
+	private List<PersonDetail> person; // fk class
+	public List<PersonDetail> getPerson() {
+		return person;
 	}
-	public void setBlood_group_id(int blood_group_id) {
-		this.blood_group_id = blood_group_id;
+	public void setPerson(List<PersonDetail> person) {
+		this.person = person;
 	}
-	public String getBlood_group() {
-		return blood_group;
+	public int getBloodGroupId() {
+		return bloodGroupId;
 	}
-	public void setBlood_group(String blood_group) {
-		this.blood_group = blood_group;
+	public void setBloodGroupId(int bloodGroupId) {
+		this.bloodGroupId = bloodGroupId;
 	}
-	public int getStock_in_hand() {
-		return stock_in_hand;
+	public String getBloodGroup() {
+		return bloodGroup;
 	}
-	public void setStock_in_hand(int stock_in_hand) {
-		this.stock_in_hand = stock_in_hand;
+	public void setBloodGroup(String bloodGroup) {
+		this.bloodGroup = bloodGroup;
 	}
-	
+	public String getStockInHand() {
+		return stockInHand;
+	}
+	public void setStockInHand(String stockInHand) {
+		this.stockInHand = stockInHand;
+	}
 }

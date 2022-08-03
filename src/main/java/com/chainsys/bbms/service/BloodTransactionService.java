@@ -2,6 +2,7 @@ package com.chainsys.bbms.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chainsys.bbms.model.BloodTransaction;
@@ -10,23 +11,24 @@ import com.chainsys.bbms.repository.BloodTransactionRepository;
 @Service
 public class BloodTransactionService 
 {
-	private BloodTransactionRepository btrepo;
+	@Autowired
+	private BloodTransactionRepository bloodTransactionRepository;
 	public List<BloodTransaction> getBloodTransaction()
 	{
-		List<BloodTransaction> translist=btrepo.findAll();
+		List<BloodTransaction> translist=bloodTransactionRepository.findAll();
 		return translist;
 	}
 	public BloodTransaction save(BloodTransaction bt)
 	{
-		return btrepo.save(bt);
+		return bloodTransactionRepository.save(bt);
 	}
 	public BloodTransaction findById(int id)
 	{
-		return btrepo.findById(id);
+		return bloodTransactionRepository.findById(id);
 	}
 	public void deleteById(int id)
 	{
-		btrepo.deleteById(id);
+		bloodTransactionRepository.deleteById(id);
 	}
 
 }

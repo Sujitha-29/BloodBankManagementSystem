@@ -10,30 +10,29 @@
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="updatebloodrequest" method="post"
-				modelAttribute="updaterequest">
+			<form:form action="updatebloodrequest" method="post" modelAttribute="updaterequest">
 				<div>
-					<label for="requestid">Request Id</label>
+					<label for="requestId">Request Id</label>
 					<div>
-						<form:input path="requestid" />
+						<form:input path="requestId" />
 					</div>
 				</div>
 				<div>
-					<label for="hospitalname">Hospital Name</label>
+					<label for="hospitalName">Hospital Name</label>
 					<div>
-						<form:input path="hospitalname" />
+						<form:input path="hospitalName" />
 					</div>
 				</div>
 				<div>
-					<label for="bloodgroup">Blood Group</label>
+					<label for="bloodGroupId">Blood Group Id</label>
 					<div>
-						<form:input path="bloodgroup" />
+						<form:input path="bloodGroupId" />
 					</div>
 				</div>
 				<div>
-					<label for="requestdate">Request Date</label>
+					<label for="requestDate">Request Date</label>
 					<div>
-						<form:input path="requestdate" />
+						<form:input path="requestDate" />
 					</div>
 				</div>
 				<div>

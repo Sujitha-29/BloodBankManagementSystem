@@ -14,6 +14,8 @@
 				<tr>
 					<th>Transaction Id</th>
 					<th>Request Id</th>
+					<th>Recipient Name</th>
+					<th>Recipient Phone No</th>
 					<th>Transaction Date</th>
 					<th>Quantity</th>
 					<th>Status</th>
@@ -22,9 +24,11 @@
 			<tbody>
 				<c:forEach var="trans" items="${alltrans}">
 					<tr>
-						<td>${trans.bloodtransactionid}</td>
-						<td>${trans.requestid}</td>
-						<td>${trans.transactiondate}</td>
+						<td>${trans.bloodTransactionId}</td>
+						<td>${trans.requestId}</td>
+						<td>${trans.recipientName}</td>
+						<td>${trans.recipientPhoneNo}</td>
+						<td>${trans.transactionDate}</td>
 						<td>${trans.quantity}</td>
 						<td>${trans.status}</td>
 					</tr>

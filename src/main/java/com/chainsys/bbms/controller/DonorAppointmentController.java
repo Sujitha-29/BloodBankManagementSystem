@@ -19,53 +19,52 @@ import com.chainsys.bbms.service.DonorAppointmentService;
 public class DonorAppointmentController 
 {
 	@Autowired
-	DonorAppointmentService daservice;
-	@GetMapping("/list")
+	DonorAppointmentService donorAppointmentService;
+	@GetMapping("/listappointment")
 	public String getAllAppointment(Model model)
 	{
-		List<DonorAppointment> appolist=daservice.getAppointments();
-		model.addAttribute("allappointment",appolist);
+		List<DonorAppointment> appolist=donorAppointmentService.getAppointments();
+		model.addAttribute("allappointments",appolist);
 		return "list-appointment";
 	}
-	@GetMapping("/addform")
-	public String showAddForm(Model model)
+	@GetMapping("/adddonorappointmentform")
+	public String showAppointmentAddForm(Model model)
 	{
 		DonorAppointment theappo=new DonorAppointment();
-		model.addAttribute("addappo",theappo);
+		model.addAttribute("addappointment",theappo);
 		return "add-appointment-form";
 	}
-	@PostMapping("/addda")
-	public String addNewAppointment(@ModelAttribute("addappo") DonorAppointment theappo)
+	@PostMapping("/add")
+	public String addNewAppointment(@ModelAttribute("addappointment") DonorAppointment theappo)
 	{
-		daservice.save(theappo);
-		return "redirect:/appointment/list";
+		donorAppointmentService.save(theappo);
+		return "redirect:/appointment/listappointment";
 	}
-	@GetMapping("/updateform")
-	public String showUpdateForm(@RequestParam("appoid") int id,Model model)
+	@GetMapping("/updatedonorappointmentform")
+	public String showAppointemntUpdateForm(@RequestParam("appoid") int id,Model model)
 	{
-		DonorAppointment theappo=daservice.findById(id);
-		model.addAttribute("updateappo", theappo);
+		DonorAppointment theappo=donorAppointmentService.findById(id);
+		model.addAttribute("updateappointment", theappo);
 		return "update-appointment-form";	
 	}
-	@PostMapping("/updateda")
-	public String updateAppointment(@ModelAttribute("updateappo") DonorAppointment theappo)
+	@PostMapping("/update")
+	public String updateAppointment(@ModelAttribute("updateappointment") DonorAppointment theappo)
 	{
-		daservice.save(theappo);
-		return "redirect:/appointment/list";
+		donorAppointmentService.save(theappo);
+		return "redirect:/appointment/listappointment";
 	}
-	@GetMapping("/deleteappo")
+	@GetMapping("/deleteappointment")
 	public String deleteAppointment(@RequestParam("id") int id,Model model)
 	{
-		daservice.deleteById(id);
-		return "redirect:/appointment/list";
+		donorAppointmentService.deleteById(id);
+		return "redirect:/appointment/listappointment";
 	}
 	@GetMapping("/getappointment")
 	public String getAppointment(@RequestParam("id") int id ,Model model)
 	{
-		DonorAppointment da=daservice.findById(id);
-		model.addAttribute("getappointment",da);
-		return "find-appointment-by-id";
-		
+		DonorAppointment da=donorAppointmentService.findById(id);
+		model.addAttribute("getappointmentbyid",da);
+		return "find-appointment-by-id";	
 	}
 
 }

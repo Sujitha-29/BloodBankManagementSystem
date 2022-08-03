@@ -13,29 +13,30 @@ public class DonorAppointment
 {
 	@Id
 	@Column(name="appointment_id")
-	private int appointment_id;
+	private int appointmentId;
 	@Column(name="Appointment_date")
-	private Date appointment_date;
+	private Date appointmentDate;
 	@Column(name="person_id")
-	private int person_id;
+	private int personId;
 	
-	public int getAppointment_id() {
-		return appointment_id;
+	public int getAppointmentId() {
+		return appointmentId;
 	}
-	public void setAppointment_id(int appointment_id) {
-		this.appointment_id = appointment_id;
+	public void setAppointmentId(int appointmentId) {
+		this.appointmentId = appointmentId;
 	}
-	public Date getAppointment_date() {
-		return appointment_date;
+	public Date getAppointmentDate() {
+		return appointmentDate;
 	}
-	public void setAppointment_date(Date appointment_date) {
-		this.appointment_date = appointment_date;
+	public void setAppointmentDate(Date appointmentDate) {
+		this.appointmentDate = appointmentDate;
 	}
-	public int getPerson_id() {
-		return person_id;
+	public int getPersonId() {
+		return personId;
 	}
-	public void setPerson_id(int person_id) {
-		this.person_id = person_id;
+	public void setPersonId(int personId) {
+		this.personId = personId;
 	}
 	
+		
 }

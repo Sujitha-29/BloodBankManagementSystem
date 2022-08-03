@@ -5,30 +5,30 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.chainsys.bbms.model.PersonDetails;
+import com.chainsys.bbms.model.PersonDetail;
 import com.chainsys.bbms.repository.PersonDetailsRepository;
 
 @Service
 public class PersonDetailsService {
 	@Autowired
-	private PersonDetailsRepository pdrepo;
+	private PersonDetailsRepository personDetailRepository;
 	
-	public List<PersonDetails> getPersons()
+	public List<PersonDetail> getPersons()
 	{
-		List<PersonDetails> personlist=pdrepo.findAll();
+		List<PersonDetail> personlist= personDetailRepository.findAll();
 		return personlist;		
 	}
-	public PersonDetails save(PersonDetails pd)
+	public PersonDetail save(PersonDetail pd)
 	{
-		return pdrepo.save(pd);
+		return  personDetailRepository.save(pd);
 	}
-	public PersonDetails findById(int id)
+	public PersonDetail findById(int id)
 	{
-		return pdrepo.findById(id);
+		return  personDetailRepository.findById(id);
 	}
 	public void deleteById(int id)
 	{
-		pdrepo.deleteById(id);
+		 personDetailRepository.deleteById(id);
 	}
 
 }

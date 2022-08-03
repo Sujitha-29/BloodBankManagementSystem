@@ -18,11 +18,11 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="appo" items="${allappointment}">
+				<c:forEach var="appo" items="${allappointments}">
 					<tr>
-						<td>${appo.appointment_id}</td>
-						<td>${appo.appointment_date}</td>
-						<td>${appo.person_id}</td>
+						<td>${appo.appointmentId}</td>
+						<td>${appo.appointmentDate}</td>
+						<td>${appo.personId}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

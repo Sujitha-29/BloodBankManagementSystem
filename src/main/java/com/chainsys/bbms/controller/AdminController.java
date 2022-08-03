@@ -19,57 +19,57 @@ import com.chainsys.bbms.service.AdminService;
 public class AdminController 
 {
 	@Autowired
-	AdminService adservice;
-	@GetMapping("/list")
+	AdminService adminService;
+	@GetMapping("/listadmins")
 	public String getAllAdmin(Model model)
 	{
-		List<AdminDetail> adminlist=adservice.getAdmins();
+		List<AdminDetail> adminlist=adminService.getAdmins();
 		model.addAttribute("alladmins",adminlist);
 		return "list-admin";
 	}
 	
-	@GetMapping("/addform")
-	public String showAddForm(Model model)
+	@GetMapping("/addadminform")
+	public String showAdminAddForm(Model model)
 	{
 		AdminDetail theadmin=new AdminDetail();
-		model.addAttribute("addadmin",theadmin);
+		model.addAttribute("addadmins",theadmin);
 		return "add-admins-form";
 	}
 	
-	@PostMapping("/addad")
-	public String addNewAdmin(@ModelAttribute("addadmin") AdminDetail theadmin)
+	@PostMapping("/addadmin")
+	public String addNewAdmin(@ModelAttribute("addadmins") AdminDetail theadmin)
 	{
-		adservice.save(theadmin);
-		return "redirect:/admin/list";
+		adminService.save(theadmin);
+		return "redirect:/admin/listadmins";
 	}
 	
-	@GetMapping("/updateform")
-	public String showUpdateForm(@RequestParam("adminid") int id,Model model)
+	@GetMapping("/updateadminform")
+	public String showAdminUpdateForm(@RequestParam("adminid") int id,Model model)
 	{
-		AdminDetail theadmin=adservice.findById(id);
-		model.addAttribute("updateadmin", theadmin);
+		AdminDetail theadmin=adminService.findById(id);
+		model.addAttribute("updateadmins", theadmin);
 		return "update-admin-form";	
 	}
 	
-	@PostMapping("/updatead")
-	public String updateadmin(@ModelAttribute("updateadmin") AdminDetail theadmin)
+	@PostMapping("/updateadmin")
+	public String updateadmin(@ModelAttribute("updateadmins") AdminDetail theadmin)
 	{
-		adservice.save(theadmin);
-		return "redirect:/admin/list";
+		adminService.save(theadmin);
+		return "redirect:/admin/listadmins";
 	}
 	
 	@GetMapping("/deleteadmin")
 	public String deleteAdmin(@RequestParam("id") int id,Model model)
 	{
-		adservice.deleteById(id);
-		return "redirect:/admin/list";
+		adminService.deleteById(id);
+		return "redirect:/admin/listadmins";
 	}
 	
 	@GetMapping("/getadmin")
 	public String getAdmin(@RequestParam("id") int id ,Model model)
 	{
-		AdminDetail ad=adservice.findById(id);
-		model.addAttribute("getadmin",ad);
+		AdminDetail ad=adminService.findById(id);
+		model.addAttribute("getadmins",ad);
 		return "find-admin-by-id";
 		
 	}

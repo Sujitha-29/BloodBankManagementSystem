@@ -10,23 +10,23 @@
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="update" method="post" modelAttribute="updatebg">
+			<form:form action="update" method="post" modelAttribute="updatebloodgroup">
 				<div>
-					<label for="blood_group_id">Blood Group Id</label>
+					<label for="bloodGroupId">Blood Group Id</label>
 					<div>
-						<form:input path="blood_group_id" />
+						<form:input path="bloodGroupId" />
 					</div>
 				</div>
 				<div>
-					<label for="blood_group">Blood Group Name</label>
+					<label for="bloodGroup">Blood Group Name</label>
 					<div>
-						<form:input path="blood_group" />
+						<form:input path="bloodGroup" />
 					</div>
 				</div>
 				<div>
-					<label for="stock_in_hand">Stock</label>
+					<label for="stockInHand">Stock</label>
 					<div>
-						<form:input path="stock_in_hand" />
+						<form:input path="stockInHand" />
 					</div>	
 					<div>
 					<form:button>Update</form:button>

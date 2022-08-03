@@ -19,53 +19,53 @@ import com.chainsys.bbms.service.BloodTransactionService;
 public class BloodTransactionController
 {
 	@Autowired
-	BloodTransactionService btservice;
-	@GetMapping("/list")
-	public String getAllTransaction(Model model)
+	BloodTransactionService bloodTransactionService;
+	@GetMapping("/listbloodtransaction")
+	public String getAllBloodTransaction(Model model)
 	{
 		{
-			List<BloodTransaction> translist=btservice.getBloodTransaction();
+			List<BloodTransaction> translist=bloodTransactionService.getBloodTransaction();
 			model.addAttribute("alltrans",translist);
 			return "list-transaction";
 		}
 	}
-	@GetMapping("/addform")
-	public String showAddForm(Model model)
+	@GetMapping("/addbloodtransactionform")
+	public String showbloodTransactionAddForm(Model model)
 	{
 		BloodTransaction thetrans=new BloodTransaction();
-		model.addAttribute("addtrans",thetrans);
+		model.addAttribute("addtransaction",thetrans);
 		return "add-transaction-form";
 	}
-	@PostMapping("/addbt")
-	public String addNewTransaction(@ModelAttribute("addtrans") BloodTransaction thetrans)
+	@PostMapping("/add")
+	public String addNewBloodTransaction(@ModelAttribute("addtransaction") BloodTransaction thetrans)
 	{
-		btservice.save(thetrans);
-		return "redirect:/bloodtransaction/list";
+		bloodTransactionService.save(thetrans);
+		return "redirect:/bloodtransaction/listbloodtransaction";
 	}
-	@GetMapping("/updateform")
-	public String showUpdateForm(@RequestParam("transid") int id,Model model)
+	@GetMapping("/updatebloodtransactionform")
+	public String showBloodTransactionUpdateForm(@RequestParam("transid") int id,Model model)
 	{
-		BloodTransaction thetrans=btservice.findById(id);
-		model.addAttribute("updatetrans", thetrans);
+		BloodTransaction thetrans=bloodTransactionService.findById(id);
+		model.addAttribute("updatetransaction", thetrans);
 		return "update-transaction-form";	
 	}
-	@PostMapping("/updatebt")
-	public String updateTransaction(@ModelAttribute("updatetrans") BloodTransaction thetrans)
+	@PostMapping("/update")
+	public String updateBloodTransaction(@ModelAttribute("updatetransaction") BloodTransaction thetrans)
 	{
-		btservice.save(thetrans);
-		return "redirect:/bloodtransaction/list";
+		bloodTransactionService.save(thetrans);
+		return "redirect:/bloodtransaction/listbloodtransaction";
 	}
-	@GetMapping("/deletetrans")
+	@GetMapping("/deletebloodtransaction")
 	public String deleteTransaction(@RequestParam("id") int id,Model model)
 	{
-		btservice.deleteById(id);
-		return "redirect:/bloodtransaction/list";
+		bloodTransactionService.deleteById(id);
+		return "redirect:/bloodtransaction/listbloodtransaction";
 	}
-	@GetMapping("/gettrans")
+	@GetMapping("/gettransaction")
 	public String getAdmin(@RequestParam("id") int id ,Model model)
 	{
-		BloodTransaction bt=btservice.findById(id);
-		model.addAttribute("gettrans",bt);
+		BloodTransaction bt=bloodTransactionService.findById(id);
+		model.addAttribute("gettransactionbyid",bt);
 		return "find-transaction-by-id";
 		
 	}

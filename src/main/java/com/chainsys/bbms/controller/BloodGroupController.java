@@ -11,64 +11,68 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.bbms.dto.BloodGroupPersonDetailDTO;
 import com.chainsys.bbms.model.BloodGroupDetail;
 import com.chainsys.bbms.service.BloodGroupService;
 
 @Controller
 @RequestMapping("/bloodgroup")
-public class BloodGroupController
-{
+public class BloodGroupController {
 	@Autowired
-	BloodGroupService bgservice;
-	@GetMapping("/list")
-	public String getallBloodGroup(Model model)
-	{
-		List<BloodGroupDetail> bloodgrouplist=bgservice.getBloodGroup();
-		model.addAttribute("allbloodgroup",bloodgrouplist);
+	BloodGroupService bloodGroupService;
+
+	@GetMapping("/listbloodgroup")
+	public String getallBloodGroup(Model model) {
+		List<BloodGroupDetail> bloodgrouplist = bloodGroupService.getBloodGroup();
+		model.addAttribute("allbloodgroup", bloodgrouplist);
 		return "list-blood-group";
 	}
-	@GetMapping("/addform")
-	public String showAddForm(Model model)
-	{
+
+	@GetMapping("/addbloodgroupform")
+	public String showAddForm(Model model) {
 		BloodGroupDetail thebg = new BloodGroupDetail();
 		model.addAttribute("addbloodgroup", thebg);
-		return "add-blood-group-form";		
+		return "add-blood-group-form";
 	}
-	@PostMapping("/addbd")
-	public String addNewBloodGroup(@ModelAttribute("addbloodgroup") BloodGroupDetail thebg)
-	{
-		bgservice.save(thebg);
-		return "redirect:/bloodgroup/list";
+
+	@PostMapping("/add")
+	public String addNewBloodGroup(@ModelAttribute("addbloodgroup") BloodGroupDetail thebg) {
+		bloodGroupService.save(thebg);
+		return "redirect:/bloodgroup/listbloodgroup";
 	}
-	
-	@GetMapping("/updateform")
-	public String ShowUpdateForm(@RequestParam("bloodgroupid") int id,Model model)
-	{
-		BloodGroupDetail thebg = bgservice.findById(id);
-		model.addAttribute("updatebg",thebg);
-		return "update-bloodgroup-form";	
+
+	@GetMapping("/updatebloodgroupform")
+	public String ShowUpdateForm(@RequestParam("bloodgroupid") int id, Model model) {
+		BloodGroupDetail thebg = bloodGroupService.findById(id);
+		model.addAttribute("updatebloodgroup", thebg);
+		return "update-bloodgroup-form";
 	}
-	
+
 	@PostMapping("/update")
-	public String updateBloodgroup(@ModelAttribute("updatebg") BloodGroupDetail thebg)
-	{
-		bgservice.save(thebg);
-		return "redirect:/bloodgroup/list";
+	public String updateBloodgroup(@ModelAttribute("updatebloodgroup") BloodGroupDetail thebg) {
+		bloodGroupService.save(thebg);
+		return "redirect:/bloodgroup/listbloodgroup";
 	}
-	@GetMapping("/deletebg")
-	public String deleteBloodGroup(@RequestParam("id") int id,Model model)
-	{
-		bgservice.deleteById(id);
-		return "redirect:/bloodgroup/list";
+
+	@GetMapping("/deletebloodgroup")
+	public String deleteBloodGroup(@RequestParam("id") int id, Model model) {
+		bloodGroupService.deleteById(id);
+		return "redirect:/bloodgroup/listbloodgroup";
+	}
+
+	@GetMapping("/getbloodgroup")
+	public String getBloodGroupById(@RequestParam("id") int id, Model model) {
+		BloodGroupDetail thebg = bloodGroupService.findById(id);
+		model.addAttribute("getbloodgroupbyid", thebg);
+		return "find-bloodgroup-by-id";
 	}
 	
-	@GetMapping("/getbloodgroup")
-	public String getBloodGroupById(@RequestParam("id") int id,Model model)
-	{
-		BloodGroupDetail thebg = bgservice.findById(id);
-		model.addAttribute("getbg",thebg);
-		return "find-bloodgroup-by-id";
-		
-	}
+	@GetMapping("/getpersonbybloodgroup")
+    public String getPersonDetail(@RequestParam("id") int id,Model model) {
+		BloodGroupPersonDetailDTO dto =bloodGroupService.getBloodGroupPersonDetail(id);
+        model.addAttribute("getbloodgroup" ,dto.getBloodgroup());
+        model.addAttribute("personlist",dto.getPersonlist());
+        return "list-bloodgroup-persondetail";
+    }
 
 }

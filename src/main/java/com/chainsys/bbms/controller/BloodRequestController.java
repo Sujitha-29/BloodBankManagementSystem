@@ -19,16 +19,16 @@ import com.chainsys.bbms.service.BloodRequestService;
 public class BloodRequestController
 {
 	@Autowired
-	BloodRequestService bloodrequestservice;
-	@GetMapping("/list")
+	BloodRequestService bloodRequestService;
+	@GetMapping("/listbloodrequest")
 	public String getAllBloodRequest(Model model)
 	{
-		List<BloodRequest> reqlist=bloodrequestservice.getBloodRequest();
-		model.addAttribute("getallrequest",reqlist);
+		List<BloodRequest> reqlist=bloodRequestService.getBloodRequest();
+		model.addAttribute("getallbloodrequest",reqlist);
 		return "list-request";
 	}
 	
-	@GetMapping("/addform")
+	@GetMapping("/addbloodrequestform")
 	public String showAddBloodRequestForm(Model model)
 	{
 		BloodRequest thereq=new BloodRequest();
@@ -39,14 +39,14 @@ public class BloodRequestController
 	@PostMapping("/addbloodrequest")
 	public String addNewBloodRequest(@ModelAttribute("addrequest") BloodRequest thereq)
 	{
-		bloodrequestservice.save(thereq);
-		return "redirect:/bloodrequest/list";
+		bloodRequestService.save(thereq);
+		return "redirect:/bloodrequest/listbloodrequest";
 	}
 	
-	@GetMapping("/updateform")
+	@GetMapping("/updatebloodrequestform")
 	public String showBloodRequestUpdateForm(@RequestParam("reqid") int id,Model model)
 	{
-		BloodRequest thereq=bloodrequestservice.findById(id);
+		BloodRequest thereq=bloodRequestService.findById(id);
 		model.addAttribute("updaterequest", thereq);
 		return "update-request-form";	
 	}
@@ -54,20 +54,20 @@ public class BloodRequestController
 	@PostMapping("/updatebloodrequest")
 	public String updateBloodRequest(@ModelAttribute("updaterequest") BloodRequest thereq)
 	{
-		bloodrequestservice.save(thereq);
-		return "redirect:/bloodrequest/list";
+		bloodRequestService.save(thereq);
+		return "redirect:/bloodrequest/listbloodrequest";
 	}
-	@GetMapping("/deleterequest")
+	@GetMapping("/deletebloodrequest")
 	public String deleteRequest(@RequestParam("id") int id,Model model)
 	{
-		bloodrequestservice.deleteById(id);
-		return "redirect:/bloodrequest/list";
+		bloodRequestService.deleteById(id);
+		return "redirect:/bloodrequest/listbloodrequest";
 	}
-	@GetMapping("/getrequest")
+	@GetMapping("/getbloodrequest")
 	public String getRequest(@RequestParam("id") int id ,Model model)
 	{
-		BloodRequest ad=bloodrequestservice.findById(id);
-		model.addAttribute("getallrequest",ad);
+		BloodRequest ad=bloodRequestService.findById(id);
+		model.addAttribute("getrequestbyid",ad);
 		return "find-req-by-id";
 		
 	}

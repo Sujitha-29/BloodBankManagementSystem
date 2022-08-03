@@ -13,33 +13,33 @@
 			<form:form action="getperson" method="post"
 				modelAttribute="getperson">
 				<div>
-					<label for="person_id">Person Id</label>
+					<label for="personId">Person Id</label>
 					<div>
-						<form:input path="person_id" />
+						<form:input path="personId" />
 					</div>
 				</div>
 				<div>
-					<label for="person_name">Person Name</label>
+					<label for="personName">Person Name</label>
 					<div>
-						<form:input path="person_name" />
+						<form:input path="personName" />
 					</div>
 				</div>
 				<div>
 					<label for="dob">DOB</label>
 					<div>
-						<form:input type="date" path="dob" />
+						<form:input path="dob" />
 					</div>
 				</div>
 				<div>
-					<label for="blood_group_id">Blood Group</label>
+					<label for="bloodGroupId">Blood Group Id</label>
 					<div>
-						<form:input path="blood_group_id" />
+						<form:input path="bloodGroupId" />
 					</div>
 				</div>
 				<div>
-					<label for="phone_no">Phone Number</label>
+					<label for="phoneNo">Phone Number</label>
 					<div>
-						<form:input path="phone_no" />
+						<form:input path="phoneNo" />
 					</div>
 				</div>
 				<div>
@@ -55,9 +55,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="email_id">Email Id</label>
+					<label for="emailId">Email Id</label>
 					<div>
-						<form:input path="email_id" />
+						<form:input path="emailId" />
 					</div>
 				</div>
 			</form:form>

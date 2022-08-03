@@ -20,9 +20,9 @@
 			<tbody>
 				<c:forEach var="bloodgroup" items="${allbloodgroup}">
 					<tr>
-						<td>${bloodgroup.blood_group_id}</td>
-						<td>${bloodgroup.blood_group}</td>
-						<td>${bloodgroup.stock_in_hand}</td>
+						<td>${bloodgroup.bloodGroupId}</td>
+						<td>${bloodgroup.bloodGroup}</td>
+						<td>${bloodgroup.stockInHand}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

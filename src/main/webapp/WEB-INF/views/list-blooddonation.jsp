@@ -22,10 +22,10 @@
 			<tbody>
 				<c:forEach var="donation" items="${allblooddontaion}">
 					<tr>
-						<td>${donation.donationtransid}</td>
-						<td>${donation.personid}</td>
-						<td>${donation.donationdate}</td>
-						<td>${donation.healthcondition}</td>
+						<td>${donation.donationTransId}</td>
+						<td>${donation.personId}</td>
+						<td>${donation.donationDate}</td>
+						<td>${donation.healthCondition}</td>
 						<td>${donation.quantity}</td>						
 					</tr>
 				</c:forEach>

@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.bbms.model.PersonDetails;
+import com.chainsys.bbms.model.PersonDetail;
 
-public interface PersonDetailsRepository extends CrudRepository<PersonDetails,Integer>
+public interface PersonDetailsRepository extends CrudRepository<PersonDetail,Integer>
 {
-	PersonDetails findById(int id);
-	PersonDetails save(PersonDetails person);
+	PersonDetail findById(int id);
+	PersonDetail save(PersonDetail person);
 	void deleteById(int person_id);
-	List<PersonDetails> findAll();
+	List<PersonDetail> findAll();
+	List<PersonDetail> findByBloodGroupId(int id);
 }
