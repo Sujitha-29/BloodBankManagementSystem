@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.bbms.dto.BloodGroupBloodRequestDTO;
 import com.chainsys.bbms.dto.BloodGroupPersonDetailDTO;
 import com.chainsys.bbms.model.BloodGroupDetail;
 import com.chainsys.bbms.service.BloodGroupService;
@@ -74,5 +75,13 @@ public class BloodGroupController {
         model.addAttribute("personlist",dto.getPersonlist());
         return "list-bloodgroup-persondetail";
     }
-
+	
+	@GetMapping("/getrequestbybloodgroup")
+	public String getRequestDetail(@RequestParam("id") int id,Model model)
+	{
+		BloodGroupBloodRequestDTO dto=bloodGroupService.getBloodGroupRequestDetail(id);
+		model.addAttribute("getbloodgroup", dto.getBloodgroup());
+		model.addAttribute("requestlist",dto.getRequestlist());
+		return "blood-request-transaction-details";	
+	}
 }

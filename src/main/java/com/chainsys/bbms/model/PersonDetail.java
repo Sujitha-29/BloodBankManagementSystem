@@ -1,6 +1,7 @@
 package com.chainsys.bbms.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -34,8 +36,24 @@ public class PersonDetail
 	private String emailId;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="person_id",nullable =false,insertable =false,updatable =false)
+	@JoinColumn(name="blood_group_id",nullable =false,insertable =false,updatable =false)
 	private BloodGroupDetail bloodgroup; // pk class
+	public BloodGroupDetail getBloodgroup() {
+		return bloodgroup;
+	}
+	public void setBloodgroup(BloodGroupDetail bloodgroup) {
+		this.bloodgroup = bloodgroup;
+	}
+	
+	@OneToMany(mappedBy="person",fetch=FetchType.LAZY)
+	private List<BloodDonationDetail> donationDetail;
+	public List<BloodDonationDetail> getDonationDetail() {
+		return donationDetail;
+	}
+	public void setDonationDetail(List<BloodDonationDetail> donationDetail) {
+		this.donationDetail = donationDetail;
+	}
+	
 	public int getPersonId() {
 		return personId;
 	}
@@ -83,8 +101,5 @@ public class PersonDetail
 	}
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
-	}
-	
-	
-		
+	}		
 }

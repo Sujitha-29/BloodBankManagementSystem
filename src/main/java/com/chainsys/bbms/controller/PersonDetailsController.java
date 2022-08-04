@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.bbms.dto.PersonDetailBloodDonationDetailDTO;
 import com.chainsys.bbms.model.PersonDetail;
 import com.chainsys.bbms.service.PersonDetailsService;
 
@@ -68,6 +69,14 @@ public class PersonDetailsController {
 		model.addAttribute("getperson",pd);
 		return "find-person-by-id";
 		
+	}
+	@GetMapping("/getpersonbydonation")
+	public String getDonationDetail(@RequestParam("id") int id,Model model)
+	{
+		PersonDetailBloodDonationDetailDTO dto=personDetailService.getPersonDonationDetails(id);
+		model.addAttribute("getperson", dto.getPersonDetail());
+		model.addAttribute("getdonation", dto.getDonationList());
+		return "person-donation-detail";
 	}
 
 }

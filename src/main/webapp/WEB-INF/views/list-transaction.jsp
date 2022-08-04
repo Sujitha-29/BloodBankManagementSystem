@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +14,6 @@
 				<tr>
 					<th>Transaction Id</th>
 					<th>Request Id</th>
-					<th>Recipient Name</th>
-					<th>Recipient Phone No</th>
 					<th>Transaction Date</th>
 					<th>Quantity</th>
 					<th>Status</th>
@@ -26,8 +24,6 @@
 					<tr>
 						<td>${trans.bloodTransactionId}</td>
 						<td>${trans.requestId}</td>
-						<td>${trans.recipientName}</td>
-						<td>${trans.recipientPhoneNo}</td>
 						<td>${trans.transactionDate}</td>
 						<td>${trans.quantity}</td>
 						<td>${trans.status}</td>

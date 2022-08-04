@@ -4,7 +4,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,7 +17,7 @@ public class BloodDonationDetail
 	@Id
 	@Column(name="donation_trans_id")
 	private int donationTransId;
-	@Column(name="person_id ")
+	@Column(name="person_id")
 	private int personId ;
 	@Column(name="donation_date")
 	private Date donationDate;
@@ -22,6 +25,18 @@ public class BloodDonationDetail
 	private String healthCondition;
 	@Column(name="quantity")
 	private String quantity;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="person_id",nullable = false,insertable = false,updatable = false)
+	private PersonDetail person;
+	
+	public PersonDetail getPerson() {
+		return person;
+	}
+	public void setPerson(PersonDetail person) {
+		this.person = person;
+	}
+	
 	public int getDonationTransId() {
 		return donationTransId;
 	}

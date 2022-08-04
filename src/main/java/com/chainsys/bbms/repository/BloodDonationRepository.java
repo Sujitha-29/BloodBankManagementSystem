@@ -12,5 +12,6 @@ public interface BloodDonationRepository extends CrudRepository<BloodDonationDet
 	BloodDonationDetail save(BloodDonationDetail donationdetail);
 	void deleteById(int donation_trans_id);
 	List<BloodDonationDetail> findAll();
+	List<BloodDonationDetail> findBloodDonationDetailByPersonId(int id);
 
 }

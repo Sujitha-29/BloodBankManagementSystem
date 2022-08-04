@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.bbms.dto.BloodRequestBloodTransactionDTO;
 import com.chainsys.bbms.model.BloodRequest;
 import com.chainsys.bbms.service.BloodRequestService;
 
@@ -68,13 +69,14 @@ public class BloodRequestController
 	{
 		BloodRequest ad=bloodRequestService.findById(id);
 		model.addAttribute("getrequestbyid",ad);
-		return "find-req-by-id";
-		
+		return "find-req-by-id";	
 	}
-	
-	
-	
-	
-	
-
+	@GetMapping("/getbloodtransactionbyrequest")
+	public String getTransaction(@RequestParam("id") int id,Model model)
+	{
+		BloodRequestBloodTransactionDTO dto=bloodRequestService.getBloodRequestAndTransactionDetail(id);
+		model.addAttribute("getbloodrequest",dto.getBloodrequest());
+		model.addAttribute("getbloodtransaction",dto.getBloodTransaction());
+		return "blood-request-transaction-details";	
+	}
 }

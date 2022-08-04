@@ -25,18 +25,6 @@
 					</div>
 				</div>
 				<div>
-					<label for="recipientName">Recipient Name</label>
-					<div>
-						<form:input path="recipientName" />
-					</div>
-				</div>
-				<div>
-					<label for="recipientPhoneNo">Recipient Phone No</label>
-					<div>
-						<form:input path="recipientPhoneNo" />
-					</div>
-				</div>
-				<div>
 					<label for="transactionDate">Transaction Date</label>
 					<div>
 						<form:input path="transactionDate" />

@@ -4,7 +4,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -17,16 +20,25 @@ public class BloodTransaction
 	private int bloodTransactionId;
 	@Column(name="request_id")
 	private int requestId;
-	@Column(name="recipient_name")
-	private String recipientName;
-	@Column(name="recipient_phone_no")
-	private long recipientPhoneNo;
 	@Column(name="transaction_date")
 	private Date transactionDate;
 	@Column(name="quantity")
 	private String quantity;
 	@Column(name="status")
 	private String status;
+	
+	// Blood Request
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="request_id",nullable = false,insertable = false,updatable = false)
+	private BloodRequest bloodreq;
+	public BloodRequest getBloodrequest() {
+		return bloodreq;
+	}
+	public void setBloodrequest(BloodRequest bloodrequest) {
+		this.bloodreq = bloodrequest;
+	}
+	
 	
 	public int getBloodTransactionId() {
 		return bloodTransactionId;
@@ -39,18 +51,6 @@ public class BloodTransaction
 	}
 	public void setRequestId(int requestId) {
 		this.requestId = requestId;
-	}
-	public String getRecipientName() {
-		return recipientName;
-	}
-	public void setRecipientName(String recipientName) {
-		this.recipientName = recipientName;
-	}
-	public long getRecipientPhoneNo() {
-		return recipientPhoneNo;
-	}
-	public void setRecipientPhoneNo(long recipientPhoneNo) {
-		this.recipientPhoneNo = recipientPhoneNo;
 	}
 	public Date getTransactionDate() {
 		return transactionDate;
@@ -69,7 +69,5 @@ public class BloodTransaction
 	}
 	public void setStatus(String status) {
 		this.status = status;
-	}
-	
-	
+	}	
 }
