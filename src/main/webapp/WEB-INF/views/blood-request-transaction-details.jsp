@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -59,29 +58,41 @@
 			</form:form>
 		</div>
 	</div>
-	<div id="table root">
-		<table>
-			<thead>
-				<tr>
-					<th>Transaction Id</th>
-					<th>Request Id</th>
-					<th>Transaction Date</th>
-					<th>Quantity</th>
-					<th>Status</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="trans" items="${getbloodtransaction}">
-					<tr>
-						<td>${trans.bloodTransactionId}</td>
-						<td>${trans.requestId}</td>
-						<td>${trans.transactionDate}</td>
-						<td>${trans.quantity}</td>
-						<td>${trans.status}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+	<div id="root">
+		<div id="form">
+			<form:form action="" method="post" modelAttribute="getbloodtrans">
+				<div>
+					<label for="bloodTransactionId">Transaction Id</label>
+					<div>
+						<form:input path="bloodTransactionId" />
+					</div>
+				</div>
+				<div>
+					<label for="requestId">Request Id</label>
+					<div>
+						<form:input path="requestId" />
+					</div>
+				</div>
+				<div>
+					<label for="transactionDate">Transaction Date</label>
+					<div>
+						<form:input path="transactionDate" />
+					</div>
+				</div>
+				<div>
+					<label for="quantity">Quantity</label>
+					<div>
+						<form:input path="quantity" />
+					</div>
+				</div>
+				<div>
+					<label for="status">Status</label>
+					<div>
+						<form:input path="status" />
+					</div>
+				</div>
+			</form:form>
+		</div>
 	</div>
 </body>
 </html>

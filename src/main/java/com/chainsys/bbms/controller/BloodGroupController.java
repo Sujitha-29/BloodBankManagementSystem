@@ -82,6 +82,6 @@ public class BloodGroupController {
 		BloodGroupBloodRequestDTO dto=bloodGroupService.getBloodGroupRequestDetail(id);
 		model.addAttribute("getbloodgroup", dto.getBloodgroup());
 		model.addAttribute("requestlist",dto.getRequestlist());
-		return "blood-request-transaction-details";	
+		return "blood-group-request-details";	
 	}
 }

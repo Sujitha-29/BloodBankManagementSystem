@@ -61,7 +61,7 @@ public class BloodGroupService
 		BloodGroupDetail bloodGroup=findById(id);
 		BloodGroupBloodRequestDTO dto=new BloodGroupBloodRequestDTO();
 		dto.setBloodgroup(bloodGroup);
-		List<BloodRequest> reqlist=bloodRequestRepository.findBloodRequestByBloodGroupId(id);
+		List<BloodRequest> reqlist=bloodRequestRepository.findByBloodgroupBloodGroupId(id);
 		Iterator<BloodRequest> itr = reqlist.iterator();
 		while(itr.hasNext())
 		{

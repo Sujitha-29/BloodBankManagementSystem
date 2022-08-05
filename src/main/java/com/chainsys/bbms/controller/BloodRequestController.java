@@ -76,7 +76,7 @@ public class BloodRequestController
 	{
 		BloodRequestBloodTransactionDTO dto=bloodRequestService.getBloodRequestAndTransactionDetail(id);
 		model.addAttribute("getbloodrequest",dto.getBloodrequest());
-		model.addAttribute("getbloodtransaction",dto.getBloodTransaction());
+		model.addAttribute("getbloodtrans",dto.getBloodTransaction());
 		return "blood-request-transaction-details";	
 	}
 }

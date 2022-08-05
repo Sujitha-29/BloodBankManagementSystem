@@ -1,7 +1,5 @@
 package com.chainsys.bbms.dto;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import com.chainsys.bbms.model.BloodRequest;
 import com.chainsys.bbms.model.BloodTransaction;
@@ -9,7 +7,7 @@ import com.chainsys.bbms.model.BloodTransaction;
 public class BloodRequestBloodTransactionDTO 
 {
 	private BloodRequest bloodrequest;
-	private List<BloodTransaction> bloodTransaction = new ArrayList<BloodTransaction>();
+	private BloodTransaction bloodTransaction;
 	
 	public BloodRequest getBloodrequest() {
 		return bloodrequest;
@@ -17,13 +15,13 @@ public class BloodRequestBloodTransactionDTO
 	public void setBloodrequest(BloodRequest bloodrequest) {
 		this.bloodrequest = bloodrequest;
 	}
-	public List<BloodTransaction> getBloodTransaction() {
+	public BloodTransaction getBloodTransaction() {
 		return bloodTransaction;
 	}
-	public void addBloodRequestBloodTransactionDetail(BloodTransaction bloodtransaction)
-	{
-		bloodTransaction.add(bloodtransaction);		
-	}
+	public void setBloodTransaction(BloodTransaction bloodTransaction) {
+		this.bloodTransaction = bloodTransaction;
+	}  
 	
-
+	
+	
 }

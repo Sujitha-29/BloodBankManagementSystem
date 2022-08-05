@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -32,6 +33,7 @@ public class BloodRequest
 	private Date requestDate;
 	@Column(name="quantity")
 	private String quantity;
+	
 	// Blood Group
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="blood_group_id",nullable = false,insertable = false,updatable = false)
@@ -42,14 +44,14 @@ public class BloodRequest
 	public void setBloodgroup(BloodGroupDetail bloodgroup) {
 		this.bloodgroup = bloodgroup;
 	}
-	// Blood Request
-	@OneToMany(mappedBy="bloodreq", fetch=FetchType.LAZY)
-	private List<BloodTransaction> bloodTransaction;
-	
-	public List<BloodTransaction> getBloodTransaction() {
+	 
+	// Blood transaction
+	@OneToOne(mappedBy="bloodrequest",fetch=FetchType.LAZY)
+	private BloodTransaction bloodTransaction;                                           
+	public BloodTransaction getBloodTransaction() {
 		return bloodTransaction;
 	}
-	public void setBloodTransaction(List<BloodTransaction> bloodTransaction) {
+	public void setBloodTransaction(BloodTransaction bloodTransaction) {
 		this.bloodTransaction = bloodTransaction;
 	}
 	

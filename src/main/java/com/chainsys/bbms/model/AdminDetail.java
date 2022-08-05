@@ -61,8 +61,5 @@ public class AdminDetail
 	}
 	public void setPasswordModifiedDate(Date passwordModifiedDate) {
 		this.passwordModifiedDate = passwordModifiedDate;
-	}
-	
-	
-	
+	}	
 }

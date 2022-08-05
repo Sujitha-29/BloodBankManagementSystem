@@ -7,6 +7,13 @@
 <title>Index</title>
 </head>
 <body>
+<div>
+        <h1>Admin Login</h1>
+    </div>
+    <div>
+        <a href="/admin/adminpage">Admin Login</a>
+    </div>
+    <div>
 <div><h1>Admin Login</h1></div>
 <div><a href="/admin/listadmins">List</a></div>
 <div><a href="/admin/addadminform">Add Admin</a></div>

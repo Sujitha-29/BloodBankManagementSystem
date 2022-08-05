@@ -12,7 +12,7 @@
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="add" method="post" modelAttribute="getbloodgroup">
+			<form:form action="" method="post" modelAttribute="getbloodgroup">
 				<div>
 					<label for="bloodGroupId">Blood Group Id</label>
 					<div>

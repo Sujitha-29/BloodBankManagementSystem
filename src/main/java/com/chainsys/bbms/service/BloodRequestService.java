@@ -42,13 +42,9 @@ public class BloodRequestService
 	{
 		BloodRequest bloodRequest=findById(id);
 		BloodRequestBloodTransactionDTO dto=new BloodRequestBloodTransactionDTO();
-		dto.setBloodrequest(bloodRequest);
-		List<BloodTransaction> transactionList=bloodTransactionRepository.findByBloodreqRequestId(id);
-		Iterator<BloodTransaction> itr=transactionList.iterator();
-		while(itr.hasNext())
-		{
-			dto.addBloodRequestBloodTransactionDetail((BloodTransaction)itr.next());
-		}
+		dto.setBloodrequest(bloodRequest);;
+		BloodTransaction bloodTransaction=bloodTransactionRepository.findByRequestId(id);
+		dto.setBloodTransaction(bloodTransaction);;
 		return dto;	
 	}
 }

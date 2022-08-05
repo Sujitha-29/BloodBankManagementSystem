@@ -13,6 +13,5 @@ public interface BloodTransactionRepository extends CrudRepository<BloodTransact
 	void deleteById(int blood_transaction_id);
 	List<BloodTransaction> findAll();
 	
-	//List<BloodTransaction> findBloodTransactionByBloodRequest(int id);
-	List<BloodTransaction> findByBloodreqRequestId(int id);
+	BloodTransaction findByRequestId(int id);
 }

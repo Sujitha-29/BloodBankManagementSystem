@@ -21,6 +21,7 @@ public class BloodGroupDetail
 	@Column(name="Stock_in_hand")
 	private String stockInHand;
 	
+	//request
 	@OneToMany(mappedBy="bloodgroup",fetch=FetchType.LAZY)
 	private List<BloodRequest> request;
 	
@@ -31,6 +32,7 @@ public class BloodGroupDetail
 		this.request = request;
 	}
 	
+	// Person
 	@OneToMany(mappedBy ="bloodgroup",fetch=FetchType.LAZY)
 	private List<PersonDetail> person; // fk class
 	public List<PersonDetail> getPerson() {

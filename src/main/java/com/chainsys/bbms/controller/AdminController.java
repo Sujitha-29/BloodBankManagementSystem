@@ -70,8 +70,33 @@ public class AdminController
 	{
 		AdminDetail ad=adminService.findById(id);
 		model.addAttribute("getadmins",ad);
-		return "find-admin-by-id";
-		
+		return "find-admin-by-id";		
 	}
+	
+	@GetMapping("/adminpage")
+	public String AdminLogin(Model model)
+	{
+		AdminDetail admin=new AdminDetail();
+		model.addAttribute("login", admin);
+		return "admin-login-form";
+	}
+	@PostMapping("/adminlogin")
+	public String checkingAccess(@ModelAttribute("login") AdminDetail admin)
+	{
+		AdminDetail adminDetail =adminService.getAdminIdAdminPassword(admin.getAdminId(),admin.getAdminPassword());
+		if(adminDetail !=null)
+		{
+			return "adminaccess";
+		}
+		else
+		{
+			return "invalid admin error";
+		}
+	}
+//	 @GetMapping("/admincontrol")
+//	    public String AdminAccess(Model model)
+//	    {
+//	    	return "adminaccess"; 	
+//	    }
 
 }

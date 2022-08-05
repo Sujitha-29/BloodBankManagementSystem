@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -28,17 +28,16 @@ public class BloodTransaction
 	private String status;
 	
 	// Blood Request
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="request_id",nullable = false,insertable = false, updatable = false)
+	private BloodRequest bloodrequest;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="request_id",nullable = false,insertable = false,updatable = false)
-	private BloodRequest bloodreq;
 	public BloodRequest getBloodrequest() {
-		return bloodreq;
+		return bloodrequest;
 	}
 	public void setBloodrequest(BloodRequest bloodrequest) {
-		this.bloodreq = bloodrequest;
+		this.bloodrequest = bloodrequest;
 	}
-	
 	
 	public int getBloodTransactionId() {
 		return bloodTransactionId;
