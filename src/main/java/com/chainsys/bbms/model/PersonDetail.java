@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -19,20 +22,30 @@ public class PersonDetail
 {
 	@Id	
 	@Column(name="person_id")
+	@Min(value=200, message="Please enter the valid id")
+	@Max(value=299, message="Please enter the minimum value")
 	private int personId;
 	@Column(name="person_name")
+	@NotNull(message="Person Name may not be null")
 	private String personName; 
 	@Column(name="dob")
+	@NotNull(message="Date Of Birth may not be null")
 	private  Date dob;
 	@Column(name="Blood_group_id")
+	@Min(value=100, message="Please enter the valid id")
+	@Max(value=199, message="Please enter the minimum value")
 	private int bloodGroupId;
 	@Column(name="phone_no ")
+	@NotNull(message="Phone Number may not be null")
 	private long phoneNo;
 	@Column(name="Gender ")
+	@NotNull(message="Gender may not be null")
 	private String gender;
 	@Column(name="Address")
+	@NotNull(message="Address may not be null")
 	private String address;
 	@Column(name="Email_id")
+	@NotNull(message="Email Id may not be null")
 	private String emailId;
 	
 	//blood group

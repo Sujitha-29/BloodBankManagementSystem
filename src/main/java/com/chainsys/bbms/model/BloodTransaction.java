@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -17,14 +20,21 @@ public class BloodTransaction
 {
 	@Id
 	@Column(name="blood_transaction_id")
+	@Min(value=400, message="Please enter the valid id")
+	@Max(value=499, message="Please enter the minimum value")
 	private int bloodTransactionId;
 	@Column(name="request_id")
+	@Min(value=500, message="Please enter the valid id")
+	@Max(value=599, message="Please enter the minimum value")
 	private int requestId;
 	@Column(name="transaction_date")
+	@NotNull(message="Transaction Date may not be null")
 	private Date transactionDate;
 	@Column(name="quantity")
+	@NotNull(message="Quantity may not be null")
 	private String quantity;
 	@Column(name="status")
+	@NotNull(message="Status may not be null")
 	private String status;
 	
 	// Blood Request

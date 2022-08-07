@@ -2,6 +2,8 @@ package com.chainsys.bbms.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,7 +45,7 @@ public class PersonDetailsController {
 	}
 	
 	@GetMapping("/updatepersonform")
-	public String showPersonDeatilUpdateForm(@RequestParam("personid") int id,Model model)
+	public String showPersonDeatilUpdateForm(@Valid @RequestParam("personid") int id,Model model)
 	{
 		PersonDetail theperson=personDetailService.findById(id);
 		model.addAttribute("updateperson", theperson);
@@ -57,7 +59,7 @@ public class PersonDetailsController {
 		return "redirect:/person/listpersondetails";
 	}
 	@GetMapping("/deleteperson")
-	public String deletePerson(@RequestParam("id") int id,Model model)
+	public String deletePerson(@Valid @RequestParam("id") int id,Model model)
 	{
 		personDetailService.deleteById(id);
 		return "redirect:/person/listpersondetails";

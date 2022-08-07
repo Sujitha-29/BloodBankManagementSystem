@@ -2,6 +2,8 @@ package com.chainsys.bbms.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,7 +47,7 @@ public class BloodRequestController
 	}
 	
 	@GetMapping("/updatebloodrequestform")
-	public String showBloodRequestUpdateForm(@RequestParam("reqid") int id,Model model)
+	public String showBloodRequestUpdateForm(@Valid @RequestParam("reqid") int id,Model model)
 	{
 		BloodRequest thereq=bloodRequestService.findById(id);
 		model.addAttribute("updaterequest", thereq);
@@ -59,7 +61,7 @@ public class BloodRequestController
 		return "redirect:/bloodrequest/listbloodrequest";
 	}
 	@GetMapping("/deletebloodrequest")
-	public String deleteRequest(@RequestParam("id") int id,Model model)
+	public String deleteRequest(@Valid @RequestParam("id") int id,Model model)
 	{
 		bloodRequestService.deleteById(id);
 		return "redirect:/bloodrequest/listbloodrequest";

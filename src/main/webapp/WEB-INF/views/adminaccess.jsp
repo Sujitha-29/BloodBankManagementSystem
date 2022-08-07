@@ -5,6 +5,33 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin Login</title>
+<style>
+a:link, a:visited {
+	background-color: #3782e9;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin-top: 5px;
+	width: 220px;
+	border-radius: 5px;
+	height: 27px;
+}
+
+a:hover, a:active {
+	background-color: pink;
+}
+
+.sub-headings {
+	text-align: center;
+	background-color: #30c1be;
+	color: #1c1b1b;
+}
+
+.sub-div {
+	text-align: center;
+}
+</style>
 </head>
 <body>
 	<div class="sub-headings">
@@ -165,31 +192,4 @@
 		</div>
 	</div>
 </body>
-<style>
-a:link, a:visited {
-	background-color: #3782e9;
-	color: white;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	margin-top: 5px;
-	width: 220px;
-	border-radius: 5px;
-	height: 27px;
-}
-
-a:hover, a:active {
-	background-color: pink;
-}
-
-.sub-headings {
-	text-align: center;
-	background-color: #30c1be;
-	color: #1c1b1b;
-}
-
-.sub-div {
-	text-align: center;
-}
-</style>
 </html>

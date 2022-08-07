@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="blood_donation_details")
@@ -16,14 +19,21 @@ public class BloodDonationDetail
 {
 	@Id
 	@Column(name="donation_trans_id")
+	@Min(value=300, message="Please enter the valid id")
+	@Max(value=399, message="Please enter the minmum value")
 	private int donationTransId;
 	@Column(name="person_id")
+    @Min(value=200,message="Please enter the valid id")
+	@Max(value=200,message="Please enter the minmum value")
 	private int personId ;
 	@Column(name="donation_date")
+	@NotNull(message="Donation Date may not be null")
 	private Date donationDate;
 	@Column(name="Health_Condition")
+	@NotNull(message="Health Condition may not be null")
 	private String healthCondition;
 	@Column(name="quantity")
+	@NotNull(message="Quantity may not be null")
 	private String quantity;
 	
 	@ManyToOne(fetch=FetchType.LAZY)

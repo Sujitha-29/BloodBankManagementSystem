@@ -2,6 +2,8 @@ package com.chainsys.bbms.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,7 +46,7 @@ public class AdminController
 	}
 	
 	@GetMapping("/updateadminform")
-	public String showAdminUpdateForm(@RequestParam("adminid") int id,Model model)
+	public String showAdminUpdateForm(@Valid @RequestParam("adminid") int id,Model model)
 	{
 		AdminDetail theadmin=adminService.findById(id);
 		model.addAttribute("updateadmins", theadmin);
@@ -59,7 +61,7 @@ public class AdminController
 	}
 	
 	@GetMapping("/deleteadmin")
-	public String deleteAdmin(@RequestParam("id") int id,Model model)
+	public String deleteAdmin(@Valid @RequestParam("id") int id,Model model)
 	{
 		adminService.deleteById(id);
 		return "redirect:/admin/listadmins";

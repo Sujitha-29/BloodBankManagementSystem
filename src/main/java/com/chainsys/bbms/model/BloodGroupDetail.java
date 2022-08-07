@@ -8,6 +8,9 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="blood_group_details")
@@ -15,10 +18,14 @@ public class BloodGroupDetail
 {
 	@Id
 	@Column(name="blood_group_id")
+	@Min(value=100, message="Please enter the valid id")
+	@Max(value=199, message="Please enter the minimum value")
 	private int bloodGroupId;		
 	@Column(name="Blood_group")
+	@NotNull(message="Admin Name may not be null")
 	private String bloodGroup;
 	@Column(name="Stock_in_hand")
+	@NotNull(message="Stock In Hand may not be null")
 	private String stockInHand;
 	
 	//request

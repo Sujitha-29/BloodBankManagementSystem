@@ -12,6 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -20,18 +23,27 @@ public class BloodRequest
 {
 	@Id
 	@Column(name="request_id")
+	@Min(value=500, message="Please enter the valid id")
+	@Max(value=599, message="Please enter the minimum value")
 	private int requestId;
 	@Column(name="recipient_name")
+	@NotNull(message="Recipient Name may not be null")
 	private String recipientName;
 	@Column(name="recipient_phone_no")
+	@NotNull(message="Phone number must be 10")
 	private long recipientPhoneNo;
 	@Column(name="hospital_name")
+	@NotNull(message="Hospital Name may not be null")
 	private String hospitalName;
 	@Column(name="blood_group_id")
+	@Min(value=100, message="Please enter the valid id")
+	@Max(value=199, message="Please enter the minimum value")
 	private int bloodGroupId;
 	@Column(name="request_date")
+	@NotNull(message="Request Date may not be null")
 	private Date requestDate;
 	@Column(name="quantity")
+	@NotNull(message="Quantity may not be null")
 	private String quantity;
 	
 	// Blood Group
