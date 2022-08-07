@@ -80,23 +80,20 @@ public class AdminController
 		model.addAttribute("login", admin);
 		return "admin-login-form";
 	}
+	
 	@PostMapping("/adminlogin")
 	public String checkingAccess(@ModelAttribute("login") AdminDetail admin)
 	{
 		AdminDetail adminDetail =adminService.getAdminIdAdminPassword(admin.getAdminId(),admin.getAdminPassword());
 		if(adminDetail !=null)
 		{
-			return "adminaccess";
+			return "redirect:/home/adminuse";
 		}
 		else
 		{
 			return "invalid admin error";
 		}
 	}
-//	 @GetMapping("/admincontrol")
-//	    public String AdminAccess(Model model)
-//	    {
-//	    	return "adminaccess"; 	
-//	    }
+
 
 }

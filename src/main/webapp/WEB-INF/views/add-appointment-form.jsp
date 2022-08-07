@@ -35,4 +35,11 @@
 		</div>
 	</div>
 </body>
+
+<script>
+var getCurrentDate=new Date();
+var getPastDate=getCurrentDate.setMonth(getCurrentDate.getMonth() - 6);
+console.log(getCurrentDate);
+console.log(getPastDate);
+</script>
 </html>

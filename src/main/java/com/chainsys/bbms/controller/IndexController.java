@@ -13,7 +13,8 @@ public class IndexController
     public String getIndex(Model model) {
         return "index";
     }
-    @GetMapping("/admincontrol")
+    
+    @GetMapping("/adminuse")
     public String AdminAccess(Model model)
     {
     	return "adminaccess"; 	

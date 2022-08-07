@@ -12,7 +12,7 @@
     <div id="root">
         <div id="form" align="center">
             <form:form action="adminlogin" method="post" modelAttribute="login">
-                <h1>Admin Login</h1>
+                <h1 style="text-align: center;background-color: #19c73b;color: white;">Admin Login</h1>
                 <table>
                     <tr>
                         <td><label for="adminId">Admin Id :</label></td>
@@ -26,7 +26,7 @@
                 </table>
                 <div>
                     <tr>
-                        <td><form:button>Sign In</form:button></td>
+                        <td><form:button type="submit" >Sign In</form:button></td>
                         <td><form:button>
                                 <a href="/admin/addadminform">Sign Up</a>
                             </form:button></td>
