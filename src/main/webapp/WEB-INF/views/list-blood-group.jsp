@@ -22,7 +22,7 @@
 					<tr>
 						<td>${bloodgroup.bloodGroupId}</td>
 						<td>${bloodgroup.bloodGroup}</td>
-						<td>${bloodgroup.stockInHand}</td>
+						<td>${bloodgroup.stockInUnits}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

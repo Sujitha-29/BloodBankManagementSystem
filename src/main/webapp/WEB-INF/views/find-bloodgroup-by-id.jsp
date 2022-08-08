@@ -24,9 +24,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="stockInHand">Stock</label>
+					<label for="stockInUnits">Stock</label>
 					<div>
-						<form:input path="stockInHand" />
+						<form:input path="stockInUnits" />
 					</div>	
 			</form:form>
 		</div>

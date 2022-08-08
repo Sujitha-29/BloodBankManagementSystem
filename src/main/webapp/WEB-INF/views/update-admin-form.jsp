@@ -6,6 +6,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Admin Form</title>
+<style>
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
+</style>
 </head>
 <body>
 	<div id="root">
@@ -18,18 +24,21 @@
 						<form:input path="adminId" />
 					</div>
 				</div>
+				<form:errors path="adminId" cssClass="text-danger" />
 				<div>
 					<label for="adminName">Admin Name</label>
 					<div>
 						<form:input path="adminName" />
 					</div>
 				</div>
+				<form:errors path="adminName" cssClass="text-danger" />
 				<div>
 					<label for="adminPassword">Admin Password</label>
 					<div>
 						<form:input path="adminPassword" />
 					</div>
 				</div>
+				<form:errors path="adminPassword" cssClass="text-danger" />
 				<div>
 					<label for="dateOfJoining">Date Of Joining</label>
 					<div>
@@ -42,6 +51,7 @@
 						<form:input path="designation" />
 					</div>
 				</div>
+				<form:errors path="designation" cssClass="text-danger" />
 				<div>
 					<label for="passwordModifiedDate">password Modified Date</label>
 					<div>

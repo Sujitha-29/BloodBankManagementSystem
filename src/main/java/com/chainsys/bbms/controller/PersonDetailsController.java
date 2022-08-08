@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,8 +39,12 @@ public class PersonDetailsController {
 		return "add-persons-form";
 	}
 	@PostMapping("/add")
-	public String addNewPerson(@ModelAttribute("addperson") PersonDetail theperson)
+	public String addNewPerson(@Valid@ModelAttribute("addperson") PersonDetail theperson,Errors errors)
 	{
+		if(errors.hasErrors())
+		{
+			return "add-persons-form";
+		}
 		personDetailService.save(theperson);
 		return "redirect:/person/listpersondetails";
 	}
@@ -53,8 +58,12 @@ public class PersonDetailsController {
 	}
 	
 	@PostMapping("/update")
-	public String updatePerson(@ModelAttribute("updateperson") PersonDetail theperson)
+	public String updatePerson(@Valid@ModelAttribute("updateperson") PersonDetail theperson,Errors errors)
 	{
+		if(errors.hasErrors())
+		{
+			return "update-persons-form";
+		}
 		personDetailService.save(theperson);
 		return "redirect:/person/listpersondetails";
 	}

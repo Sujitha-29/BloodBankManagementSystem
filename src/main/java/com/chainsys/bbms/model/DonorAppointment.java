@@ -19,9 +19,11 @@ public class DonorAppointment
 	@Min(value=600, message="Please enter the valid id")
 	@Max(value=699, message="Please enter the minimum value")
 	private int appointmentId;
+	
 	@Column(name="Appointment_date")
 	@NotNull(message="Appointment Date may not be null")
 	private Date appointmentDate;
+	
 	@Column(name="person_id")
 	@Min(value=200, message="Please enter the valid id")
 	@Max(value=299, message="Please enter the minimum value")

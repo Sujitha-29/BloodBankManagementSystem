@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,14 +40,19 @@ public class AdminController
 	}
 	
 	@PostMapping("/addadmin")
-	public String addNewAdmin(@ModelAttribute("addadmins") AdminDetail theadmin)
+	public String addNewAdmin(@Valid@ModelAttribute("addadmins") AdminDetail theadmin,Errors errors)
 	{
+		if(errors.hasErrors())
+		{
+			return "add-admins-form";
+		}
 		adminService.save(theadmin);
 		return "redirect:/admin/listadmins";
+		
 	}
 	
 	@GetMapping("/updateadminform")
-	public String showAdminUpdateForm(@Valid @RequestParam("adminid") int id,Model model)
+	public String showAdminUpdateForm(@RequestParam("adminid") int id,Model model)
 	{
 		AdminDetail theadmin=adminService.findById(id);
 		model.addAttribute("updateadmins", theadmin);
@@ -54,15 +60,20 @@ public class AdminController
 	}
 	
 	@PostMapping("/updateadmin")
-	public String updateadmin(@ModelAttribute("updateadmins") AdminDetail theadmin)
+	public String updateadmin(@Valid@ModelAttribute("updateadmins") AdminDetail theadmin,Errors errors)
 	{
+		if(errors.hasErrors())
+		{
+			return "update-admin-form";
+		}
 		adminService.save(theadmin);
 		return "redirect:/admin/listadmins";
 	}
 	
 	@GetMapping("/deleteadmin")
-	public String deleteAdmin(@Valid @RequestParam("id") int id,Model model)
+	public String deleteAdmin(@RequestParam("id") int id,Model model)
 	{
+		
 		adminService.deleteById(id);
 		return "redirect:/admin/listadmins";
 	}

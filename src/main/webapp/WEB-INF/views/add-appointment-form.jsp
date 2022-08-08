@@ -6,6 +6,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Appointment</title>
+<style>
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
+</style>
 </head>
 <body>
 	<div id="root">
@@ -17,6 +23,7 @@
 						<form:input path="appointmentId" />
 					</div>
 				</div>
+				<form:errors path="appointmentId" cssClass="text-danger" />
 				<div>
 					<label for="appointmentDate">Appointment Date</label>
 					<div>
@@ -28,6 +35,7 @@
 					<div>
 						<form:input path="personId" />
 					</div>
+					<form:errors path="personId" cssClass="text-danger" />
 					<div>
 						<form:button>Add New</form:button>
 					</div>
@@ -35,7 +43,6 @@
 		</div>
 	</div>
 </body>
-
 <script>
 var getCurrentDate=new Date();
 var getPastDate=getCurrentDate.setMonth(getCurrentDate.getMonth() - 6);

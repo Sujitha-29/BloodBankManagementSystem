@@ -1,52 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Donation Details</title>
+<style>
+.text-danger {
+	color: #e80c4d;
+	font-size: 0.9em;
+}
+</style>
 </head>
 <body>
-<div id="root">
+	<div id="root">
 		<div id="root">
-		<div id="form">
-			<form:form action="add" method="post" modelAttribute="addblooddonation">
-				<div>
-					<label for="donationTransId">Donation Id</label>
+			<div id="form">
+				<form:form action="add" method="post"
+					modelAttribute="addblooddonation">
 					<div>
-						<form:input path="donationTransId" />
+						<label for="donationTransId">Donation Id</label>
+						<div>
+							<form:input path="donationTransId" />
+						</div>
 					</div>
-				</div>
-				<div>
-					<label for="personId">Person Id </label>
+					<form:errors path="donationTransId" cssClass="text-danger" />
 					<div>
-						<form:input path="personId" />
+						<label for="personId">Person Id </label>
+						<div>
+							<form:input path="personId" />
+						</div>
 					</div>
-				</div>
-				<div>
-					<label for="donationDate">Donation Date</label>
+					<form:errors path="personId" cssClass="text-danger" />
 					<div>
-						<form:input  path="donationDate" />
+						<label for="donationDate">Donation Date</label>
+						<div>
+							<form:input path="donationDate" />
+						</div>
 					</div>
-				</div>
-				<div>
-					<label for="healthCondition">Health Condition</label>
 					<div>
-						<form:input path="healthCondition" />
+						<label for="healthCondition">Health Condition</label>
+						<div>
+							<form:input path="healthCondition" />
+						</div>
 					</div>
-				</div>
-				<div>
-					<label for="quantity">Quantity</label>
+					<form:errors path="healthCondition" cssClass="text-danger" />
 					<div>
-						<form:input path="quantity" />
+						<label for="quantity">Quantity</label>
+						<div>
+							<form:input path="quantity" />
+						</div>
 					</div>
-				</div>
-				<div>
-					<form:button>Add New</form:button>
-				</div>
-			</form:form>
+					<form:errors path="quantity" cssClass="text-danger" />
+					<div>
+						<form:button>Add New</form:button>
+					</div>
+				</form:form>
+			</div>
 		</div>
-	</div>
 </body>
 </html>

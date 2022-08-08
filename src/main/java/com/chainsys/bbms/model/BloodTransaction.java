@@ -11,7 +11,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -23,31 +27,27 @@ public class BloodTransaction
 	@Min(value=400, message="Please enter the valid id")
 	@Max(value=499, message="Please enter the minimum value")
 	private int bloodTransactionId;
+	
 	@Column(name="request_id")
 	@Min(value=500, message="Please enter the valid id")
 	@Max(value=599, message="Please enter the minimum value")
 	private int requestId;
+	
 	@Column(name="transaction_date")
 	@NotNull(message="Transaction Date may not be null")
 	private Date transactionDate;
+	
 	@Column(name="quantity")
-	@NotNull(message="Quantity may not be null")
-	private String quantity;
+	@Size(max = 20, min = 3, message = "*Quantity length should be 3 to 20")
+    @NotBlank(message = "*Quantity can't be Empty")
+    @Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Quantity ")
+	private int quantity;
+	
+	
 	@Column(name="status")
-	@NotNull(message="Status may not be null")
+	@NotEmpty(message = "*Please enter designation")
+    @Pattern(regexp = "^[a-zA-Z]*$", message = "*Value should be in Alphabets ")
 	private String status;
-	
-	// Blood Request
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="request_id",nullable = false,insertable = false, updatable = false)
-	private BloodRequest bloodrequest;
-	
-	public BloodRequest getBloodrequest() {
-		return bloodrequest;
-	}
-	public void setBloodrequest(BloodRequest bloodrequest) {
-		this.bloodrequest = bloodrequest;
-	}
 	
 	public int getBloodTransactionId() {
 		return bloodTransactionId;
@@ -67,10 +67,10 @@ public class BloodTransaction
 	public void setTransactionDate(Date transactionDate) {
 		this.transactionDate = transactionDate;
 	}
-	public String getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(String quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 	public String getStatus() {
@@ -78,5 +78,19 @@ public class BloodTransaction
 	}
 	public void setStatus(String status) {
 		this.status = status;
-	}	
+	}
+	
+	// Blood Request
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="request_id",nullable = false,insertable = false, updatable = false)
+	private BloodRequest bloodrequest;
+	
+	public BloodRequest getBloodrequest() {
+		return bloodrequest;
+	}
+	public void setBloodrequest(BloodRequest bloodrequest) {
+		this.bloodrequest = bloodrequest;
+	}
+	
+	
 }

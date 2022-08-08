@@ -12,9 +12,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -26,47 +30,37 @@ public class BloodRequest
 	@Min(value=500, message="Please enter the valid id")
 	@Max(value=599, message="Please enter the minimum value")
 	private int requestId;
+	
 	@Column(name="recipient_name")
-	@NotNull(message="Recipient Name may not be null")
+	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")
+    @NotBlank(message = "*Name can't be Empty")
+    @Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid name ")
 	private String recipientName;
+	
 	@Column(name="recipient_phone_no")
-	@NotNull(message="Phone number must be 10")
+	@Digits(message = "*Invalid number.", integer = 10, fraction = 0)
 	private long recipientPhoneNo;
+	
 	@Column(name="hospital_name")
-	@NotNull(message="Hospital Name may not be null")
+	@Size(max = 20, min = 3, message = "*Hospital Name length should be 3 to 20")
+    @NotBlank(message = "*Name can't be Empty")
+    @Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Hospital Name ")
 	private String hospitalName;
+	
 	@Column(name="blood_group_id")
 	@Min(value=100, message="Please enter the valid id")
 	@Max(value=199, message="Please enter the minimum value")
 	private int bloodGroupId;
+	
 	@Column(name="request_date")
 	@NotNull(message="Request Date may not be null")
 	private Date requestDate;
+	
 	@Column(name="quantity")
-	@NotNull(message="Quantity may not be null")
-	private String quantity;
-	
-	// Blood Group
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="blood_group_id",nullable = false,insertable = false,updatable = false)
-	private BloodGroupDetail bloodgroup;
-	public BloodGroupDetail getBloodgroup() {
-		return bloodgroup;
-	}
-	public void setBloodgroup(BloodGroupDetail bloodgroup) {
-		this.bloodgroup = bloodgroup;
-	}
-	 
-	// Blood transaction
-	@OneToOne(mappedBy="bloodrequest",fetch=FetchType.LAZY)
-	private BloodTransaction bloodTransaction;                                           
-	public BloodTransaction getBloodTransaction() {
-		return bloodTransaction;
-	}
-	public void setBloodTransaction(BloodTransaction bloodTransaction) {
-		this.bloodTransaction = bloodTransaction;
-	}
-	
+	@Size(max = 20, min = 3, message = "*Quantity length should be 3 to 20")
+    @NotBlank(message = "*Quantity can't be Empty")
+    @Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Quantity ")
+	private int quantity;
 	
 	public int getRequestId() {
 		return requestId;
@@ -104,10 +98,34 @@ public class BloodRequest
 	public void setRequestDate(Date requestDate) {
 		this.requestDate = requestDate;
 	}
-	public String getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(String quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
-	}			
+	}
+
+	// Blood Group
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="blood_group_id",nullable = false,insertable = false,updatable = false)
+	private BloodGroupDetail bloodgroup;
+	public BloodGroupDetail getBloodgroup() {
+		return bloodgroup;
+	}
+	public void setBloodgroup(BloodGroupDetail bloodgroup) {
+		this.bloodgroup = bloodgroup;
+	}
+	 
+	// Blood transaction
+	@OneToOne(mappedBy="bloodrequest",fetch=FetchType.LAZY)
+	private BloodTransaction bloodTransaction;                                           
+	public BloodTransaction getBloodTransaction() {
+		return bloodTransaction;
+	}
+	public void setBloodTransaction(BloodTransaction bloodTransaction) {
+		this.bloodTransaction = bloodTransaction;
+	}
+	
+	
+			
 }

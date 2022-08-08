@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,26 +40,34 @@ public class BloodGroupController {
 	}
 
 	@PostMapping("/add")
-	public String addNewBloodGroup(@ModelAttribute("addbloodgroup") BloodGroupDetail thebg) {
+	public String addNewBloodGroup(@Valid@ModelAttribute("addbloodgroup") BloodGroupDetail thebg,Errors errors) {
+		if(errors.hasErrors())
+		{
+			return "add-blood-group-form";
+		}
 		bloodGroupService.save(thebg);
 		return "redirect:/bloodgroup/listbloodgroup";
 	}
 
 	@GetMapping("/updatebloodgroupform")
-	public String ShowUpdateForm(@Valid @RequestParam("bloodgroupid") int id, Model model) {
+	public String ShowUpdateForm(@RequestParam("bloodgroupid") int id, Model model) {
 		BloodGroupDetail thebg = bloodGroupService.findById(id);
 		model.addAttribute("updatebloodgroup", thebg);
 		return "update-bloodgroup-form";
 	}
 
 	@PostMapping("/update")
-	public String updateBloodgroup(@ModelAttribute("updatebloodgroup") BloodGroupDetail thebg) {
+	public String updateBloodgroup(@Valid@ModelAttribute("updatebloodgroup") BloodGroupDetail thebg,Errors errors) {
+		if(errors.hasErrors())
+		{
+			return "update-bloodgroup-form";
+		}
 		bloodGroupService.save(thebg);
 		return "redirect:/bloodgroup/listbloodgroup";
 	}
 
 	@GetMapping("/deletebloodgroup")
-	public String deleteBloodGroup(@Valid @RequestParam("id") int id, Model model) {
+	public String deleteBloodGroup(@RequestParam("id") int id, Model model) {
 		bloodGroupService.deleteById(id);
 		return "redirect:/bloodgroup/listbloodgroup";
 	}

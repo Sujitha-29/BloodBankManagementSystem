@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,8 +38,12 @@ public class DonorAppointmentController
 		return "add-appointment-form";
 	}
 	@PostMapping("/add")
-	public String addNewAppointment(@ModelAttribute("addappointment") DonorAppointment theappo)
+	public String addNewAppointment(@Valid@ModelAttribute("addappointment") DonorAppointment theappo,Errors errors)
 	{
+		if(errors.hasErrors())
+		{
+			return "add-appointment-form";
+		}
 		donorAppointmentService.save(theappo);
 		return "redirect:/appointment/listappointment";
 	}
@@ -50,8 +55,12 @@ public class DonorAppointmentController
 		return "update-appointment-form";	
 	}
 	@PostMapping("/update")
-	public String updateAppointment(@ModelAttribute("updateappointment") DonorAppointment theappo)
+	public String updateAppointment(@Valid@ModelAttribute("updateappointment") DonorAppointment theappo,Errors errors)
 	{
+		if(errors.hasErrors())
+		{
+			return "update-appointment-form";
+		}
 		donorAppointmentService.save(theappo);
 		return "redirect:/appointment/listappointment";
 	}

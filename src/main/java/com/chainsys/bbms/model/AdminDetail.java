@@ -8,7 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -20,18 +24,29 @@ public class AdminDetail
 	@Min(value=900, message="Please enter the valid id")
 	@Max(value=999, message="Please enter the minimum value")
 	private int adminId;
+	
 	@Column(name="admin_name")
-	@NotNull(message="Admin Name may not be null")
+	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")
+    @NotBlank(message = "*Name can't be Empty")
+    @Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid name ")
 	private String adminName;
+	
+	
 	@Column(name="admin_password")
-	@NotNull(message="Password may not be null")
+	@Size(max = 20, min = 8, message = "*Password length should be 8 to 20")
+    @NotBlank(message = "*Password can't be Empty")
+    @Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid password ")
 	private String adminPassword;
+	
 	@Column(name="date_of_joining")
 	@NotNull(message="Date Of Joining may not be null")
 	private Date dateOfJoining;
+	
 	@Column(name="designation")
-	@NotNull(message="designation may not be null")
+	@NotEmpty(message = "*Please enter designation")
+    @Pattern(regexp = "^[a-zA-Z]*$", message = "*Value should be in Alphabets ")
 	private String designation;
+	
 	@Column(name="password_modified_date")
 	@NotNull(message="Password Modified Date may not be null")
 	private Date passwordModifiedDate;

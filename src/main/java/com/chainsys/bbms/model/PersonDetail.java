@@ -11,9 +11,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -25,25 +30,35 @@ public class PersonDetail
 	@Min(value=200, message="Please enter the valid id")
 	@Max(value=299, message="Please enter the minimum value")
 	private int personId;
+	
 	@Column(name="person_name")
-	@NotNull(message="Person Name may not be null")
+	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")
+    @NotBlank(message = "*Person Name can't be Empty")
+    @Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid name ")
 	private String personName; 
+	
 	@Column(name="dob")
 	@NotNull(message="Date Of Birth may not be null")
 	private  Date dob;
+	
 	@Column(name="Blood_group_id")
 	@Min(value=100, message="Please enter the valid id")
 	@Max(value=199, message="Please enter the minimum value")
 	private int bloodGroupId;
+	
 	@Column(name="phone_no ")
-	@NotNull(message="Phone Number may not be null")
+	@Digits(message = "*Invalid number.", integer = 10, fraction = 0)
 	private long phoneNo;
+	
 	@Column(name="Gender ")
-	@NotNull(message="Gender may not be null")
+    @NotEmpty(message = "*Please enter Gender")
+    @Pattern(regexp = "^[a-zA-Z]*$", message = "*Value should be in Alphabets ")
 	private String gender;
+	
 	@Column(name="Address")
-	@NotNull(message="Address may not be null")
+    @NotEmpty(message = "*Please enter Address")
 	private String address;
+	
 	@Column(name="Email_id")
 	@NotNull(message="Email Id may not be null")
 	private String emailId;

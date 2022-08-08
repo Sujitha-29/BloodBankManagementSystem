@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,26 +38,34 @@ public class BloodDonationController
 		return "add-blooddonation-form";		
 	}
 	@PostMapping("/add")
-	public String addNewBloodDonationDetails(@ModelAttribute("addblooddonation") BloodDonationDetail thebd)
+	public String addNewBloodDonationDetails(@Valid@ModelAttribute("addblooddonation") BloodDonationDetail thebd,Errors errors)
 	{
+		if(errors.hasErrors())
+		{
+			return "add-blooddonation-form";
+		}
 		bloodDonationService.save(thebd);
 		return "redirect:/blooddonation/listblooddonation";
 	}
 	@GetMapping("/updateblooddonationform")
-	public String updateBloodDonationForm(@Valid @RequestParam("blooddonationid") int id,Model model)
+	public String updateBloodDonationForm(@RequestParam("blooddonationid") int id,Model model)
 	{
 		BloodDonationDetail thebd = bloodDonationService.findById(id);
 		model.addAttribute("updateblooddonation",thebd);
 		return "update-blooddonation-form";	
 	}
 	@PostMapping("/update")
-	public String updateblooddonationdetails(@ModelAttribute("updateblooddonation") BloodDonationDetail thebd)
+	public String updateblooddonationdetails(@Valid@ModelAttribute("updateblooddonation") BloodDonationDetail thebd,Errors errors)
 	{
+		if(errors.hasErrors())
+		{
+			return "update-blooddonation-form";
+		}
 		bloodDonationService.save(thebd);
 		return "redirect:/blooddonation/listblooddonation";
 	}
 	@GetMapping("/deleteblooddontion")
-	public String deleteBloodDonationDetails(@Valid @RequestParam("id") int id,Model model)
+	public String deleteBloodDonationDetails(@RequestParam("id") int id,Model model)
 	{
 		bloodDonationService.deleteById(id);
 		return "redirect:/blooddonation/listblooddonation";

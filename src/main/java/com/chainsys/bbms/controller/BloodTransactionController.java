@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,8 +40,12 @@ public class BloodTransactionController
 		return "add-transaction-form";
 	}
 	@PostMapping("/add")
-	public String addNewBloodTransaction(@ModelAttribute("addtransaction") BloodTransaction thetrans)
+	public String addNewBloodTransaction(@Valid@ModelAttribute("addtransaction") BloodTransaction thetrans,Errors errors)
 	{
+		if(errors.hasErrors())
+		{
+			return "add-transaction-form";
+		}
 		bloodTransactionService.save(thetrans);
 		return "redirect:/bloodtransaction/listbloodtransaction";
 	}
@@ -52,8 +57,12 @@ public class BloodTransactionController
 		return "update-transaction-form";	
 	}
 	@PostMapping("/update")
-	public String updateBloodTransaction(@ModelAttribute("updatetransaction") BloodTransaction thetrans)
+	public String updateBloodTransaction(@Valid@ModelAttribute("updatetransaction") BloodTransaction thetrans,Errors errors)
 	{
+		if(errors.hasErrors())
+		{
+			return "update-transaction-form";
+		}
 		bloodTransactionService.save(thetrans);
 		return "redirect:/bloodtransaction/listbloodtransaction";
 	}

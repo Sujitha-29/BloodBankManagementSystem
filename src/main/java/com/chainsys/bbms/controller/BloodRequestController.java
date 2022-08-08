@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,14 +41,18 @@ public class BloodRequestController
 	}
 	
 	@PostMapping("/addbloodrequest")
-	public String addNewBloodRequest(@ModelAttribute("addrequest") BloodRequest thereq)
+	public String addNewBloodRequest(@Valid@ModelAttribute("addrequest") BloodRequest thereq,Errors errors)
 	{
+		if(errors.hasErrors())
+		{
+			return "add-request-form";
+		}
 		bloodRequestService.save(thereq);
 		return "redirect:/bloodrequest/listbloodrequest";
 	}
 	
 	@GetMapping("/updatebloodrequestform")
-	public String showBloodRequestUpdateForm(@Valid @RequestParam("reqid") int id,Model model)
+	public String showBloodRequestUpdateForm(@RequestParam("reqid") int id,Model model)
 	{
 		BloodRequest thereq=bloodRequestService.findById(id);
 		model.addAttribute("updaterequest", thereq);
@@ -55,13 +60,17 @@ public class BloodRequestController
 	}
 	
 	@PostMapping("/updatebloodrequest")
-	public String updateBloodRequest(@ModelAttribute("updaterequest") BloodRequest thereq)
+	public String updateBloodRequest(@Valid@ModelAttribute("updaterequest") BloodRequest thereq,Errors errors)
 	{
+		if(errors.hasErrors())
+		{
+			return "update-request-form";
+		}
 		bloodRequestService.save(thereq);
 		return "redirect:/bloodrequest/listbloodrequest";
 	}
 	@GetMapping("/deletebloodrequest")
-	public String deleteRequest(@Valid @RequestParam("id") int id,Model model)
+	public String deleteRequest(@RequestParam("id") int id,Model model)
 	{
 		bloodRequestService.deleteById(id);
 		return "redirect:/bloodrequest/listbloodrequest";
