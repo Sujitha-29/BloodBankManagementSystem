@@ -12,7 +12,7 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Blood Group Id</th>
+                    <th>Blood Group Id</th>
 					<th>Blood Group Name</th>
 					<th>Stock</th>		
 				</tr>
@@ -20,7 +20,7 @@
 			<tbody>
 				<c:forEach var="bloodgroup" items="${allbloodgroup}">
 					<tr>
-						<td>${bloodgroup.bloodGroupId}</td>
+					    <td>${bloodgroup.bloodGroupId}</td>
 						<td>${bloodgroup.bloodGroup}</td>
 						<td>${bloodgroup.stockInUnits}</td>
 					</tr>

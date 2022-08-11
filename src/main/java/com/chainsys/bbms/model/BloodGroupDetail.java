@@ -5,8 +5,11 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -22,8 +25,8 @@ public class BloodGroupDetail
 {
 	@Id
 	@Column(name="blood_group_id")
-	@Min(value=100, message="Please enter the valid id")
-	@Max(value=199, message="Please enter the minimum value")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "blood_id")
+    @SequenceGenerator(name = "blood_id", sequenceName = "blood_id",  allocationSize = 1)
 	private int bloodGroupId;	
 	
 	@Column(name="Blood_group")
@@ -32,9 +35,7 @@ public class BloodGroupDetail
 	private String bloodGroup;
 	
 	@Column(name="Stock_in_Units")
-	@Size(max = 20, min = 3, message = "*Stock In Hand length should be 3 to 20")
-    @NotBlank(message = "*Stock In Hand can't be Empty")
-    @Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Stock In Hand ")
+    @NotNull(message = "*Stock In Hand can't be Empty")
 	private int stockInUnits;
 	
 	public int getBloodGroupId() {

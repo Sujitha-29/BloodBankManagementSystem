@@ -27,9 +27,14 @@
 				<div>
 					<label for="adminPassword">Admin Password</label>
 					<div>
-						<form:input path="adminPassword" />
+						<form:input type="password" path="adminPassword" />
 					</div>
 				</div>
+				<div>
+					<label for="dateOfJoining">Date Of Joining</label>
+					<div>
+						<form:input type="date" path="dateOfJoining" />
+					</div>
 				<div>
 					<label for="designation">Designation</label>
 					<div>
@@ -39,7 +44,7 @@
 				<div>
 					<label for="passwordModifiedDate">password Modified Date</label>
 					<div>
-						<form:input path="passwordModifiedDate" />
+						<form:input type="date" path="passwordModifiedDate" />
 					</div>
 				</div>
 			</form:form>

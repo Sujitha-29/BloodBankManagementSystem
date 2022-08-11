@@ -1,6 +1,6 @@
 package com.chainsys.bbms.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,13 +24,9 @@ public class BloodTransaction
 {
 	@Id
 	@Column(name="blood_transaction_id")
-	@Min(value=400, message="Please enter the valid id")
-	@Max(value=499, message="Please enter the minimum value")
 	private int bloodTransactionId;
 	
 	@Column(name="request_id")
-	@Min(value=500, message="Please enter the valid id")
-	@Max(value=599, message="Please enter the minimum value")
 	private int requestId;
 	
 	@Column(name="transaction_date")
@@ -38,16 +34,14 @@ public class BloodTransaction
 	private Date transactionDate;
 	
 	@Column(name="quantity")
-	@Size(max = 20, min = 3, message = "*Quantity length should be 3 to 20")
-    @NotBlank(message = "*Quantity can't be Empty")
-    @Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Quantity ")
-	private int quantity;
-	
+    @NotNull(message = "*Quantity can't be Empty")
+	private int quantityInUnits;
 	
 	@Column(name="status")
-	@NotEmpty(message = "*Please enter designation")
+	@NotNull(message = "*Please enter designation")
     @Pattern(regexp = "^[a-zA-Z]*$", message = "*Value should be in Alphabets ")
 	private String status;
+	
 	
 	public int getBloodTransactionId() {
 		return bloodTransactionId;
@@ -67,11 +61,11 @@ public class BloodTransaction
 	public void setTransactionDate(Date transactionDate) {
 		this.transactionDate = transactionDate;
 	}
-	public int getQuantity() {
-		return quantity;
+	public int getQuantityInUnits() {
+		return quantityInUnits;
 	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setQuantityInUnits(int quantityInUnits) {
+		this.quantityInUnits = quantityInUnits;
 	}
 	public String getStatus() {
 		return status;
@@ -79,6 +73,9 @@ public class BloodTransaction
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	
+	
 	
 	// Blood Request
 	@OneToOne(fetch=FetchType.LAZY)

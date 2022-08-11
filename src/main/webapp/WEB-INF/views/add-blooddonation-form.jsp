@@ -36,25 +36,26 @@
 					<div>
 						<label for="donationDate">Donation Date</label>
 						<div>
-							<form:input path="donationDate" />
+							<form:input type="date" path="donationDate" />
 						</div>
 					</div>
 					<div>
 						<label for="healthCondition">Health Condition</label>
 						<div>
-							<form:input path="healthCondition" />
+							<form:input path="healthCondition" title="healthCondition can't be empty"
+						pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
 						</div>
 					</div>
 					<form:errors path="healthCondition" cssClass="text-danger" />
 					<div>
-						<label for="quantity">Quantity</label>
+						<label for="quantityInUnits">Quantity In Units</label>
 						<div>
-							<form:input path="quantity" />
+							<form:input path="quantityInUnits" />
 						</div>
 					</div>
-					<form:errors path="quantity" cssClass="text-danger" />
+					<form:errors path="quantityInUnits" cssClass="text-danger" />
 					<div>
-						<form:button>Add New</form:button>
+						<form:button>ADD</form:button>
 					</div>
 				</form:form>
 			</div>

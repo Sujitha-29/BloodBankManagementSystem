@@ -15,7 +15,7 @@
 					<th>Transaction Id</th>
 					<th>Request Id</th>
 					<th>Transaction Date</th>
-					<th>Quantity</th>
+					<th>Quantity In Units</th>
 					<th>Status</th>
 				</tr>
 			</thead>
@@ -25,7 +25,7 @@
 						<td>${trans.bloodTransactionId}</td>
 						<td>${trans.requestId}</td>
 						<td>${trans.transactionDate}</td>
-						<td>${trans.quantity}</td>
+						<td>${trans.quantityInUnits}</td>
 						<td>${trans.status}</td>
 					</tr>
 				</c:forEach>

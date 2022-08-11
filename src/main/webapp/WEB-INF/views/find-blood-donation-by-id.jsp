@@ -26,7 +26,7 @@
 				<div>
 					<label for="donationDate">Donation Date</label>
 					<div>
-						<form:input  path="donationDate" />
+						<form:input type="date" path="donationDate" />
 					</div>
 				</div>
 				<div>
@@ -36,9 +36,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="quantity">Quantity</label>
+					<label for="quantityInUnits">Quantity</label>
 					<div>
-						<form:input path="quantity" />
+						<form:input path="quantityInUnits" />
 					</div>
 				</div>
 			</form:form>

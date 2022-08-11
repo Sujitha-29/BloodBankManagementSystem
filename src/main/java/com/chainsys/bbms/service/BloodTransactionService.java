@@ -26,10 +26,12 @@ public class BloodTransactionService
 		return translist;
 	}
 	public BloodTransaction save(BloodTransaction bt)
-	{	BloodTransaction bloodTransaction =bloodTransactionRepository.save(bt);
-	    BloodRequest BloodRequest=bloodRequestService.findById(bt.getRequestId());
-	    BloodGroupDetail bloodGroupDetail=bloodGroupService.findById(BloodRequest.getBloodGroupId());
-	    int quantity=Logic.reduceQuantity(bloodGroupDetail.getStockInUnits(), bt.getQuantity());
+	{
+		
+		BloodTransaction bloodTransaction =bloodTransactionRepository.save(bt);
+	    BloodRequest bloodRequest=bloodRequestService.findById(bt.getRequestId());
+	    BloodGroupDetail bloodGroupDetail=bloodGroupService.findById(bloodRequest.getBloodGroupId());
+	    int quantity=Logic.reduceQuantity(bloodGroupDetail.getStockInUnits(), bt.getQuantityInUnits());
 	    bloodGroupDetail.setStockInUnits(quantity);
 		bloodGroupService.save(bloodGroupDetail);
 		return bloodTransaction;
@@ -42,9 +44,4 @@ public class BloodTransactionService
 	{
 		bloodTransactionRepository.deleteById(id);
 	}
-//	public BloodTransaction save(BloodTransaction bt)
-//	{
-//		return bloodTransactionRepository.save(bt);
-//	}
-
 }

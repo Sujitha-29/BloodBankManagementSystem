@@ -16,7 +16,7 @@
 					<th>Person Id</th>
 					<th>Donation Date</th>
 					<th>Health Condition</th>
-					<th>Quantity</th>					
+					<th>Quantity In Units</th>					
 				</tr>
 			</thead>
 			<tbody>
@@ -26,7 +26,7 @@
 						<td>${donation.personId}</td>
 						<td>${donation.donationDate}</td>
 						<td>${donation.healthCondition}</td>
-						<td>${donation.quantity}</td>						
+						<td>${donation.quantityInUnits}</td>						
 					</tr>
 				</c:forEach>
 			</tbody>

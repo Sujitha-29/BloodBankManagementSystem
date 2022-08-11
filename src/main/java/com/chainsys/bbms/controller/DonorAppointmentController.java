@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.bbms.businesslogic.Logic;
+import com.chainsys.bbms.model.BloodDonationDetail;
 import com.chainsys.bbms.model.DonorAppointment;
+import com.chainsys.bbms.service.BloodDonationService;
 import com.chainsys.bbms.service.DonorAppointmentService;
 
 @Controller
@@ -23,6 +26,8 @@ public class DonorAppointmentController
 {
 	@Autowired
 	DonorAppointmentService donorAppointmentService;
+	@Autowired
+	private BloodDonationService bloodDonationService;
 	@GetMapping("/listappointment")
 	public String getAllAppointment(Model model)
 	{
@@ -38,14 +43,20 @@ public class DonorAppointmentController
 		return "add-appointment-form";
 	}
 	@PostMapping("/add")
-	public String addNewAppointment(@Valid@ModelAttribute("addappointment") DonorAppointment theappo,Errors errors)
+	public String addNewAppointment(@Valid@ModelAttribute("addappointment") DonorAppointment theappo,Errors errors,Model model)
 	{
 		if(errors.hasErrors())
 		{
 			return "add-appointment-form";
 		}
+		List<BloodDonationDetail>BloodDonationDetailList=bloodDonationService.findBloodDonationDetailBypersonId(theappo.getPersonId()); 
+		if(Logic.UnEligibilityForDonation(theappo.getAppointmentDate(), BloodDonationDetailList.get(0).getDonationDate())) {
+			model.addAttribute("result", "you are not eligible for Blood Donation");
+			return "add-appointment-form";
+		}
 		donorAppointmentService.save(theappo);
-		return "redirect:/appointment/listappointment";
+		model.addAttribute("result", "Succecfully submitted your Appointment");
+		return "add-appointment-form";
 	}
 	@GetMapping("/updatedonorappointmentform")
 	public String showAppointemntUpdateForm(@Valid @RequestParam("appoid") int id,Model model)
@@ -61,6 +72,7 @@ public class DonorAppointmentController
 		{
 			return "update-appointment-form";
 		}
+		
 		donorAppointmentService.save(theappo);
 		return "redirect:/appointment/listappointment";
 	}

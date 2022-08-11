@@ -18,7 +18,7 @@
 					<th>Hospital Name</th>
 					<th>Blood Group Id</th>
 					<th>Request Date</th>
-					<th>Quantity</th>
+					<th>Quantity In Units</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -30,7 +30,7 @@
 						<td>${request.hospitalName}</td>
 						<td>${request.bloodGroupId}</td>
 						<td>${request.requestDate}</td>
-						<td>${request.quantity}</td>
+						<td>${request.quantityInUnits}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

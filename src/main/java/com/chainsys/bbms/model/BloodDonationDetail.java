@@ -1,6 +1,6 @@
 package com.chainsys.bbms.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,33 +23,30 @@ public class BloodDonationDetail
 {
 	@Id
 	@Column(name="donation_trans_id")
-	@Min(value=300, message="Please enter the valid id")
-	@Max(value=399, message="Please enter the minmum value")
 	private int donationTransId;
 	
 	@Column(name="person_id")
-    @Min(value=200,message="Please enter the valid id")
-	@Max(value=200,message="Please enter the minmum value")
 	private int personId ;
 	
 	@Column(name="donation_date")
-	@NotNull(message="Donation Date may not be null")
 	private Date donationDate;
 	
 	@Column(name="Health_Condition")
-	@NotEmpty(message = "*Please enter Health Condition")
-    @Pattern(regexp = "^[a-zA-Z]*$", message = "*Value should be in Alphabets ")
 	private String healthCondition;
 	
 	@Column(name="quantity")
-	@Size(max = 20, min = 3, message = "*Quantity length should be 3 to 20")
-    @NotBlank(message = "*Quantity can't be Empty")
-    @Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Quantity ")
-	private int quantity;
+	private int quantityInUnits;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="person_id",nullable = false,insertable = false,updatable = false)
 	private PersonDetail person;
+	public PersonDetail getPerson() {
+		return person;
+	}
+
+	public void setPerson(PersonDetail person) {
+		this.person = person;
+	}
 
 	public int getDonationTransId() {
 		return donationTransId;
@@ -83,22 +80,11 @@ public class BloodDonationDetail
 		this.healthCondition = healthCondition;
 	}
 
-	public int getQuantity() {
-		return quantity;
+	public int getQuantityInUnits() {
+		return quantityInUnits;
 	}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
-	public PersonDetail getPerson() {
-		return person;
-	}
-
-	public void setPerson(PersonDetail person) {
-		this.person = person;
-	}
-	
-	
-			
+	public void setQuantityInUnits(int quantityInUnits) {
+		this.quantityInUnits = quantityInUnits;
+	}			
 }

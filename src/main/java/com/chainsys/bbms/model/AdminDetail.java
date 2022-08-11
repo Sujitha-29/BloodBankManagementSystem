@@ -1,13 +1,11 @@
 package com.chainsys.bbms.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -21,8 +19,6 @@ public class AdminDetail
 {
 	@Id
 	@Column(name="admin_id")
-	@Min(value=900, message="Please enter the valid id")
-	@Max(value=999, message="Please enter the minimum value")
 	private int adminId;
 	
 	@Column(name="admin_name")
@@ -35,7 +31,6 @@ public class AdminDetail
 	@Column(name="admin_password")
 	@Size(max = 20, min = 8, message = "*Password length should be 8 to 20")
     @NotBlank(message = "*Password can't be Empty")
-    @Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid password ")
 	private String adminPassword;
 	
 	@Column(name="date_of_joining")
@@ -44,7 +39,6 @@ public class AdminDetail
 	
 	@Column(name="designation")
 	@NotEmpty(message = "*Please enter designation")
-    @Pattern(regexp = "^[a-zA-Z]*$", message = "*Value should be in Alphabets ")
 	private String designation;
 	
 	@Column(name="password_modified_date")

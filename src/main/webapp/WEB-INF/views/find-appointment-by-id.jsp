@@ -21,7 +21,7 @@
 				<div>
 					<label for="appointmentDate">Appointment Date</label>
 					<div>
-						<form:input path="appointmentDate" />
+						<form:input type="date" path="appointmentDate" />
 					</div>
 				</div>
 				<div>

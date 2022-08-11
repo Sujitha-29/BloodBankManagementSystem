@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.bbms.dto.PersonDetailBloodDonationDetailDTO;
+import com.chainsys.bbms.model.BloodGroupDetail;
 import com.chainsys.bbms.model.PersonDetail;
+import com.chainsys.bbms.service.BloodGroupService;
 import com.chainsys.bbms.service.PersonDetailsService;
 
 @Controller
@@ -23,6 +26,9 @@ import com.chainsys.bbms.service.PersonDetailsService;
 public class PersonDetailsController {
 	@Autowired
 	PersonDetailsService personDetailService;
+	@Autowired
+	private BloodGroupService bloodGroupService;
+	
 	@GetMapping("/listpersondetails")
 	public String getAllPersonDetails(Model model)
 	{
@@ -36,15 +42,21 @@ public class PersonDetailsController {
 	{
 		PersonDetail theperson=new PersonDetail();
 		model.addAttribute("addperson",theperson);
+		List<BloodGroupDetail>bloodGrouplist=bloodGroupService.getBloodGroup();
+		model.addAttribute("bloodGrouplist", bloodGrouplist);
 		return "add-persons-form";
 	}
 	@PostMapping("/add")
-	public String addNewPerson(@Valid@ModelAttribute("addperson") PersonDetail theperson,Errors errors)
+	public String addNewPerson(@ModelAttribute("addperson") PersonDetail theperson)
 	{
-		if(errors.hasErrors())
-		{
-			return "add-persons-form";
-		}
+//		List<ObjectError> errorList=errors.getAllErrors();
+//		for (ObjectError objectError : errorList) {
+//			System.out.println("Debug :" + objectError.getDefaultMessage());
+//		}
+//		if(errors.hasErrors())
+//		{
+//			return "add-persons-form";
+//		}
 		personDetailService.save(theperson);
 		return "redirect:/person/listpersondetails";
 	}

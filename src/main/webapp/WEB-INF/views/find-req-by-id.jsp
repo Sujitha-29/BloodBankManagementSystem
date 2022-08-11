@@ -46,13 +46,13 @@
 				<div>
 					<label for="requestDate">Request Date</label>
 					<div>
-						<form:input path="requestDate" />
+						<form:input type="date" path="requestDate" />
 					</div>
 				</div>
 				<div>
-					<label for="quantity">Quantity</label>
+					<label for="quantityInUnits">Quantity</label>
 					<div>
-						<form:input path="quantity" />
+						<form:input path="quantityInUnits" />
 					</div>
 				</div>
 			</form:form>

@@ -20,60 +20,72 @@
 				<div>
 					<label for="personId">Person Id</label>
 					<div>
-						<form:input path="personId" />
+						<form:input path="personId" title="Please enter number only"
+							pattern="^[0-9]+$" required="true" />
 					</div>
 				</div>
 				<form:errors path="personId" cssClass="text-danger" />
 				<div>
 					<label for="personName">Person Name</label>
 					<div>
-						<form:input path="personName" />
+						<form:input path="personName" title="Name can't be empty"
+							pattern="^[A-Za-z]\\w{3,20}$" required="true"  />
 					</div>
 				</div>
 				<form:errors path="personName" cssClass="text-danger" />
 				<div>
-					<label for="dob">DOB</label>
+					<label for="dob">Date Of Birth</label>
 					<div>
-						<form:input  path="dob" />
+						<form:input  path="dob" type="date" required="true" />
 					</div>
 				</div>
 				<div>
 					<label for="bloodGroupId">Blood Group Id</label>
 					<div>
-						<form:input path="bloodGroupId" />
+						<form:input path="bloodGroupId" title="Please enter number only"
+							pattern="^[0-9]+$" required="true" />
 					</div>
 				</div>
 				<form:errors path="bloodGroupId" cssClass="text-danger" />
 				<div>
 					<label for="phoneNo">Phone Number</label>
 					<div>
-						<form:input path="phoneNo" />
+						<form:input path="phoneNo"  title="PhoneNumber should have atleast 10 digits"
+					pattern="^\\+?[1-9][0-9]{7,14}$" required="true" />
 					</div>
 				</div>
 				<form:errors path="phoneNo" cssClass="text-danger" />
 				<div>
-					<label for="gender">Gender</label>
+				<!-- 	<label for="gender">Gender</label> -->
 					<div>
-						<form:input path="gender" />
+						Gender:
+						<form:radiobutton path="gender" value="Male"/>
+						Male
+						<form:radiobutton path="gender" value="Female"/>
+						Female
+						<form:radiobutton path="gender" value="Others"/>
+						Others
 					</div>
 				</div>
 				<form:errors path="gender" cssClass="text-danger" />
 				<div>
 					<label for="address">Address</label>
 					<div>
-						<form:input path="address" />
+						<form:input path="address" required="true" />
 					</div>
 				</div>
 				<form:errors path="address" cssClass="text-danger" />
 				<div>
 					<label for="emailId">Email Id</label>
 					<div>
-						<form:input path="emailId" />
+						<form:input path="emailId" title='password must begin with letter and contain atleast one number and must have atleast 8 characters'
+						pattern="^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$"
+						required="true" />
 					</div>
 				</div>
 				<form:errors path="emailId" cssClass="text-danger" />
 				<div>
-					<form:button>Update</form:button>
+					<form:button>UPDATE</form:button>
 				</div>				
 			</form:form>
 		</div>

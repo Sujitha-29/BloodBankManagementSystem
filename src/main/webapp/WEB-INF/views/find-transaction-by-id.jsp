@@ -27,13 +27,13 @@
 				<div>
 					<label for="transactionDate">Transaction Date</label>
 					<div>
-						<form:input path="transactionDate" />
+						<form:input type="date" path="transactionDate" />
 					</div>
 				</div>
 				<div>
-					<label for="quantity">Quantity</label>
+					<label for="quantityInUnits">Quantity</label>
 					<div>
-						<form:input path="quantity" />
+						<form:input path="quantityInUnits" />
 					</div>
 				</div>
 				<div>

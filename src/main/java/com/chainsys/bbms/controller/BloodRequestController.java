@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.bbms.dto.BloodRequestBloodTransactionDTO;
+import com.chainsys.bbms.model.BloodGroupDetail;
 import com.chainsys.bbms.model.BloodRequest;
+import com.chainsys.bbms.service.BloodGroupService;
 import com.chainsys.bbms.service.BloodRequestService;
 
 @Controller
@@ -24,6 +26,8 @@ public class BloodRequestController
 {
 	@Autowired
 	BloodRequestService bloodRequestService;
+	@Autowired
+	private BloodGroupService bloodGroupService;
 	@GetMapping("/listbloodrequest")
 	public String getAllBloodRequest(Model model)
 	{
@@ -37,16 +41,18 @@ public class BloodRequestController
 	{
 		BloodRequest thereq=new BloodRequest();
 		model.addAttribute("addrequest",thereq);
+		List<BloodGroupDetail>BloodGrouplist=bloodGroupService.getBloodGroup();
+		model.addAttribute("bloodGrouplist", BloodGrouplist);
 		return "add-request-form";
 	}
 	
 	@PostMapping("/addbloodrequest")
-	public String addNewBloodRequest(@Valid@ModelAttribute("addrequest") BloodRequest thereq,Errors errors)
+	public String addNewBloodRequest(@ModelAttribute("addrequest") BloodRequest thereq)
 	{
-		if(errors.hasErrors())
-		{
-			return "add-request-form";
-		}
+//		if(errors.hasErrors())
+//		{
+//			return "add-request-form";
+//		}
 		bloodRequestService.save(thereq);
 		return "redirect:/bloodrequest/listbloodrequest";
 	}

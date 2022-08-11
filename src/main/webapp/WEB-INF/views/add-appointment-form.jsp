@@ -20,33 +20,30 @@
 				<div>
 					<label for="appointmentId">Appointment Id</label>
 					<div>
-						<form:input path="appointmentId" />
+						<form:input path="appointmentId" title="Please enter number only"
+							pattern="^[0-9]+$" required="true" />
 					</div>
 				</div>
 				<form:errors path="appointmentId" cssClass="text-danger" />
 				<div>
 					<label for="appointmentDate">Appointment Date</label>
 					<div>
-						<form:input path="appointmentDate" />
+						<form:input type="date" path="appointmentDate"  />
 					</div>
 				</div>
 				<div>
 					<label for="personId">Person Id</label>
 					<div>
-						<form:input path="personId" />
+						<form:input path="personId" title="Please enter number only"
+							pattern="^[0-9]+$" required="true" />
 					</div>
 					<form:errors path="personId" cssClass="text-danger" />
 					<div>
-						<form:button>Add New</form:button>
+						<form:button>ADD</form:button>
 					</div>
 			</form:form>
 		</div>
 	</div>
 </body>
-<script>
-var getCurrentDate=new Date();
-var getPastDate=getCurrentDate.setMonth(getCurrentDate.getMonth() - 6);
-console.log(getCurrentDate);
-console.log(getPastDate);
-</script>
+	<div>${result}</div>
 </html>

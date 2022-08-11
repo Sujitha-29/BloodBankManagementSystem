@@ -1,6 +1,6 @@
 package com.chainsys.bbms.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,8 +16,6 @@ public class DonorAppointment
 {
 	@Id
 	@Column(name="appointment_id")
-	@Min(value=600, message="Please enter the valid id")
-	@Max(value=699, message="Please enter the minimum value")
 	private int appointmentId;
 	
 	@Column(name="Appointment_date")

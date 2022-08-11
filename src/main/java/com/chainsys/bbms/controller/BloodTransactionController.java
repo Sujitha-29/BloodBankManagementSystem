@@ -50,7 +50,7 @@ public class BloodTransactionController
 		return "redirect:/bloodtransaction/listbloodtransaction";
 	}
 	@GetMapping("/updatebloodtransactionform")
-	public String showBloodTransactionUpdateForm(@Valid @RequestParam("transid") int id,Model model)
+	public String showBloodTransactionUpdateForm(@RequestParam("transid") int id,Model model)
 	{
 		BloodTransaction thetrans=bloodTransactionService.findById(id);
 		model.addAttribute("updatetransaction", thetrans);
@@ -67,7 +67,7 @@ public class BloodTransactionController
 		return "redirect:/bloodtransaction/listbloodtransaction";
 	}
 	@GetMapping("/deletebloodtransaction")
-	public String deleteTransaction(@Valid @RequestParam("id") int id,Model model)
+	public String deleteTransaction(@RequestParam("id") int id,Model model)
 	{
 		bloodTransactionService.deleteById(id);
 		return "redirect:/bloodtransaction/listbloodtransaction";

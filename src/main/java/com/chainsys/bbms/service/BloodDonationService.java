@@ -5,7 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.chainsys.bbms.businesslogic.Logic;
 import com.chainsys.bbms.model.BloodDonationDetail;
+import com.chainsys.bbms.model.BloodGroupDetail;
+import com.chainsys.bbms.model.BloodRequest;
+import com.chainsys.bbms.model.BloodTransaction;
+import com.chainsys.bbms.model.PersonDetail;
 import com.chainsys.bbms.repository.BloodDonationRepository;
 
 @Service
@@ -13,6 +18,12 @@ public class BloodDonationService
 {
 	@Autowired
 	private BloodDonationRepository bloodDonationdRepository;
+	
+	@Autowired
+	private PersonDetailsService personDetailsService;
+	
+	@Autowired
+	private BloodGroupService bloodGroupService;
 	
 	public List<BloodDonationDetail> getallDonationDetail()
 	{
@@ -22,7 +33,14 @@ public class BloodDonationService
 	
 	public BloodDonationDetail save(BloodDonationDetail bd)
 	{
-		return bloodDonationdRepository.save(bd);
+		BloodDonationDetail bloodDonation =bloodDonationdRepository.save(bd);
+	    PersonDetail personDetail=personDetailsService.findById(bd.getPersonId());
+	    BloodGroupDetail bloodGroupDetail=bloodGroupService.findById(personDetail.getBloodGroupId());
+	    int quantity=Logic.addQuantity(bloodGroupDetail.getStockInUnits(), bd.getQuantityInUnits());
+	    bloodGroupDetail.setStockInUnits(quantity);
+		bloodGroupService.save(bloodGroupDetail);
+		return bloodDonation;
+		//return bloodDonationdRepository.save(bd);
 	}
 	public BloodDonationDetail findById(int id)
 	{
@@ -31,6 +49,9 @@ public class BloodDonationService
 	public void deleteById(int id)
 	{
 		bloodDonationdRepository.deleteById(id);
+	}
+	public List<BloodDonationDetail> findBloodDonationDetailBypersonId(int id){
+		return bloodDonationdRepository.findByPersonIdOrderByDonationDateDesc(id);
 	}
 
 }

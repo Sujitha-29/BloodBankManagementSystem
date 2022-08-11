@@ -10,8 +10,9 @@ body {
 	background-image:
 		url("https://static.vecteezy.com/system/resources/previews/005/424/812/original/volunteers-donating-blood-blood-donor-charity-concept-world-blood-donor-day-health-care-for-banner-poster-card-ui-web-landing-page-template-for-blood-bank-or-hospital-flat-illustration-free-vector.jpg");
 	background-repeat: no-repeat;
+	/* backgriunt-size: 1920px 1281px; */
 	background-size: 1400px 700px;
-	backgriunt-size: 1920px 1281px;
+	
 }
 
 .main-heading {
@@ -81,5 +82,4 @@ a:link, a:visited {
 		</div>
 	</div>
 </body>
-
 </html>

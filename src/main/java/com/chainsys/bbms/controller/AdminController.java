@@ -107,6 +107,4 @@ public class AdminController
 			return "invalid admin error";
 		}
 	}
-
-
 }

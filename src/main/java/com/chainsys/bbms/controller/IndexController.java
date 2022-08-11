@@ -13,10 +13,20 @@ public class IndexController
     public String getIndex(Model model) {
         return "index";
     }
+    @GetMapping("/demoindex")
+    public String getDemoIndex(Model model)
+    {
+    	return "demoindex";
+    }
     
     @GetMapping("/adminuse")
     public String AdminAccess(Model model)
     {
     	return "adminaccess"; 	
+    }
+    @GetMapping("/loginuse")
+    public String HomePage(Model model)
+    {
+    	return "homepage"; 	
     }
 }

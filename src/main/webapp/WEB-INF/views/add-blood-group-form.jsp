@@ -17,29 +17,31 @@
 <div id="root">
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addbloodgroup">
-				<div>
+				<%-- <div>
 					<label for="bloodGroupId">Blood Group Id</label>
 					<div>
 						<form:input path="bloodGroupId" />
 					</div>
 				</div>
-				<form:errors path="bloodGroupId" cssClass="text-danger" />
+				<form:errors path="bloodGroupId" cssClass="text-danger" /> --%>
 				<div>
 					<label for="bloodGroup">Blood Group Name</label>
 					<div>
-						<form:input path="bloodGroup" />
+						<form:input path="bloodGroup"  title="bloodGroup can't be empty"
+						pattern="^[A-Za-z]\\w{3,20}$" required="true" />
 					</div>
 				</div>
 				<form:errors path="bloodGroup" cssClass="text-danger" />
 				<div>
 					<label for="stockInUnits">Stock</label>
 					<div>
-						<form:input path="stockInUnits" />
+						<form:input path="stockInUnits" title="Please enter number only"
+							pattern="^[0-9]+$" required="true" />
 					</div>
 					</div>	
 					<form:errors path="stockInUnits" cssClass="text-danger" />
 					<div>
-					<form:button>Add New</form:button>
+					<form:button>ADD</form:button>
 				</div>
 			</form:form>
 		</div>
