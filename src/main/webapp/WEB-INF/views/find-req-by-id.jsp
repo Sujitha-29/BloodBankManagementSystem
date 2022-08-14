@@ -3,56 +3,61 @@
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Find request By Id</title>
+<style><%@include file ="/WEB-INF/css/alljsp.css"%> 
+body {
+	background-color: #a5edf3;
+}
+</style>
 </head>
 <body>
 <div id="root">
-		<div id="form">
+		<div id="form" class="form">
 			<form:form action="getbloodrequest" method="post"
 				modelAttribute="getrequestbyid">
 				<div>
-					<label for="requestId">Request Id</label>
+					<label class="heading-text" for="requestId">Request Id</label>
 					<div>
-						<form:input path="requestId" />
+						<form:input path="requestId" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="recipientName">Recipient Name</label>
+					<label class="heading-text" for="recipientName">Recipient Name</label>
 					<div>
-						<form:input path="recipientName" />
+						<form:input path="recipientName" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="recipientPhoneNo">Recipient Phone No</label>
+					<label class="heading-text" for="recipientPhoneNo">Recipient Phone No</label>
 					<div>
-						<form:input path="recipientPhoneNo" />
+						<form:input path="recipientPhoneNo" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="hospitalName">Hospital Name</label>
+					<label class="heading-text" for="hospitalName">Hospital Name</label>
 					<div>
-						<form:input path="hospitalName" />
+						<form:input path="hospitalName" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="bloodGroupId">Blood Group Id</label>
+					<label class="heading-text" for="bloodGroupId">Blood Group Id</label>
 					<div>
-						<form:input path="bloodGroupId" />
+						<form:input path="bloodGroupId" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="requestDate">Request Date</label>
+					<label class="heading-text" for="requestDate">Request Date</label>
 					<div>
-						<form:input type="date" path="requestDate" />
+						<form:input type="date" path="requestDate" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="quantityInUnits">Quantity</label>
+					<label class="heading-text" for="quantityInUnits">Quantity</label>
 					<div>
-						<form:input path="quantityInUnits" />
+						<form:input path="quantityInUnits" class="input-size" />
 					</div>
 				</div>
 			</form:form>

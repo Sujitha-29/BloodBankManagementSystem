@@ -49,8 +49,8 @@ public class DonorAppointmentController
 		{
 			return "add-appointment-form";
 		}
-		List<BloodDonationDetail>BloodDonationDetailList=bloodDonationService.findBloodDonationDetailBypersonId(theappo.getPersonId()); 
-		if(Logic.UnEligibilityForDonation(theappo.getAppointmentDate(), BloodDonationDetailList.get(0).getDonationDate())) {
+		List<BloodDonationDetail>bloodDonationDetailList=bloodDonationService.findBloodDonationDetailBypersonId(theappo.getPersonId()); 
+		if(Logic.unEligibilityForDonation(theappo.getAppointmentDate(), bloodDonationDetailList.get(0).getDonationDate())) {
 			model.addAttribute("result", "you are not eligible for Blood Donation");
 			return "add-appointment-form";
 		}
@@ -59,21 +59,21 @@ public class DonorAppointmentController
 		return "add-appointment-form";
 	}
 	@GetMapping("/updatedonorappointmentform")
-	public String showAppointemntUpdateForm(@Valid @RequestParam("appoid") int id,Model model)
+	public String showAppointemntUpdateForm(@RequestParam("appoid") int id,Model model)
 	{
 		DonorAppointment theappo=donorAppointmentService.findById(id);
 		model.addAttribute("updateappointment", theappo);
 		return "update-appointment-form";	
 	}
 	@PostMapping("/update")
-	public String updateAppointment(@Valid@ModelAttribute("updateappointment") DonorAppointment theappo,Errors errors)
+	public String updateAppointment(@Valid@ModelAttribute("updateappointment") DonorAppointment appointment,Errors errors)
 	{
 		if(errors.hasErrors())
 		{
 			return "update-appointment-form";
 		}
 		
-		donorAppointmentService.save(theappo);
+		donorAppointmentService.save(appointment);
 		return "redirect:/appointment/listappointment";
 	}
 	@GetMapping("/deleteappointment")

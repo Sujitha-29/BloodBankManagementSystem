@@ -1,11 +1,7 @@
 package com.chainsys.bbms.businesslogic;
 
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.List;
 
-import com.chainsys.bbms.model.BloodDonationDetail;
 public class Logic 
 {
 	public static int addQuantity(int stock,int addInStock)
@@ -16,7 +12,7 @@ public class Logic
 	{
 		return stock-reduceInStock;
 	}
-	public static boolean UnEligibilityForDonation(Date appointmentDate,Date priviousDonationDate) 
+	public static boolean unEligibilityForDonation(Date appointmentDate,Date priviousDonationDate) 
 	{
         
 		long milseconds=appointmentDate.getTime()-priviousDonationDate.getTime();

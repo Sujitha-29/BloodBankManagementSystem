@@ -3,45 +3,49 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Person Details</title>
-<style>
+<style><%@include file ="/WEB-INF/css/alljsp.css"%>
 .text-danger {
 	color: #e80c4d;
 	font-size: 0.9em;
+}
+body {
+	background-color: #a5edf3;
 }
 </style>
 </head>
 <body>
 	<div id="root">
-		<div id="form">
+		<div id="form" class="form">
 			<form:form action="add" method="post" modelAttribute="addperson">
 				<div>
-					<label for="personId">Person Id</label>
+					<label  class="heading-text" for="personId">Person Id</label>
 					<div>
 						<form:input path="personId" title="Please enter number only"
-							pattern="^[0-9]+$" required="true" />
+							pattern="^[0-9]+$" required="true" class="input-size" />
 					</div>
 				</div>
 				<form:errors path="personId" cssClass="text-danger" />
 				<div>
-					<label for="personName">Person Name</label>
+					<label class="heading-text" for="personName">Person Name</label>
 					<div>
-						<form:input path="personName" title="Name can't be empty"
-							pattern="^[A-Za-z]\\w{3,20}$" required="true" />
+						<form:input path="personName" pattern="^[a-z A-Z]+$"
+							title="Please Enter Charactor Only" placeholder="Enter Name"
+							required="true"  class="input-size" />
 					</div>
 				</div>
 				<form:errors path="personName" cssClass="text-danger" />
 				<div>
-					<label for="dob">Date Of Birth</label>
+					<label class="heading-text" for="dob">Date Of Birth</label>
 					<div>
 						<form:input path="dob" type="date" required="true" />
 					</div>
 				</div>
 				<div>
-					<label for="bloodGroupId">Blood Group</label>
+					<label class="heading-text" for="bloodGroupId">Blood Group</label>
 					<form:select path="bloodGroupId" id="bloodGroupId">
 						<c:forEach var="bloodGrouplist" items="${bloodGrouplist}">
 							<form:option value="${bloodGrouplist.bloodGroupId}"
@@ -51,16 +55,16 @@
 				</div>
 				<form:errors path="bloodGroupId" cssClass="text-danger" />
 				<div>
-					<label for="phoneNo">Phone Number</label>
+					<label class="heading-text" for="phoneNo">Phone Number</label>
 					<div>
-						<form:input path="phoneNo"
-							title="PhoneNumber should have atleast 10 digits"
-							pattern="^\\+?[1-9][0-9]{7,14}$" required="true" />
+						<form:input path="phoneNo" pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+							title="Enter 10 digits number" placeholder="Enter Phone Number"
+							required="true" class="input-size" />
 					</div>
 				</div>
 				<form:errors path="phoneNo" cssClass="text-danger" />
 				<div>
-					<label for="gender">Gender</label>
+					<label class="heading-text" for="gender">Gender</label>
 					<div>
 						<form:radiobutton path="gender" value="Male" />
 						Male
@@ -72,24 +76,24 @@
 				</div>
 				<form:errors path="gender" cssClass="text-danger" />
 				<div>
-					<label for="address">Address</label>
+					<label class="heading-text" for="address">Address</label>
 					<div>
-						<form:input path="address" required="true" />
+						<form:input path="address" required="true" class="input-size" />
 					</div>
 				</div>
 				<form:errors path="address" cssClass="text-danger" />
 				<div>
-					<label for="emailId">Email Id</label>
+					<label class="heading-text" for="emailId">Email Id</label>
 					<div>
 						<form:input path="emailId"
-							title='email Id must begin with letter and contain atleast one number and must have atleast 8 characters'
-							pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$"
-							required="true" />
+							pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+							title="Enter a valid email welcome03@gmail.com"
+							placeholder="Enter a Email" required="true" class="input-size" />
 					</div>
 				</div>
 				<form:errors path="emailId" cssClass="text-danger" />
 				<div>
-					<form:button>ADD</form:button>
+					<form:button class="button-style">ADD</form:button>
 				</div>
 			</form:form>
 		</div>

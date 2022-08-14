@@ -2,62 +2,67 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Person By Id</title>
+<style><%@include file ="/WEB-INF/css/alljsp.css"%>
+body {
+	background-color: #a5edf3;
+} 
+</style>
 </head>
 <body>
 <div id="root">
-		<div id="form">
+		<div id="form" class="form">
 			<form:form action="getperson" method="post"
 				modelAttribute="getperson">
 				<div>
-					<label for="personId">Person Id</label>
+					<label class="heading-text" for="personId">Person Id</label>
 					<div>
 						<form:input path="personId" />
 					</div>
 				</div>
 				<div>
-					<label for="personName">Person Name</label>
+					<label class="heading-text" for="personName">Person Name</label>
 					<div>
-						<form:input path="personName" />
+						<form:input path="personName" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="dob">DOB</label>
+					<label class="heading-text" for="dob">DOB</label>
 					<div>
 						<form:input path="dob" />
 					</div>
 				</div>
 				<div>
-					<label for="bloodGroupId">Blood Group Id</label>
+					<label class="heading-text" for="bloodGroupId">Blood Group Id</label>
 					<div>
-						<form:input path="bloodGroupId" />
+						<form:input path="bloodGroupId" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="phoneNo">Phone Number</label>
+					<label class="heading-text" for="phoneNo">Phone Number</label>
 					<div>
-						<form:input path="phoneNo" />
+						<form:input path="phoneNo"  class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="gender">Gender</label>
+					<label class="heading-text" for="gender">Gender</label>
 					<div>
-						<form:input path="gender" />
+						<form:input path="gender" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="address">Address</label>
+					<label class="heading-text" for="address">Address</label>
 					<div>
-						<form:input path="address" />
+						<form:input path="address" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="emailId">Email Id</label>
+					<label class="heading-text" for="emailId">Email Id</label>
 					<div>
-						<form:input path="emailId" />
+						<form:input path="emailId"  class="input-size" />
 					</div>
 				</div>
 			</form:form>

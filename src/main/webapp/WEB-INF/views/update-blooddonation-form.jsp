@@ -2,63 +2,69 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Donation</title>
-<style>
+<style><%@include file ="/WEB-INF/css/alljsp.css"%> 
 .text-danger {
 	color: #e80c4d;
 	font-size: 0.9em;
+}
+body {
+	background-color: #a5edf3;
 }
 </style>
 </head>
 <body>
 <body>
 	<div id="root">
-		<div id="form">
+		<div id="form" class="form">
 			<form:form action="update" method="post"
 				modelAttribute="updateblooddonation">
 				<div>
-					<label for="donationTransId">Donation Id</label>
+					<label class="heading-text" for="donationTransId">Donation Id</label>
 					<div>
-						<form:input path="donationTransId" title="Please enter number only"
-							pattern="^[0-9]+$" required="true" />
+						<form:input path="donationTransId"
+							title="Please enter number only" pattern="^[0-9]+$"
+							required="true"  class="input-size" />
 					</div>
 				</div>
 				<form:errors path="donationTransId" cssClass="text-danger" />
 				<div>
-					<label for="personId">Person Id </label>
+					<label class="heading-text" for="personId">Person Id </label>
 					<div>
 						<form:input path="personId" title="Please enter number only"
-							pattern="^[0-9]+$" required="true" />
+							pattern="^[0-9]+$" required="true" class="input-size" />
 					</div>
 				</div>
 				<form:errors path="personId" cssClass="text-danger" />
 				<div>
-					<label for="donationDate">Donation Date</label>
+					<label class="heading-text" for="donationDate">Donation Date</label>
 					<div>
-						<form:input type="date" path="donationDate" required="true" />
+						<form:input type="date" path="donationDate" required="true" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="healthCondition">Health Condition</label>
+					<label class="heading-text" for="healthCondition">Health Condition</label>
 					<div>
-						<form:input path="healthCondition" title="healthCondition can't be empty"
-						pattern="^[A-Za-z]\\w{3,20}$" required="true"/>
+						<form:input path="healthCondition" pattern="^[a-z A-Z]+$"
+							title="Please Enter Charactor Only"
+							placeholder="Enter Health Condition" class="input-size" />
 					</div>
 				</div>
 				<form:errors path="healthCondition" cssClass="text-danger" />
 				<div>
-					<label for="quantityInUnits">Quantity In Units</label>
+					<label class="heading-text" for="quantityInUnits">Quantity In Units</label>
 					<div>
-						<form:input path="quantityInUnits" title="Please enter number only"
-							pattern="^[0-9]+$" required="true" />
+						<form:input path="quantityInUnits"
+							title="Please enter number only" pattern="^[0-9]+$"
+							required="true" class="input-size" />
 					</div>
 				</div>
-				<form:errors path="quantityInUnits" cssClass="text-danger" />
+				<form:errors path="quantityInUnits" cssClass="text-danger" class="input-size" />
 				<div>
-					<form:button>UPDATE</form:button>
+					<form:button class="button-style">UPDATE</form:button>
 				</div>
 			</form:form>
 		</div>

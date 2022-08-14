@@ -2,13 +2,15 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>List Request</title>
+<style><%@include file ="/WEB-INF/css/list.css"%> 
+</style>
 </head>
 <body>
-<div id="table root">
+<div id="table root"  class="top">
 		<table>
 			<thead>
 				<tr>
@@ -19,6 +21,9 @@
 					<th>Blood Group Id</th>
 					<th>Request Date</th>
 					<th>Quantity In Units</th>
+					<th>Edit</th>
+					<th>Delete</th>
+					<th>View</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -31,10 +36,17 @@
 						<td>${request.bloodGroupId}</td>
 						<td>${request.requestDate}</td>
 						<td>${request.quantityInUnits}</td>
+						<td><a href="updatebloodrequestform?reqid=${request.requestId}">Edit</a></td>
+						<td><a href="deletebloodrequest?id=${request.requestId}">Delete</a></td>
+						<td><a href="getbloodrequest?id=${request.requestId}">View</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
+	<div class="btn_align">
+			<a href="addbloodrequestform"><button class="button">ADD REQUEST
+				</button></a>
+		</div>
 </body>
 </html>

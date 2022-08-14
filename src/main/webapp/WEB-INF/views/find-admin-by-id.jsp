@@ -3,48 +3,53 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Admin By Id</title>
+<style><%@include file ="/WEB-INF/css/alljsp.css"%>
+body {
+	background-color: #a5edf3;
+} 
+</style>
 </head>
 <body>
 	<div id="root">
-		<div id="form">
+		<div id="form" class="form">
 			<form:form action="getadmin" method="post" modelAttribute="getadmins">
 				<div>
-					<label for="adminId">Admin Id</label>
+					<label class="heading-text" for="adminId">Admin Id</label>
 					<div>
-						<form:input path="adminId" />
+						<form:input path="adminId" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="adminName">Admin Name</label>
+					<label class="heading-text" for="adminName">Admin Name</label>
 					<div>
-						<form:input path="adminName" />
+						<form:input path="adminName" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="adminPassword">Admin Password</label>
+					<label class="heading-text" for="adminPassword">Admin Password</label>
 					<div>
-						<form:input type="password" path="adminPassword" />
+						<form:input type="password" path="adminPassword" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="dateOfJoining">Date Of Joining</label>
+					<label class="heading-text" for="dateOfJoining">Date Of Joining</label>
 					<div>
-						<form:input type="date" path="dateOfJoining" />
+						<form:input type="date" path="dateOfJoining" class="input-size" />
 					</div>
 				<div>
-					<label for="designation">Designation</label>
+					<label class="heading-text" for="designation">Designation</label>
 					<div>
 						<form:input path="designation" />
 					</div>
 				</div>
 				<div>
-					<label for="passwordModifiedDate">password Modified Date</label>
+					<label class="heading-text" for="passwordModifiedDate">password Modified Date</label>
 					<div>
-						<form:input type="date" path="passwordModifiedDate" />
+						<form:input type="date" path="passwordModifiedDate" class="input-size" />
 					</div>
 				</div>
 			</form:form>

@@ -1,0 +1,32 @@
+@charset "ISO-8859-1";
+table, th, td {
+	border: 1px solid black;
+	padding: 10px;
+	text-align: left;
+}
+
+th, td {
+	border-color: #96D4D4;
+}
+
+tr:hover {
+	background-color: #D6EEEE;
+}
+
+.button {
+	font-size: 19px;
+	background-color: #17c0cd5e;
+	border: 1px solid blue;
+	border-radius: 5px;
+}
+
+.top {
+	margin-top: 105px;
+	margin-left: 185px;
+}
+
+.btn_align {
+	margin-right: 181px;
+	margin-top: 25px;
+	text-align: center;
+}

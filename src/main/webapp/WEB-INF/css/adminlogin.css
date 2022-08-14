@@ -1,0 +1,46 @@
+@charset "ISO-8859-1";
+
+.login-form {
+	width: 75px;
+	height: 30px;
+	font-size: 17px;
+	background-color: lightblue;
+	border: 1px solid blue;
+	border-radius: 3px;
+	color: blue;
+}
+
+.input {
+	width: 100%;
+	height: 35px;
+	margin-left: 20px;
+	font-size: 17px;
+	
+}
+
+.root {
+	width: auto;
+}
+h1{
+	 font-size: 68px;
+}
+
+.center {
+	text-align: center;
+}
+
+.label {
+	font-size: 35px;
+   /* margin-right: 456px;  */
+
+}
+.margin
+{
+	margin-top: 20px;
+	 margin-left: 195px;
+	
+}
+
+.bottom {
+	margin-left: 12px;	
+}

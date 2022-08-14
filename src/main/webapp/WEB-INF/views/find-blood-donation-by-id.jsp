@@ -2,43 +2,48 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Donation By Id</title>
+<style><%@include file ="/WEB-INF/css/alljsp.css"%> 
+body {
+	background-color: #a5edf3;
+}
+</style>
 </head>
 <body>
 	<div id="root">
-		<div id="form">
+		<div id="form" class="form">
 			<form:form action="getblooddonation" method="post" modelAttribute="getblooddonationbyid">
 				<div>
-					<label for="donationTransId">Donation Id</label>
+					<label class="heading-text" for="donationTransId">Donation Id</label>
 					<div>
-						<form:input path="donationTransId" />
+						<form:input path="donationTransId" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="personId">Person Id </label>
+					<label class="heading-text" for="personId">Person Id </label>
 					<div>
-						<form:input path="personId" />
+						<form:input path="personId" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="donationDate">Donation Date</label>
+					<label class="heading-text" for="donationDate">Donation Date</label>
 					<div>
-						<form:input type="date" path="donationDate" />
+						<form:input type="date" path="donationDate" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="healthCondition">Health Condition</label>
+					<label class="heading-text" for="healthCondition">Health Condition</label>
 					<div>
-						<form:input path="healthCondition" />
+						<form:input path="healthCondition" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label for="quantityInUnits">Quantity</label>
+					<label class="heading-text" for="quantityInUnits">Quantity</label>
 					<div>
-						<form:input path="quantityInUnits" />
+						<form:input path="quantityInUnits" class="input-size" />
 					</div>
 				</div>
 			</form:form>

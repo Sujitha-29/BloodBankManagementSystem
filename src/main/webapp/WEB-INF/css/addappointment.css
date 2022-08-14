@@ -1,0 +1,35 @@
+@charset "ISO-8859-1";
+.text-danger {
+	color: #e80c4d;
+	font-size: 0.9em;
+}
+
+
+style>.text-danger {
+	color: #e80c4d;
+	font-size: 0.9em;
+}
+
+.heading-text {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+
+.input-size {
+	padding: 5px;
+	width: 15%;
+}
+
+.button-style {
+	width: 90px;
+	height: 30px;
+	margin-top: 12px;
+	background-color: #f6f7f2;
+	font-weight: bold;
+}
+.form
+{
+text-align: center; 
+margin-top: 9%;
+}

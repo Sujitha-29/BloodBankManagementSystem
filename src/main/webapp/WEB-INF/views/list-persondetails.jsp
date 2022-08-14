@@ -2,13 +2,15 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>List Persons Details</title>
+<style><%@include file ="/WEB-INF/css/list.css"%> 
+</style>
 </head>
 <body>
-<div id="table root">
+<div id="table root" class="top">
 		<table>
 			<thead>
 				<tr>
@@ -20,6 +22,9 @@
 					<th>Gender</th>
 					<th>Address</th>
 					<th>Email Id</th>
+					<th>Edit</th>
+					<th>Delete</th>
+					<th>View</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,10 +38,17 @@
 						<td>${person.gender}</td>
 						<td>${person.address}</td>
 						<td>${person.emailId}</td>
+						<td><a href="updatepersonform?personid=${person.personId}">Edit</a></td>
+						<td><a href="deleteperson?id=${person.personId}">Delete</a></td>
+						<td><a href="getperson?id=${person.personId}">View</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
+	<div class="btn_align">
+			<a href="addpersonform"><button class="button">ADD PERSON
+				</button></a>
+		</div>
 </body>
 </html>
