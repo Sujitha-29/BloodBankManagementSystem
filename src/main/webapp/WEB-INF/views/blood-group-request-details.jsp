@@ -30,11 +30,14 @@
 					<div>
 						<form:input path="stockInHand" />
 					</div>
+					</div>
 			</form:form>
 		</div>
 	</div>
 	<div id="table root">
 		<table>
+		<caption></caption>
+		
 			<thead>
 				<tr>
 					<th>Request Id</th>

@@ -10,7 +10,7 @@ public interface PersonDetailsRepository extends CrudRepository<PersonDetail,Int
 {
 	PersonDetail findById(int id);
 	PersonDetail save(PersonDetail person);
-	void deleteById(int person_id);
+	void deleteById(int personId);
 	List<PersonDetail> findAll();
 	List<PersonDetail> findByBloodGroupId(int id);
 }

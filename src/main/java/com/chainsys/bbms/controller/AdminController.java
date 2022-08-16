@@ -87,7 +87,7 @@ public class AdminController
 	}
 	
 	@GetMapping("/adminpage")
-	public String AdminLogin(Model model)
+	public String adminLogin(Model model)
 	{
 		AdminDetail admin=new AdminDetail();
 		model.addAttribute("login", admin);

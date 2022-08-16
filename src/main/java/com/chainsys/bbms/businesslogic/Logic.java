@@ -20,8 +20,13 @@ public class Logic
 		long milseconds=appointmentDate.getTime()-priviousDonationDate.getTime();
 		long days=milseconds/(1000*60*60*24);
 		if(days>180)
+		{
 			return false;
-		else return true;
+		}
+		else 
+		{
+			return true;
+		}
 	}
 	
 }

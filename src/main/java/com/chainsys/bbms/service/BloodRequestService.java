@@ -1,6 +1,5 @@
 package com.chainsys.bbms.service;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +21,8 @@ public class BloodRequestService
 	
 	public List<BloodRequest> getBloodRequest()
 	{
-		List<BloodRequest> brlist = bloodRequestRepository.findAll();
-		return brlist;
+		List<BloodRequest> bloodRequestlList = bloodRequestRepository.findAll();
+		return bloodRequestlList;
 	}
 	public BloodRequest save(BloodRequest br)
 	{
@@ -42,9 +41,9 @@ public class BloodRequestService
 	{
 		BloodRequest bloodRequest=findById(id);
 		BloodRequestBloodTransactionDTO dto=new BloodRequestBloodTransactionDTO();
-		dto.setBloodrequest(bloodRequest);;
+		dto.setBloodrequest(bloodRequest);
 		BloodTransaction bloodTransaction=bloodTransactionRepository.findByRequestId(id);
-		dto.setBloodTransaction(bloodTransaction);;
+		dto.setBloodTransaction(bloodTransaction);
 		return dto;	
 	}
 }

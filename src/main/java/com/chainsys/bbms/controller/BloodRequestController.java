@@ -49,10 +49,6 @@ public class BloodRequestController
 	@PostMapping("/addbloodrequest")
 	public String addNewBloodRequest(@ModelAttribute("addrequest") BloodRequest thereq)
 	{
-//		if(errors.hasErrors())
-//		{
-//			return "add-request-form";
-//		}
 		bloodRequestService.save(thereq);
 		return "redirect:/bloodrequest/getbloodrequest?id=" + thereq.getRequestId();
 	}
