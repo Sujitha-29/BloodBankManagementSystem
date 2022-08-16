@@ -12,6 +12,7 @@
 <body>
 <div id="table root" class="bloodgrp_top">
 		<table>
+		<caption></caption>
 			<thead>
 				<tr>
                     <th>Blood Group Id</th>

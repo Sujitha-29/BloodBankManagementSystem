@@ -12,6 +12,7 @@
 <body>
 <div id="table root" class="person_top">
 		<table>
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Person Id</th>

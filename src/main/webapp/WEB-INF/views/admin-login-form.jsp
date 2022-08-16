@@ -9,7 +9,8 @@
 <title>AdminLogin Form</title>
 <style><%@include file ="/WEB-INF/css/adminlogin.css"%>
 body {
-	background-image: url("https://cdn.wallpapersafari.com/87/56/KycIlt.jpg");
+	background-image:
+		url("https://cdn.wallpapersafari.com/87/56/KycIlt.jpg");
 	background-repeat: no-repeat;
 	background-size: 1400px 700px;
 }
@@ -21,10 +22,14 @@ body {
 			<form:form action="adminlogin" method="post" modelAttribute="login">
 				<h1>AdminLogin</h1>
 				<table>
+					<caption></caption>
+					<tr>
+						<th></th>
+					</tr>
 					<thead>
 						<tr>
 							<td><label for="adminId" class="label">AdminId :</label></td>
-							<td><form:input path="adminId" placeholder="adminId" 
+							<td><form:input path="adminId" placeholder="adminId"
 									class="input" /></td>
 						</tr>
 						<tr>
@@ -32,17 +37,27 @@ body {
 									:</label></td>
 							<td><form:input path="adminPassword" placeholder="password"
 									type="password" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
-							title="Enter a valid password Welcomes@03" required="true" class="input" /></td>
+									title="Enter a valid password Welcomes@03" required="true"
+									class="input" /></td>
 						</tr>
 					</thead>
 				</table>
 				<div class="margin">
-					<tr>
-						<td><form:button class="login-form" type="submit">Sign In</form:button></td>
-						<td><form:button class="login-form" style="margin-left:12px;">
-								<a href="/admin/addadminform">Sign Up</a>
-							</form:button></td>
-					</tr>
+					<table>
+						<caption></caption>
+						<tr>
+						<th></th>
+					    </tr>
+						<thead>
+							<tr>
+								<td><form:button class="login-form" type="submit">Sign In</form:button></td>
+								<td><form:button class="login-form"
+										style="margin-left:12px;">
+										<a href="/admin/addadminform">Sign Up</a>
+									</form:button></td>
+							</tr>
+						</thead>
+					</table>
 				</div>
 			</form:form>
 		</div>

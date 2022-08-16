@@ -29,11 +29,14 @@
 					<div>
 						<form:input path="stockInHand" />
 					</div>	
+					</div>
 			</form:form>
 		</div>
+		
 	</div>
 	<div id="personlist">
 		<table>
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Person Id</th>

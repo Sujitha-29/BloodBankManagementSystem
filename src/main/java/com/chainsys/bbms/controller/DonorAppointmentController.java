@@ -68,7 +68,6 @@ public class DonorAppointmentController
 			return "add-appointment-form";
 			
 		}
-		
 		donorAppointmentService.save(theappo);
 		model.addAttribute("result", "Succecfully submitted your Appointment");
 		return "add-appointment-form";

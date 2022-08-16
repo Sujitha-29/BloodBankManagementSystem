@@ -5,18 +5,19 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>List Admin</title>
+<title>ListAdmin</title>
 <style><%@include file ="/WEB-INF/css/list.css"%> 
 </style>
 </head>
 <body>
 	<div id="table root" class="top">
 		<table>
+		<caption></caption>
 			<thead>
 				<tr>
-					<th>Admin Id</th>
-					<th>Admin Name</th>
-					<th>Admin Password</th>
+					<th>AdminId</th>
+					<th>AdminName</th>
+					<th>AdminPassword</th>
 					<th>Date Of Joining</th>
 					<th>Designation</th>
 					<th>Password Modified Date</th>
@@ -44,6 +45,7 @@
 		<div class="btn_align">
 			<a href="addadminform"><button class="button">ADD ADMIN
 				</button></a>
+		</div>
 		</div>
 </body>
 </html>

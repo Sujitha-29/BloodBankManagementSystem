@@ -12,6 +12,7 @@
 <body>
 	<div id="table root" class="top">
 		<table>
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Transaction Id</th>

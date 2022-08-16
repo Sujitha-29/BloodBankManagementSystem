@@ -12,6 +12,8 @@
 <body>
 <div id="table root"  class="request_top">
 		<table>
+		<caption></caption>
+		
 			<thead>
 				<tr>
 					<th>Request Id</th>

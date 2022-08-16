@@ -12,6 +12,7 @@
 <body>
 	<div id="table root" class="donation_top">
 		<table>
+		<caption></caption>
 			<thead>
 				<tr>
 				

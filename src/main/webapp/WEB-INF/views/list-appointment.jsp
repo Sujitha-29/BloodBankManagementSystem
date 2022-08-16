@@ -12,6 +12,7 @@
 <body>
 <div id="table root" class="appo_top">
 		<table>
+		<caption></caption>
 			<thead>
 				<tr>
 					<th>Appointment Id</th>

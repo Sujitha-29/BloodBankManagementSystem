@@ -1,27 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>login Form</title>
-<script>
-    function validateform() {
-        var adminId = document.reg_form.adminId.value;
-        var adminPassword = document.reg_form.adminPassword.value;
-        if (adminId == null || adminId == "") {
-            alert("Admin Id is required or can't be blank");
-            return false;
-        } else if (adminPassword.length < 6) {
-            alert("Admin Password is required or can't be blank");
-            return false;
-        }
-    }
-</script>
 <style>
 @import
-    url('https://fonts.googleapis.com/css?family=Playfair+Display:400,900|Poppins:400,500')
-    ;
+    url('https://fonts.googleapis.com/css?family=Playfair+Display:400,900|Poppins:400,500');
+    
 h1{color: white;}
 * {
     margin: 0;
@@ -180,7 +167,7 @@ button {
         <form action="adminlogin" name="reg_form" method="post"
             modelAttribute="adminlogin" onsubmit="return validateform()">
             <header>
-            <h1>Admin Login</h1>
+            <h1>AdminLogin</h1>
             </header>
             <br> <br>
             <div class="inputs">
