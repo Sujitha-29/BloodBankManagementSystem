@@ -8,10 +8,6 @@
 <meta charset="ISO-8859-1">
 <title>Transaction Update</title>
 <style><%@include file ="/WEB-INF/css/alljsp.css"%> 
-.text-danger {
-	color: #e80c4d;
-	font-size: 0.9em;
-}
 body {
 	background-color: #a5edf3;
 }

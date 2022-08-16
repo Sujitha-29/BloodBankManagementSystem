@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +10,7 @@
 </style>
 </head>
 <body>
-<div id="table root" class="top">
+<div id="table root" class="person_top">
 		<table>
 			<thead>
 				<tr>
@@ -46,7 +46,7 @@
 			</tbody>
 		</table>
 	</div>
-	<div class="btn_align">
+	<div class="person_btn">
 			<a href="addpersonform"><button class="button">ADD PERSON
 				</button></a>
 		</div>

@@ -20,18 +20,23 @@ public class IndexController
     }
     
     @GetMapping("/adminuse")
-    public String AdminAccess(Model model)
+    public String adminAccess(Model model)
     {
     	return "adminaccess"; 	
     }
     @GetMapping("/loginuse")
-    public String HomePage(Model model)
+    public String homePage(Model model)
     {
     	return "homepage"; 	
     }
     @GetMapping("/webpage")
-    public String WebpageHome(Model model)
+    public String webpageHome(Model model)
     {
     	return "demonavbar";
+    }
+    @GetMapping("/contactus")
+    public String contactUs(Model model)
+    {
+    	return "contact";
     }
 }

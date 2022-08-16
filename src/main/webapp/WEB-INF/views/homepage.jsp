@@ -4,27 +4,30 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Home Page</title>
-<style><%@include file ="/WEB-INF/css/homepage.css"%>
+<title>DemoNavbar</title>
+<style><%@include file ="/WEB-INF/css/demonavbars.css"%>
 body {
 	background-image:
-		url("https://static.vecteezy.com/system/resources/previews/005/424/812/original/volunteers-donating-blood-blood-donor-charity-concept-world-blood-donor-day-health-care-for-banner-poster-card-ui-web-landing-page-template-for-blood-bank-or-hospital-flat-illustration-free-vector.jpg");
+		url("https://i2.wp.com/www.additudemag.com/wp-content/uploads/2005/06/blood-donation-ts-640012810.jpg");
 	background-repeat: no-repeat;
-	background-size: 1400px 700px;
+	background-size: 1400px 660px;
+	font-family: montserrat;
 }
 </style>
 </head>
 <body>
-<label class="logo">BloodBank</label>
-<nav></nav>
-	<div class="menu">
+	<nav>
+		<label class="logo">BloodBank</label>
 		<ul>
-			<li><a href="#">HOME</a></li>
+			<li><a class="active" href="#">Home</a></li>
 			<li><a href="/admin/adminpage">ADMIN</a></li>
-			<li><a href="/bloodrequest/addbloodrequestform">BLOOD REQUEST</a></li>
-			<li><a href="/appointment/adddonorappointmentform">DONOR APPOINTMENT</a></li>
-			<li><a href="#">CONTACT</a></li>
+			<li><a href="/bloodrequest/addbloodrequestform">BLOOD
+					REQUEST</a></li>
+			<li><a href="/person/addpersonform">NEW DONOR</a></li>
+			<li><a href="/appointment/adddonorappointmentform">DONOR
+					APPOINTMENT</a></li>
+			<li><a href="/home/contactus">CONTACT</a></li>
 		</ul>
-	</div>
+	</nav>
 </body>
 </html>

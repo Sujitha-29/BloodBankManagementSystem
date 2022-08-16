@@ -49,11 +49,26 @@ public class DonorAppointmentController
 		{
 			return "add-appointment-form";
 		}
-		List<BloodDonationDetail>bloodDonationDetailList=bloodDonationService.findBloodDonationDetailBypersonId(theappo.getPersonId()); 
-		if(Logic.unEligibilityForDonation(theappo.getAppointmentDate(), bloodDonationDetailList.get(0).getDonationDate())) {
-			model.addAttribute("result", "you are not eligible for Blood Donation");
+		List<BloodDonationDetail>bloodDonationDetailList=null;
+		try {
+			bloodDonationDetailList=bloodDonationService.findBloodDonationDetailBypersonId(theappo.getPersonId());
+		}catch(Exception exp) {
+			donorAppointmentService.save(theappo);
+			model.addAttribute("result", "Succecfully submitted your Appointment");
 			return "add-appointment-form";
 		}
+		try {
+			if(Logic.unEligibilityForDonation(theappo.getAppointmentDate(), bloodDonationDetailList.get(0).getDonationDate())) {
+				model.addAttribute("result", "you are not eligible for Blood Donation");
+				return "add-appointment-form";
+			}
+		}catch(Exception exp) {
+			donorAppointmentService.save(theappo);
+			model.addAttribute("result", "Succecfully submitted your Appointment");
+			return "add-appointment-form";
+			
+		}
+		
 		donorAppointmentService.save(theappo);
 		model.addAttribute("result", "Succecfully submitted your Appointment");
 		return "add-appointment-form";

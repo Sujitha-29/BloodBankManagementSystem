@@ -10,7 +10,7 @@
 </style>
 </head>
 <body>
-<div id="table root"  class="top">
+<div id="table root"  class="request_top">
 		<table>
 			<thead>
 				<tr>
@@ -44,7 +44,7 @@
 			</tbody>
 		</table>
 	</div>
-	<div class="btn_align">
+	<div class="request_btn">
 			<a href="addbloodrequestform"><button class="button">ADD REQUEST
 				</button></a>
 		</div>

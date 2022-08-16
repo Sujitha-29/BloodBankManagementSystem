@@ -54,7 +54,7 @@ public class BloodRequestController
 //			return "add-request-form";
 //		}
 		bloodRequestService.save(thereq);
-		return "redirect:/bloodrequest/listbloodrequest";
+		return "redirect:/bloodrequest/getbloodrequest?id=" + thereq.getRequestId();
 	}
 	
 	@GetMapping("/updatebloodrequestform")

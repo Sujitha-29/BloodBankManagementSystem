@@ -10,7 +10,7 @@
 </style>
 </head>
 <body>
-	<div id="table root" class="top">
+	<div id="table root" class="donation_top">
 		<table>
 			<thead>
 				<tr>
@@ -41,7 +41,7 @@
 			</tbody>
 		</table>
 	</div>
-	<div class="btn_align">
+	<div class="donation_btn">
 			<a href="addblooddonationform"><button class="button">ADD DONATION
 				</button></a>
 		</div>

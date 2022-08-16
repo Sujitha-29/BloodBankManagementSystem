@@ -8,10 +8,6 @@
 <meta charset="ISO-8859-1">
 <title>Add Person Details</title>
 <style><%@include file ="/WEB-INF/css/alljsp.css"%>
-.text-danger {
-	color: #e80c4d;
-	font-size: 0.9em;
-}
 body {
 	background-color: #a5edf3;
 }
@@ -21,13 +17,7 @@ body {
 	<div id="root">
 		<div id="form" class="form">
 			<form:form action="add" method="post" modelAttribute="addperson">
-				<div>
-					<label  class="heading-text" for="personId">Person Id</label>
-					<div>
-						<form:input path="personId" title="Please enter number only"
-							pattern="^[0-9]+$" required="true" class="input-size" />
-					</div>
-				</div>
+				
 				<form:errors path="personId" cssClass="text-danger" />
 				<div>
 					<label class="heading-text" for="personName">Person Name</label>
@@ -41,7 +31,7 @@ body {
 				<div>
 					<label class="heading-text" for="dob">Date Of Birth</label>
 					<div>
-						<form:input path="dob" type="date" required="true" />
+						<form:input path="dob" type="date" required="true" class="input-size" />
 					</div>
 				</div>
 				<div>

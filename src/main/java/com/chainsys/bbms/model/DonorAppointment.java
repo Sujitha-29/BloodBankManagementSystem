@@ -4,7 +4,10 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
@@ -13,6 +16,8 @@ import javax.persistence.Table;
 public class DonorAppointment {
 	@Id
 	@Column(name = "appointment_id")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "appo_id")
+	@SequenceGenerator(name = "appo_id", sequenceName = "appo_id", allocationSize = 1)
 	private int appointmentId;
 
 	@Column(name = "Appointment_date")

@@ -15,12 +15,12 @@ body {
 <body>
 <div id="root">
 		<div id="form" class="form">
-			<form:form action="getperson" method="post"
+			<form:form action="" method="post"
 				modelAttribute="getperson">
 				<div>
 					<label class="heading-text" for="personId">Person Id</label>
 					<div>
-						<form:input path="personId" />
+						<form:input path="personId" class="input-size" />
 					</div>
 				</div>
 				<div>
@@ -32,7 +32,7 @@ body {
 				<div>
 					<label class="heading-text" for="dob">DOB</label>
 					<div>
-						<form:input path="dob" />
+						<form:input path="dob" class="input-size" />
 					</div>
 				</div>
 				<div>
@@ -65,7 +65,11 @@ body {
 						<form:input path="emailId"  class="input-size" />
 					</div>
 				</div>
+				<form:button class="button-style">
+                            <a href="/appointment/adddonorappointmentform">NEXT</a>
+                        </form:button> 
 			</form:form>
+			 
 		</div>
 	</div>
 </body>

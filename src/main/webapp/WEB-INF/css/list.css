@@ -30,3 +30,52 @@ tr:hover {
 	margin-top: 25px;
 	text-align: center;
 }
+.bloodgrp_top
+{
+	margin-top: 45px;
+    margin-left: 364px;
+}
+.bloodgrp_btn
+{
+	margin-right: 47px;
+	margin-top: 25px;
+	text-align: center;
+}
+.person_top
+{
+	    margin-top: 69px;
+    margin-left: 184px;
+}
+.person_btn
+{
+	    margin-right: -21px;
+    margin-top: 25px;
+    text-align: center;
+}
+.donation_top
+{
+	margin-top: 105px;
+    margin-left: 280px;
+}
+.donation_btn
+{
+	margin-right: -17px;
+    margin-top: 25px;
+    text-align: center;
+}
+.request_top
+{
+	    margin-top: 105px;
+    margin-left: 106px;
+}
+.request_btn
+{
+	margin-right: 54px;
+    margin-top: 25px;
+    text-align: center;
+}
+.appo_top
+{
+	    margin-top: 108px;
+    margin-left: 288px;
+}

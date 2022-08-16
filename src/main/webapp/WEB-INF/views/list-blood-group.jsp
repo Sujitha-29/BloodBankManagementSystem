@@ -10,7 +10,7 @@
 </style>
 </head>
 <body>
-<div id="table root" class="top">
+<div id="table root" class="bloodgrp_top">
 		<table>
 			<thead>
 				<tr>
@@ -36,7 +36,7 @@
 			</tbody>
 		</table>
 	</div>
-	<div class="btn_align">
+	<div class="bloodgrp_btn">
 			<a href="addbloodgroupform"><button class="button">ADD BLOOD GROUP
 				</button></a>
 		</div>

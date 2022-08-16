@@ -47,7 +47,7 @@ public class AdminController
 			return "add-admins-form";
 		}
 		adminService.save(theadmin);
-		return "redirect:/admin/listadmins";
+		return "redirect:/admin/getadmin?id=" +theadmin.getAdminId() ;
 		
 	}
 	
@@ -100,11 +100,16 @@ public class AdminController
 		AdminDetail adminDetail =adminService.getAdminIdAdminPassword(admin.getAdminId(),admin.getAdminPassword());
 		if(adminDetail !=null)
 		{
-			return "redirect:/home/adminuse";
+			return "redirect:/admin/adminuse";
 		}
 		else
 		{
 			return "invalid admin error";
 		}
 	}
+	@GetMapping("/adminuse")
+    public String adminAccess(Model model)
+    {
+    	return "adminaccess"; 	
+    }
 }

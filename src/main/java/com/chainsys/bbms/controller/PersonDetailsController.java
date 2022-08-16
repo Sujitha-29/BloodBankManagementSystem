@@ -49,18 +49,10 @@ public class PersonDetailsController {
 	@PostMapping("/add")
 	public String addNewPerson(@ModelAttribute("addperson") PersonDetail theperson)
 	{
-//		List<ObjectError> errorList=errors.getAllErrors();
-//		for (ObjectError objectError : errorList) {
-//			System.out.println("Debug :" + objectError.getDefaultMessage());
-//		}
-//		if(errors.hasErrors())
-//		{
-//			return "add-persons-form";
-//		}
 		personDetailService.save(theperson);
-		return "redirect:/person/listpersondetails";
+		return "redirect:/person/getperson?id=" +theperson.getPersonId();
 	}
-	
+		
 	@GetMapping("/updatepersonform")
 	public String showPersonDeatilUpdateForm(@Valid @RequestParam("personid") int id,Model model)
 	{

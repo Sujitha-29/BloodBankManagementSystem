@@ -14,7 +14,9 @@ public class Logic
 	}
 	public static boolean unEligibilityForDonation(Date appointmentDate,Date priviousDonationDate) 
 	{
-        
+        if(priviousDonationDate==null) {
+        	return false;
+        }
 		long milseconds=appointmentDate.getTime()-priviousDonationDate.getTime();
 		long days=milseconds/(1000*60*60*24);
 		if(days>180)

@@ -41,13 +41,13 @@ body {
 		<div id="form" style="text-align: center; margin-top: 9%;">
 			<form:form style="line-height: 20px;" action="addbloodrequest"
 				method="post" modelAttribute="addrequest">
-				<div>
+				<%-- <div>
 					<label class="heading-text" for="requestId">Request Id</label>
 					<div>
 						<form:input path="requestId" title="Please enter number only"
 							pattern="^[0-9]+$" required="true" class="input-size" />
 					</div>
-				</div>
+				</div> --%>
 				<form:errors path="requestId" cssClass="text-danger" />
 				<div>
 					<label class="heading-text" for="recipientName">Recipient
@@ -108,7 +108,7 @@ body {
 					</div>
 				</div>
 				<form:errors path="quantityInUnits" cssClass="text-danger" />
-				<div>
+				<div style="margin-top: 10px;">
 					<form:button class="button-style">ADD</form:button>
 				</div>
 			</form:form>

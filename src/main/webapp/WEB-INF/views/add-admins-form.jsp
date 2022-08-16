@@ -5,18 +5,17 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Add Admin</title>
+<title>AddAdmin</title>
 <style><%@include file ="/WEB-INF/css/addadmin.css"%>
 body {
 	background-image:
 		url(https://www.teahub.io/photos/full/164-1649703_pastel-pattern-desktop-background.jpg);
 	/* background-color: #a5edf3; */
 	background-repeat: no-repeat;
-	background-size: 1366px 650px;
+	background-size: 1366px 660px;
 	background-position: center top;
 	position: relative;
 }
-
 </style>
 </head>
 <body>
@@ -25,7 +24,7 @@ body {
 			<form:form class="modelattribute" action="addadmin" method="post"
 				modelAttribute="addadmins">
 				<div>
-					<label class="heading-text" for="adminId">Admin Id</label>
+					<label class="heading-text" for="adminId">AdminId</label>
 					<div>
 						<form:input path="adminId" title="Please enter number only"
 							pattern="^[0-9]+$" required="true" class="input-size" />
@@ -33,7 +32,7 @@ body {
 				</div>
 				<form:errors path="adminId" cssClass="text-danger" />
 				<div>
-					<label class="heading-text" for="adminName">Admin Name</label>
+					<label class="heading-text" for="adminName">AdminName</label>
 					<div>
 						<form:input path="adminName" pattern="^[a-z A-Z]+$"
 							title="Please Enter Charactor Only"
@@ -42,8 +41,7 @@ body {
 				</div>
 				<form:errors path="adminName" cssClass="text-danger" />
 				<div>
-					<label class="heading-text" for="adminPassword">Admin
-						Password</label>
+					<label class="heading-text" for="adminPassword">AdminPassword</label>
 					<div>
 						<form:input type="password" path="adminPassword"
 							pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"

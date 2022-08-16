@@ -5,10 +5,13 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +19,8 @@ import javax.persistence.Table;
 public class BloodRequest {
 	@Id
 	@Column(name = "request_id")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "req_id")
+	@SequenceGenerator(name = "req_id", sequenceName = "req_id", allocationSize = 1)
 	private int requestId;
 
 	@Column(name = "recipient_name")

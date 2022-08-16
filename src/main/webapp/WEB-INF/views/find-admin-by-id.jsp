@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Find Admin By Id</title>
+<title>FindAdminById</title>
 <style><%@include file ="/WEB-INF/css/alljsp.css"%>
 body {
 	background-color: #a5edf3;
@@ -18,19 +18,19 @@ body {
 		<div id="form" class="form">
 			<form:form action="getadmin" method="post" modelAttribute="getadmins">
 				<div>
-					<label class="heading-text" for="adminId">Admin Id</label>
+					<label class="heading-text" for="adminId">AdminId</label>
 					<div>
 						<form:input path="adminId" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label class="heading-text" for="adminName">Admin Name</label>
+					<label class="heading-text" for="adminName">AdminName</label>
 					<div>
 						<form:input path="adminName" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label class="heading-text" for="adminPassword">Admin Password</label>
+					<label class="heading-text" for="adminPassword">AdminPassword</label>
 					<div>
 						<form:input type="password" path="adminPassword" class="input-size" />
 					</div>
@@ -43,7 +43,7 @@ body {
 				<div>
 					<label class="heading-text" for="designation">Designation</label>
 					<div>
-						<form:input path="designation" />
+						<form:input path="designation" class="input-size" />
 					</div>
 				</div>
 				<div>
@@ -52,6 +52,9 @@ body {
 						<form:input type="date" path="passwordModifiedDate" class="input-size" />
 					</div>
 				</div>
+				<form:button class="button-style">
+                            <a href="/admin/adminpage">BACK</a>
+                        </form:button>
 			</form:form>
 		</div>
 	</div>

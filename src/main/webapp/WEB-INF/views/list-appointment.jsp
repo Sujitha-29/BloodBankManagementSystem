@@ -10,7 +10,7 @@
 </style>
 </head>
 <body>
-<div id="table root" class="top">
+<div id="table root" class="appo_top">
 		<table>
 			<thead>
 				<tr>

@@ -49,5 +49,5 @@ body {
 	</div>
 	
 </body>
-<div>${result}</div>
+<div class="center">${result}</div>
 </html>
