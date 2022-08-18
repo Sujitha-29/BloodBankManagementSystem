@@ -83,7 +83,7 @@ body {
 				</div>
 				<form:errors path="emailId" cssClass="text-danger" />
 				<div>
-					<form:button class="button-style">ADD</form:button>
+					<form:button class="button-style">REGISTER</form:button>
 				</div>
 			</form:form>
 		</div>

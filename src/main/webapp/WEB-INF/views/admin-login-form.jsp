@@ -28,13 +28,12 @@ body {
 					</tr>
 					<thead>
 						<tr>
-							<td><label for="adminId" class="label">AdminId :</label></td>
-							<td><form:input path="adminId" placeholder="adminId"
+							<td><label for="adminName" class="label">AdminName :</label></td>
+							<td><form:input path="adminName" placeholder="adminName"
 									class="input" /></td>
 						</tr>
 						<tr>
-							<td><label for="adminPassword" class="label">Password
-									:</label></td>
+							<td><label for="adminPassword" class="label">Password :</label></td>
 							<td><form:input path="adminPassword" placeholder="password"
 									type="password" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
 									title="Enter a valid password Welcomes@03" required="true"
@@ -51,10 +50,10 @@ body {
 						<thead>
 							<tr>
 								<td><form:button class="login-form" type="submit">Sign In</form:button></td>
-								<td><form:button class="login-form"
+								<%-- <td><form:button class="login-form"
 										style="margin-left:12px;">
 										<a href="/admin/addadminform">Sign Up</a>
-									</form:button></td>
+									</form:button></td> --%>
 							</tr>
 						</thead>
 					</table>

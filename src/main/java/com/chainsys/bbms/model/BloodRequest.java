@@ -98,7 +98,7 @@ public class BloodRequest {
 		this.quantityInUnits = quantityInUnits;
 	}
 
-	// Blood Group
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "blood_group_id", nullable = false, insertable = false, updatable = false)
 	private BloodGroupDetail bloodgroup;
@@ -111,7 +111,7 @@ public class BloodRequest {
 		this.bloodgroup = bloodgroup;
 	}
 
-	// Blood transaction
+	
 	@OneToOne(mappedBy = "bloodrequest", fetch = FetchType.LAZY)
 	private BloodTransaction bloodTransaction;
 

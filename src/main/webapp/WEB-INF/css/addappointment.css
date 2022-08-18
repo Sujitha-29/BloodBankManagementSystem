@@ -1,11 +1,6 @@
 @charset "ISO-8859-1";
+
 .text-danger {
-	color: #e80c4d;
-	font-size: 0.9em;
-}
-
-
-style>.text-danger {
 	color: #e80c4d;
 	font-size: 0.9em;
 }

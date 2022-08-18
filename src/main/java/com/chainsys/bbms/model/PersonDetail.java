@@ -47,17 +47,17 @@ public class PersonDetail
 	@Column(name="Email_id")
 	private String emailId;
 	
-	//blood group
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="Blood_group_id",nullable =false,insertable =false,updatable =false)
-	private BloodGroupDetail bloodgroup; // pk class
+	private BloodGroupDetail bloodgroup; 
 	public BloodGroupDetail getBloodgroup() {
 		return bloodgroup;
 	}
 	public void setBloodgroup(BloodGroupDetail bloodgroup) {
 		this.bloodgroup = bloodgroup;
 	}
-	// blood donation
+	
 	@OneToMany(mappedBy="person",fetch=FetchType.LAZY)
 	private List<BloodDonationDetail> donationDetail;
 	public List<BloodDonationDetail> getDonationDetail() {

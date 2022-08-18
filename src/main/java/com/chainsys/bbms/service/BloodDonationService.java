@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import com.chainsys.bbms.businesslogic.Logic;
 import com.chainsys.bbms.model.BloodDonationDetail;
 import com.chainsys.bbms.model.BloodGroupDetail;
-import com.chainsys.bbms.model.BloodRequest;
-import com.chainsys.bbms.model.BloodTransaction;
 import com.chainsys.bbms.model.PersonDetail;
 import com.chainsys.bbms.repository.BloodDonationRepository;
 
@@ -40,7 +38,7 @@ public class BloodDonationService
 	    bloodGroupDetail.setStockInUnits(quantity);
 		bloodGroupService.save(bloodGroupDetail);
 		return bloodDonation;
-		//return bloodDonationdRepository.save(bd);
+		
 	}
 	public BloodDonationDetail findById(int id)
 	{

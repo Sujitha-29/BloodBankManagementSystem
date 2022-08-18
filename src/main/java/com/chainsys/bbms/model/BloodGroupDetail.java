@@ -12,9 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+
 
 @Entity
 @Table(name = "blood_group_details")
@@ -26,12 +24,9 @@ public class BloodGroupDetail {
 	private int bloodGroupId;
 
 	@Column(name = "Blood_group")
-	@NotEmpty(message = "*Please enter Blood Group")
-	@Pattern(regexp = "^[a-zA-Z]*$", message = "*Value should be in Alphabets ")
 	private String bloodGroup;
 
 	@Column(name = "Stock_in_Units")
-	@NotNull(message = "*Stock In Hand can't be Empty")
 	private int stockInUnits;
 
 	public int getBloodGroupId() {
@@ -58,7 +53,7 @@ public class BloodGroupDetail {
 		this.stockInUnits = stockInUnits;
 	}
 
-	// request
+	
 	@OneToMany(mappedBy = "bloodgroup", fetch = FetchType.LAZY)
 	private List<BloodRequest> request;
 
@@ -70,9 +65,9 @@ public class BloodGroupDetail {
 		this.request = request;
 	}
 
-	// Person
+	
 	@OneToMany(mappedBy = "bloodgroup", fetch = FetchType.LAZY)
-	private List<PersonDetail> person; // fk class
+	private List<PersonDetail> person; 
 
 	public List<PersonDetail> getPerson() {
 		return person;

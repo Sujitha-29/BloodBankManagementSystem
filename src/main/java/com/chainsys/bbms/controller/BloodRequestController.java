@@ -41,16 +41,16 @@ public class BloodRequestController
 	{
 		BloodRequest thereq=new BloodRequest();
 		model.addAttribute("addrequest",thereq);
-		List<BloodGroupDetail>BloodGrouplist=bloodGroupService.getBloodGroup();
-		model.addAttribute("bloodGrouplist", BloodGrouplist);
+		List<BloodGroupDetail>bloodGrouplist=bloodGroupService.getBloodGroup();
+		model.addAttribute("bloodGrouplist", bloodGrouplist);
 		return "add-request-form";
 	}
 	
 	@PostMapping("/addbloodrequest")
-	public String addNewBloodRequest(@ModelAttribute("addrequest") BloodRequest thereq)
+	public String addNewBloodRequest(@ModelAttribute("addrequest") BloodRequest theRequest)
 	{
-		bloodRequestService.save(thereq);
-		return "redirect:/bloodrequest/getbloodrequest?id=" + thereq.getRequestId();
+		bloodRequestService.save(theRequest);
+		return "redirect:/bloodrequest/getbloodrequest?id=" + theRequest.getRequestId();
 	}
 	
 	@GetMapping("/updatebloodrequestform")

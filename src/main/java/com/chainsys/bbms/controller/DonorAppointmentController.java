@@ -80,14 +80,14 @@ public class DonorAppointmentController
 		return "update-appointment-form";	
 	}
 	@PostMapping("/update")
-	public String updateAppointment(@Valid@ModelAttribute("updateappointment") DonorAppointment appointment,Errors errors)
+	public String updateAppointment(@Valid@ModelAttribute("updateappointment") DonorAppointment donorAppointment,Errors errors)
 	{
 		if(errors.hasErrors())
 		{
 			return "update-appointment-form";
 		}
 		
-		donorAppointmentService.save(appointment);
+		donorAppointmentService.save(donorAppointment);
 		return "redirect:/appointment/listappointment";
 	}
 	@GetMapping("/deleteappointment")

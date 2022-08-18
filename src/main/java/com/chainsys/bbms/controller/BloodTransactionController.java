@@ -25,12 +25,10 @@ public class BloodTransactionController
 	BloodTransactionService bloodTransactionService;
 	@GetMapping("/listbloodtransaction")
 	public String getAllBloodTransaction(Model model)
-	{
-		{
+	{	
 			List<BloodTransaction> translist=bloodTransactionService.getBloodTransaction();
 			model.addAttribute("alltrans",translist);
 			return "list-transaction";
-		}
 	}
 	@GetMapping("/addbloodtransactionform")
 	public String showbloodTransactionAddForm(Model model)

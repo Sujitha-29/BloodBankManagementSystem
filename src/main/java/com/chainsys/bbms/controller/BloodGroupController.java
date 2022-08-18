@@ -50,7 +50,7 @@ public class BloodGroupController {
 	}
 
 	@GetMapping("/updatebloodgroupform")
-	public String ShowUpdateForm(@RequestParam("bloodgroupid") int id, Model model) {
+	public String showUpdateForm(@RequestParam("bloodgroupid") int id, Model model) {
 		BloodGroupDetail thebg = bloodGroupService.findById(id);
 		model.addAttribute("updatebloodgroup", thebg);
 		return "update-bloodgroup-form";

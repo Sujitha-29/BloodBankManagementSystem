@@ -97,7 +97,7 @@ public class AdminController
 	@PostMapping("/adminlogin")
 	public String checkingAccess(@ModelAttribute("login") AdminDetail admin)
 	{
-		AdminDetail adminDetail =adminService.getAdminIdAdminPassword(admin.getAdminId(),admin.getAdminPassword());
+		AdminDetail adminDetail =adminService.getAdminNameAdminPassword(admin.getAdminName(),admin.getAdminPassword());
 		if(adminDetail !=null)
 		{
 			return "redirect:/admin/adminuse";

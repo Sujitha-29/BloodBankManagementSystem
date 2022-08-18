@@ -67,7 +67,7 @@ public class BloodTransaction
 	
 	
 	
-	// Blood Request
+	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="request_id",nullable = false,insertable = false, updatable = false)
 	private BloodRequest bloodrequest;

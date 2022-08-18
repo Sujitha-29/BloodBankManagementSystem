@@ -10,7 +10,7 @@ public interface BloodRequestRepository extends CrudRepository<BloodRequest,Inte
 {
 	BloodRequest findById(int id);
 	BloodRequest save(BloodRequest bloodreq);
-	void deleteById(int request_id);
+	void deleteById(int requestId);
 	List<BloodRequest> findAll();
 	List<BloodRequest> findByBloodgroupBloodGroupId(int id);
 	
