@@ -25,8 +25,7 @@ public class BloodDonationService
 	
 	public List<BloodDonationDetail> getallDonationDetail()
 	{
-		List<BloodDonationDetail> donationlist = bloodDonationdRepository.findAll();
-		return donationlist;		
+		return bloodDonationdRepository.findAll();		
 	}
 	
 	public BloodDonationDetail save(BloodDonationDetail bd)

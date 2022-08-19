@@ -21,6 +21,10 @@ import com.chainsys.bbms.service.BloodDonationService;
 @RequestMapping("/blooddonation")
 public class BloodDonationController 
 {
+	public static final String LISTOFBLOODDONATION = "redirect:/blooddonation/listblooddonation";
+	public static final String ADDBLOODDONATION = "add-blooddonation-form";
+	public static final String UPDATEBLOODDONATION = "update-blooddonation-form";
+
 	@Autowired
 	BloodDonationService bloodDonationService;
 	@GetMapping("/listblooddonation")
@@ -35,40 +39,40 @@ public class BloodDonationController
 	{
 		BloodDonationDetail thebd = new BloodDonationDetail();
 		model.addAttribute("addblooddonation", thebd);
-		return "add-blooddonation-form";		
+		return ADDBLOODDONATION;		
 	}
 	@PostMapping("/add")
 	public String addNewBloodDonationDetails(@Valid@ModelAttribute("addblooddonation") BloodDonationDetail thebd,Errors errors)
 	{
 		if(errors.hasErrors())
 		{
-			return "add-blooddonation-form";
+			return ADDBLOODDONATION;
 		}
 		bloodDonationService.save(thebd);
-		return "redirect:/blooddonation/listblooddonation";
+		return LISTOFBLOODDONATION;
 	}
 	@GetMapping("/updateblooddonationform")
 	public String updateBloodDonationForm(@RequestParam("blooddonationid") int id,Model model)
 	{
 		BloodDonationDetail thebd = bloodDonationService.findById(id);
 		model.addAttribute("updateblooddonation",thebd);
-		return "update-blooddonation-form";	
+		return UPDATEBLOODDONATION;	
 	}
 	@PostMapping("/update")
 	public String updateblooddonationdetails(@Valid@ModelAttribute("updateblooddonation") BloodDonationDetail thebd,Errors errors)
 	{
 		if(errors.hasErrors())
 		{
-			return "update-blooddonation-form";
+			return UPDATEBLOODDONATION;
 		}
 		bloodDonationService.save(thebd);
-		return "redirect:/blooddonation/listblooddonation";
+		return LISTOFBLOODDONATION;
 	}
 	@GetMapping("/deleteblooddontion")
 	public String deleteBloodDonationDetails(@RequestParam("id") int id,Model model)
 	{
 		bloodDonationService.deleteById(id);
-		return "redirect:/blooddonation/listblooddonation";
+		return LISTOFBLOODDONATION;
 	}
 	@GetMapping("/getblooddonation")
 	public String getBloodDontionById(@RequestParam("id") int id,Model model)

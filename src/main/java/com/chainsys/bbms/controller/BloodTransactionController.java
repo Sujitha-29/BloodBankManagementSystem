@@ -20,7 +20,11 @@ import com.chainsys.bbms.service.BloodTransactionService;
 @Controller
 @RequestMapping("/bloodtransaction")
 public class BloodTransactionController
-{
+{ 
+	public static final String LISTOFTRANSACTION = "redirect:/bloodtransaction/listbloodtransaction";
+	public static final String ADDTRANSACTION = "add-transaction-form";
+	public static final String UPDATETRANSACTION = "update-transaction-form";
+
 	@Autowired
 	BloodTransactionService bloodTransactionService;
 	@GetMapping("/listbloodtransaction")
@@ -35,40 +39,40 @@ public class BloodTransactionController
 	{
 		BloodTransaction thetrans=new BloodTransaction();
 		model.addAttribute("addtransaction",thetrans);
-		return "add-transaction-form";
+		return ADDTRANSACTION;
 	}
 	@PostMapping("/add")
 	public String addNewBloodTransaction(@Valid@ModelAttribute("addtransaction") BloodTransaction thetrans,Errors errors)
 	{
 		if(errors.hasErrors())
 		{
-			return "add-transaction-form";
+			return ADDTRANSACTION;
 		}
 		bloodTransactionService.save(thetrans);
-		return "redirect:/bloodtransaction/listbloodtransaction";
+		return LISTOFTRANSACTION;
 	}
 	@GetMapping("/updatebloodtransactionform")
 	public String showBloodTransactionUpdateForm(@RequestParam("transid") int id,Model model)
 	{
 		BloodTransaction thetrans=bloodTransactionService.findById(id);
 		model.addAttribute("updatetransaction", thetrans);
-		return "update-transaction-form";	
+		return UPDATETRANSACTION;	
 	}
 	@PostMapping("/update")
 	public String updateBloodTransaction(@Valid@ModelAttribute("updatetransaction") BloodTransaction thetrans,Errors errors)
 	{
 		if(errors.hasErrors())
 		{
-			return "update-transaction-form";
+			return UPDATETRANSACTION;
 		}
 		bloodTransactionService.save(thetrans);
-		return "redirect:/bloodtransaction/listbloodtransaction";
+		return LISTOFTRANSACTION;
 	}
 	@GetMapping("/deletebloodtransaction")
 	public String deleteTransaction(@RequestParam("id") int id,Model model)
 	{
 		bloodTransactionService.deleteById(id);
-		return "redirect:/bloodtransaction/listbloodtransaction";
+		return LISTOFTRANSACTION;
 	}
 	@GetMapping("/gettransaction")
 	public String getAdmin(@RequestParam("id") int id ,Model model)

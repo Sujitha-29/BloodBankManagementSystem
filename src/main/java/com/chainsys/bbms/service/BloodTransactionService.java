@@ -22,8 +22,7 @@ public class BloodTransactionService
 	private BloodRequestService bloodRequestService;
 	public List<BloodTransaction> getBloodTransaction()
 	{
-		List<BloodTransaction> translist=bloodTransactionRepository.findAll();
-		return translist;
+		return bloodTransactionRepository.findAll();
 	}
 	public BloodTransaction save(BloodTransaction bt)
 	{

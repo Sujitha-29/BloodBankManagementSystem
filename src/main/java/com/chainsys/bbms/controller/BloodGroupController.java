@@ -22,6 +22,9 @@ import com.chainsys.bbms.service.BloodGroupService;
 @Controller
 @RequestMapping("/bloodgroup")
 public class BloodGroupController {
+	public static final String LISTOFBLOODGROUP = "redirect:/bloodgroup/listbloodgroup";
+	public static final String ADDBLOODGROUP = "add-blood-group-form";
+	public static final String UPDATEBLOODGROUP = "update-bloodgroup-form";
 	@Autowired
 	BloodGroupService bloodGroupService;
 
@@ -36,40 +39,38 @@ public class BloodGroupController {
 	public String showAddForm(Model model) {
 		BloodGroupDetail thebg = new BloodGroupDetail();
 		model.addAttribute("addbloodgroup", thebg);
-		return "add-blood-group-form";
+		return ADDBLOODGROUP;
 	}
 
 	@PostMapping("/add")
-	public String addNewBloodGroup(@Valid@ModelAttribute("addbloodgroup") BloodGroupDetail thebg,Errors errors) {
-		if(errors.hasErrors())
-		{
-			return "add-blood-group-form";
+	public String addNewBloodGroup(@Valid @ModelAttribute("addbloodgroup") BloodGroupDetail thebg, Errors errors) {
+		if (errors.hasErrors()) {
+			return ADDBLOODGROUP;
 		}
 		bloodGroupService.save(thebg);
-		return "redirect:/bloodgroup/listbloodgroup";
+		return LISTOFBLOODGROUP;
 	}
 
 	@GetMapping("/updatebloodgroupform")
 	public String showUpdateForm(@RequestParam("bloodgroupid") int id, Model model) {
 		BloodGroupDetail thebg = bloodGroupService.findById(id);
 		model.addAttribute("updatebloodgroup", thebg);
-		return "update-bloodgroup-form";
+		return UPDATEBLOODGROUP;
 	}
 
 	@PostMapping("/update")
-	public String updateBloodgroup(@Valid@ModelAttribute("updatebloodgroup") BloodGroupDetail thebg,Errors errors) {
-		if(errors.hasErrors())
-		{
-			return "update-bloodgroup-form";
+	public String updateBloodgroup(@Valid @ModelAttribute("updatebloodgroup") BloodGroupDetail thebg, Errors errors) {
+		if (errors.hasErrors()) {
+			return UPDATEBLOODGROUP;
 		}
 		bloodGroupService.save(thebg);
-		return "redirect:/bloodgroup/listbloodgroup";
+		return LISTOFBLOODGROUP;
 	}
 
 	@GetMapping("/deletebloodgroup")
 	public String deleteBloodGroup(@RequestParam("id") int id, Model model) {
 		bloodGroupService.deleteById(id);
-		return "redirect:/bloodgroup/listbloodgroup";
+		return LISTOFBLOODGROUP;
 	}
 
 	@GetMapping("/getbloodgroup")
@@ -78,21 +79,20 @@ public class BloodGroupController {
 		model.addAttribute("getbloodgroupbyid", thebg);
 		return "find-bloodgroup-by-id";
 	}
-	
+
 	@GetMapping("/getpersonbybloodgroup")
-    public String getPersonDetail(@RequestParam("id") int id,Model model) {
-		BloodGroupPersonDetailDTO dto =bloodGroupService.getBloodGroupPersonDetail(id);
-        model.addAttribute("getbloodgroup" ,dto.getBloodgroup());
-        model.addAttribute("personlist",dto.getPersonlist());
-        return "list-bloodgroup-persondetail";
-    }
-	
-	@GetMapping("/getrequestbybloodgroup")
-	public String getRequestDetail(@RequestParam("id") int id,Model model)
-	{
-		BloodGroupBloodRequestDTO dto=bloodGroupService.getBloodGroupRequestDetail(id);
+	public String getPersonDetail(@RequestParam("id") int id, Model model) {
+		BloodGroupPersonDetailDTO dto = bloodGroupService.getBloodGroupPersonDetail(id);
 		model.addAttribute("getbloodgroup", dto.getBloodgroup());
-		model.addAttribute("requestlist",dto.getRequestlist());
-		return "blood-group-request-details";	
+		model.addAttribute("personlist", dto.getPersonlist());
+		return "list-bloodgroup-persondetail";
+	}
+
+	@GetMapping("/getrequestbybloodgroup")
+	public String getRequestDetail(@RequestParam("id") int id, Model model) {
+		BloodGroupBloodRequestDTO dto = bloodGroupService.getBloodGroupRequestDetail(id);
+		model.addAttribute("getbloodgroup", dto.getBloodgroup());
+		model.addAttribute("requestlist", dto.getRequestlist());
+		return "blood-group-request-details";
 	}
 }

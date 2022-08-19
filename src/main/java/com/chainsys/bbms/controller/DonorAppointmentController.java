@@ -24,6 +24,9 @@ import com.chainsys.bbms.service.DonorAppointmentService;
 @RequestMapping("/appointment")
 public class DonorAppointmentController 
 {
+	public static final String LISTOFAPPOINTMENT = "redirect:/appointment/listappointment";
+	public static final String ADDAPOINTEMENT = "add-appointment-form";
+	public static final String UPDATEAPPOINTMENT = "update-appointment-form";
 	@Autowired
 	DonorAppointmentService donorAppointmentService;
 	@Autowired
@@ -47,7 +50,7 @@ public class DonorAppointmentController
 	{
 		if(errors.hasErrors())
 		{
-			return "add-appointment-form";
+			return ADDAPOINTEMENT;
 		}
 		List<BloodDonationDetail>bloodDonationDetailList=null;
 		try {
@@ -55,46 +58,46 @@ public class DonorAppointmentController
 		}catch(Exception exp) {
 			donorAppointmentService.save(theappo);
 			model.addAttribute("result", "Succecfully submitted your Appointment");
-			return "add-appointment-form";
+			return ADDAPOINTEMENT;
 		}
 		try {
 			if(Logic.unEligibilityForDonation(theappo.getAppointmentDate(), bloodDonationDetailList.get(0).getDonationDate())) {
 				model.addAttribute("result", "you are not eligible for Blood Donation");
-				return "add-appointment-form";
+				return ADDAPOINTEMENT;
 			}
 		}catch(Exception exp) {
 			donorAppointmentService.save(theappo);
 			model.addAttribute("result", "Succecfully submitted your Appointment");
-			return "add-appointment-form";
+			return ADDAPOINTEMENT;
 			
 		}
 		donorAppointmentService.save(theappo);
 		model.addAttribute("result", "Succecfully submitted your Appointment");
-		return "add-appointment-form";
+		return ADDAPOINTEMENT;
 	}
 	@GetMapping("/updatedonorappointmentform")
 	public String showAppointemntUpdateForm(@RequestParam("appoid") int id,Model model)
 	{
 		DonorAppointment theappo=donorAppointmentService.findById(id);
 		model.addAttribute("updateappointment", theappo);
-		return "update-appointment-form";	
+		return UPDATEAPPOINTMENT;	
 	}
 	@PostMapping("/update")
 	public String updateAppointment(@Valid@ModelAttribute("updateappointment") DonorAppointment donorAppointment,Errors errors)
 	{
 		if(errors.hasErrors())
 		{
-			return "update-appointment-form";
+			return UPDATEAPPOINTMENT;
 		}
 		
 		donorAppointmentService.save(donorAppointment);
-		return "redirect:/appointment/listappointment";
+		return LISTOFAPPOINTMENT;
 	}
 	@GetMapping("/deleteappointment")
 	public String deleteAppointment(@Valid @RequestParam("id") int id,Model model)
 	{
 		donorAppointmentService.deleteById(id);
-		return "redirect:/appointment/listappointment";
+		return LISTOFAPPOINTMENT;
 	}
 	@GetMapping("/getappointment")
 	public String getAppointment(@RequestParam("id") int id ,Model model)
