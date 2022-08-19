@@ -83,7 +83,7 @@ public class DonorAppointmentController
 		return UPDATEDONORAPPOINTMENT;	
 	}
 	@PostMapping("/update")
-	public String updateDonorAppointment(@Valid@ModelAttribute("updateappointment") DonorAppointment donorAppointment,Errors errors)
+	public String updateDonorAppointments(@Valid@ModelAttribute("updateappointment") DonorAppointment donorAppointment,Errors errors)
 	{
 		if(errors.hasErrors())
 		{
