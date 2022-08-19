@@ -1,65 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>AdminLogin Form</title>
+<title>AdminLoginDemo</title>
 <style><%@include file ="/WEB-INF/css/adminlogin.css"%>
 body {
-	background-image:
-		url("https://cdn.wallpapersafari.com/87/56/KycIlt.jpg");
-	background-repeat: no-repeat;
-	background-size: 1400px 700px;
+	font-family: "Open Sans";
+	color: #fff;
 }
 </style>
 </head>
 <body>
-	<div id="root" class="root">
-		<div id="form" align="center">
+	<section>
+		<div class="form-container">
+			<h1>AdminLogin</h1>
 			<form:form action="adminlogin" method="post" modelAttribute="login">
-				<h1>AdminLogin</h1>
-				<table>
-					<caption></caption>
-					<tr>
-						<th></th>
-					</tr>
-					<thead>
-						<tr>
-							<td><label for="adminName" class="label">AdminName :</label></td>
-							<td><form:input path="adminName" placeholder="adminName"
-									class="input" /></td>
-						</tr>
-						<tr>
-							<td><label for="adminPassword" class="label">Password :</label></td>
-							<td><form:input path="adminPassword" placeholder="password"
-									type="password" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
-									title="Enter a valid password Welcomes@03" required="true"
-									class="input" /></td>
-						</tr>
-					</thead>
-				</table>
-				<div class="margin">
-					<table>
-						<caption></caption>
-						<tr>
-						<th></th>
-					    </tr>
-						<thead>
-							<tr>
-								<td><form:button class="login-form" type="submit">Sign In</form:button></td>
-								<%-- <td><form:button class="login-form"
-										style="margin-left:12px;">
-										<a href="/admin/addadminform">Sign Up</a>
-									</form:button></td> --%>
-							</tr>
-						</thead>
-					</table>
+				<div class="control">
+					<label for="adminName" class="label">AdminName :</label>
+					<form:input path="adminName" placeholder="adminName" class="input" />
+				</div>
+				<div class="control">
+					<label for="adminPassword" class="label">Password :</label>
+					<form:input path="adminPassword" placeholder="password"
+						type="password" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+						title="Enter a valid password Welcomes@03" required="true"
+						class="input" />
+				</div>
+				<div class="control">
+					<input type="submit" value="Login">
 				</div>
 			</form:form>
 		</div>
-	</div>
+	</section>
+
 </body>
 </html>

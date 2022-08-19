@@ -14,8 +14,7 @@ public class DonorAppointmentService {
 	private DonorAppointmentRepository donorAppointmentRepository;
 	public List<DonorAppointment> getAppointments()
 	{
-		List<DonorAppointment> appolist=donorAppointmentRepository.findAll();
-		return appolist;
+		return donorAppointmentRepository.findAll();
 	}
 	public DonorAppointment save(DonorAppointment da)
 	{

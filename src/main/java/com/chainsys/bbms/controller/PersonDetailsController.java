@@ -23,6 +23,9 @@ import com.chainsys.bbms.service.PersonDetailsService;
 @Controller
 @RequestMapping("/person")
 public class PersonDetailsController {
+	public static final String ADDPERSON = "add-persons-form";
+    public static final String LISTOFPERSONS = "redirect:/person/listpersondetails";
+    public static final String UPDATEPERSONDETAILS = "update-persons-form";
 	@Autowired
 	PersonDetailsService personDetailService;
 	@Autowired
@@ -68,13 +71,13 @@ public class PersonDetailsController {
 			return "update-persons-form";
 		}
 		personDetailService.save(theperson);
-		return "redirect:/person/listpersondetails";
+		return LISTOFPERSONS;
 	}
 	@GetMapping("/deleteperson")
 	public String deletePerson(@Valid @RequestParam("id") int id,Model model)
 	{
 		personDetailService.deleteById(id);
-		return "redirect:/person/listpersondetails";
+		return LISTOFPERSONS;
 	}
 	@GetMapping("/getperson")
 	public String getPersons(@RequestParam("id") int id ,Model model)

@@ -30,7 +30,7 @@ public class BloodTransactionService
 		
 		BloodTransaction bloodTransaction =bloodTransactionRepository.save(bt);
 	    BloodRequest bloodRequest=bloodRequestService.findById(bt.getRequestId());
-	    BloodGroupDetail bloodGroupDetail=bloodGroupService.findById(bloodRequest.getBloodGroupId());
+	    BloodGroupDetail bloodGroupDetail=bloodGroupService.findById(bloodRequest.getBloodGroupId()); 
 	    int quantity=Logic.reduceQuantity(bloodGroupDetail.getStockInUnits(), bt.getQuantityInUnits());
 	    bloodGroupDetail.setStockInUnits(quantity);
 		bloodGroupService.save(bloodGroupDetail);

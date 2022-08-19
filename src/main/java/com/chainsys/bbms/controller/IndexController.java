@@ -39,4 +39,15 @@ public class IndexController
     {
     	return "contact";
     }
+    @GetMapping("/adminlogindemo")
+    public String demoAdminLogin(Model model)
+    {
+    	return "demo-admin-login";
+    }
+    @GetMapping("/boxdemo")
+    public String box(Model model)
+    {
+    	return "boxstyle";
+    }
+    
 }

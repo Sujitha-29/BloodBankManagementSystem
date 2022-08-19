@@ -21,8 +21,7 @@ public class BloodRequestService
 	
 	public List<BloodRequest> getBloodRequest()
 	{
-		List<BloodRequest> bloodRequestlList = bloodRequestRepository.findAll();
-		return bloodRequestlList;
+		return bloodRequestRepository.findAll();
 	}
 	public BloodRequest save(BloodRequest br)
 	{

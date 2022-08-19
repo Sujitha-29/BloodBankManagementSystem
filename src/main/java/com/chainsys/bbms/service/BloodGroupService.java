@@ -27,8 +27,7 @@ public class BloodGroupService
 	
 	public List<BloodGroupDetail> getBloodGroup()
 	{
-		List<BloodGroupDetail> bglist = bloodGroupRepository.findAll();
-		return bglist;
+		return bloodGroupRepository.findAll();
 	}
 	public BloodGroupDetail save(BloodGroupDetail bd)
 	{
@@ -51,7 +50,7 @@ public class BloodGroupService
 		Iterator<PersonDetail> itr = personlist.iterator();
 		while(itr.hasNext())
 		{
-			dto.addBloodGroupAndPersonList((PersonDetail)itr.next());
+			dto.addBloodGroupAndPersonList(itr.next());
 		}
 		return dto;
 	}
@@ -65,7 +64,7 @@ public class BloodGroupService
 		Iterator<BloodRequest> itr = reqlist.iterator();
 		while(itr.hasNext())
 		{
-			dto.addBloodGroupAndRequestList((BloodRequest)itr.next());
+			dto.addBloodGroupAndRequestList(itr.next());
 		}
 		return dto;		
 	}

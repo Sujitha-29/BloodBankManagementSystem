@@ -6,33 +6,10 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Add Request</title>
-<style>
-.text-danger {
-	color: #e80c4d;
-	font-size: 0.9em;
-}
-
-.heading-text {
-	font-weight: bold;
-	font-size: 20px;
-}
-
+<title>Add Blood Request</title>
+<style><%@include file ="/WEB-INF/css/alljsp.css"%>
 body {
 	background-color: #a5edf3;
-}
-
-.input-size {
-	padding: 5px;
-	width: 15%;
-}
-
-.button-style {
-	width: 90px;
-	height: 30px;
-	margin-top: 12p;
-	background-color: #f6f7f2;
-	font-weight: bold;
 }
 </style>
 </head>
@@ -41,13 +18,7 @@ body {
 		<div id="form" style="text-align: center; margin-top: 9%;">
 			<form:form style="line-height: 20px;" action="addbloodrequest"
 				method="post" modelAttribute="addrequest">
-				<%-- <div>
-					<label class="heading-text" for="requestId">Request Id</label>
-					<div>
-						<form:input path="requestId" title="Please enter number only"
-							pattern="^[0-9]+$" required="true" class="input-size" />
-					</div>
-				</div> --%>
+				
 				<form:errors path="requestId" cssClass="text-danger" />
 				<div>
 					<label class="heading-text" for="recipientName">Recipient
@@ -103,7 +74,7 @@ body {
 						In Units</label>
 					<div>
 						<form:input path="quantityInUnits"
-							title="Please enter number only" pattern="^[0-9]+$"
+							title="Please enter number only" pattern="^[0-5]+$"
 							required="true" max="5" class="input-size" />
 					</div>
 				</div>

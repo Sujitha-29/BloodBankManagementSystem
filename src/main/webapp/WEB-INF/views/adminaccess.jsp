@@ -1,77 +1,82 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>AdminLogin</title>
+<title>Customer Access</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style><%@include file ="/WEB-INF/css/adminaccess.css"%>
+
 </style>
 </head>
 <body>
-	<div class="sub-headings">
-		<h2>AdminLogin</h2>
-	</div>
-	<div class="sub-div">
-		<div>
-			<a href="/admin/listadmins">List</a>
-		</div>
-	</div>
-	<div class="sub-headings">
-		<h2>Blood Group Details</h2>
-	</div>
-	<div class="sub-div">
+    <h1 align="center">Welcome</h1>
 
-		<div>
-			<a href="/bloodgroup/listbloodgroup">Blood Group List</a>
-		</div>
-	</div>
-	<div class="sub-headings">
-		<h2>Persons Details</h2>
-	</div>
-	<div class="sub-div">
+    <div class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn">
+                AdminDetails<em class="fa fa-caret-down"></em>
+            </button>
+            <div class="dropdown-content">
+                <a href="/admin/listadmins">List</a> 
+            </div>
+        </div>
 
-		<div>
-			<a href="/person/listpersondetails">Persons List</a>
-		</div>
+        <div class="dropdown">
+            <button class="dropbtn">
+               BloodGroupDetails <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/bloodgroup/listbloodgroup">Blood Group List</a>
+            </div>
+        </div>
 
-	</div>
-	<div class="sub-headings">
-		<h2>Blood Donation Details</h2>
-	</div>
-	<div class="sub-div">
-		<div>
-			<a href="/blooddonation/listblooddonation">Donation List</a>
-		</div>
+        <div class="dropdown">
+            <button class="dropbtn">
+               Appointment <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/appointment/listappointment">DonorAppointment List</a> 
+            </div>
+        </div>
 
-	</div>
-	<div class="sub-headings">
-		<h2>Blood Request Details</h2>
-	</div>
-	<div class="sub-div">
-		<div>
-			<a href="/bloodrequest/listbloodrequest">Blood Request List</a>
-		</div>
-
-	</div>
-	<div class="sub-headings">
-		<h2>Blood Transaction Details</h2>
-	</div>
-	<div class="sub-div">
-		<div>
-			<a href="/bloodtransaction/listbloodtransaction">Blood
-				Transaction List</a>
-		</div>
-
-	</div>
-	<div class="sub-headings">
-		<h2>DonorAppointment Details</h2>
-	</div>
-	<div class="sub-div">
-		<div>
-			<a href="/appointment/listappointment">DonorAppointment List</a>
-		</div>
-
-	</div>
+        <div class="dropdown">
+            <button class="dropbtn">
+              BloodTransaction <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/bloodtransaction/listbloodtransaction">Blood
+				Transaction List</a>              
+            </div>
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">
+               BloodRequest <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/bloodrequest/listbloodrequest">Blood Request List</a>
+            </div>
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">
+              PersonDetails <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/person/listpersondetails">Persons List</a>
+            </div>
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">
+              DonationDetails <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/blooddonation/listblooddonation">Donation List</a>
+            </div>
+        </div>       
+    </div>
 </body>
 </html>

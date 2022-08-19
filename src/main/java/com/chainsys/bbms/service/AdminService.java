@@ -16,8 +16,7 @@ public class AdminService
 	
 	public List<AdminDetail> getAdmins()
 	{
-		List<AdminDetail> adminlist = adminRepository.findAll();
-		return adminlist;		
+		return adminRepository.findAll();		
 	}
 	
 	public AdminDetail save(AdminDetail ad)
@@ -32,11 +31,6 @@ public class AdminService
 	{
 		adminRepository.deleteById(id);
 	}
-	
-	/*
-	 * public AdminDetail getAdminIdAdminPassword(int id,String password) { return
-	 * adminRepository.findByAdminIdAndAdminPassword(id, password); }
-	 */
 	public AdminDetail getAdminNameAdminPassword(String name,String password)
 	{
 		return adminRepository.findByAdminNameAndAdminPassword(name, password);

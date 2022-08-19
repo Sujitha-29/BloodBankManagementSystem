@@ -10,6 +10,6 @@ public interface DonorAppointmentRepository extends CrudRepository<DonorAppointm
 {
 	DonorAppointment findById(int id);
 	DonorAppointment save(DonorAppointment donorapo);
-	void deleteById(int appointment_id);
+	void deleteById(int appointmentId);
 	List<DonorAppointment> findAll();
 }

@@ -21,8 +21,7 @@ public class PersonDetailsService {
 	
 	public List<PersonDetail> getPersons()
 	{
-		List<PersonDetail> personlist= personDetailRepository.findAll();
-		return personlist;		
+		return personDetailRepository.findAll();		
 	}
 	public PersonDetail save(PersonDetail pd)
 	{
@@ -45,7 +44,7 @@ public class PersonDetailsService {
 		Iterator<BloodDonationDetail> itr =donationList.iterator();
 		while(itr.hasNext())
 		{
-			dto.addPersonDetailAndBlooddonationDetail((BloodDonationDetail)itr.next());
+			dto.addPersonDetailAndBlooddonationDetail(itr.next());
 		}
 		return dto;		
 	}
