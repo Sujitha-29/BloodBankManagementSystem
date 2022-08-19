@@ -43,7 +43,7 @@
 					<th>Recipient Name</th>
 					<th>Recipient Phone No</th>
 					<th>Hospital Name</th>
-					<th>Blood Group Id</th>
+					<th>BloodGroupId</th>
 					<th>Request Date</th>
 					<th>Quantity</th>
 				</tr>

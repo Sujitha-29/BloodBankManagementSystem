@@ -1,36 +1,4 @@
 @charset "ISO-8859-1";
-/*  a:link, a:visited {
-	background-color: #3782e9;
-	color: white;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	margin-top: 5px;
-	width: 220px;
-	border-radius: 5px;
-	height: 27px;
-}
-
-a:hover, a:active {
-	background-color: pink;
-}
-
-.sub-headings {
-	text-align: center;
-	background-color: #30c1be;
-	color: #1c1b1b;
-}
-
-.sub-div {
-	text-align: center;
-}
-.button-style {
-	width: 90px;
-	height: 30px;
-	margin-top: 12px;
-	background-color: #f6f7f2;
-	font-weight: bold;
-} */ 
 h1 {
     font-family: lucida Handwriting, Cursive;
     color: black;
@@ -99,7 +67,7 @@ h1 {
 body {
     background-image:
         url("https://williamsinstitute.law.ucla.edu/wp-content/uploads/WI-health_03b_s.jpg");
-    background-size:1366px 786px;     
+    background-size:1366px 680px;     
     background-attachment: fixed;
     font-family: Arial, Helvetica, sans-serif;
 }

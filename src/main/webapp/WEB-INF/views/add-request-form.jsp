@@ -13,11 +13,23 @@ body {
 }
 </style>
 </head>
+<script>
+    function validateform() {
+        var quantityInUnits = document.reg_form.quantityInUnits.value;
+
+        if (quantityInUnits > 5) {
+            alert("Quantity should be below 5 units!");
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
 <body>
 	<div id="root">
 		<div id="form" style="text-align: center; margin-top: 9%;">
 			<form:form style="line-height: 20px;" action="addbloodrequest"
-				method="post" modelAttribute="addrequest">
+				method="post" modelAttribute="addrequest" name="reg_form"  onsubmit="return validateform()">
 				
 				<form:errors path="requestId" cssClass="text-danger" />
 				<div>
@@ -45,7 +57,7 @@ body {
 					<label class="heading-text" for="hospitalName">Location</label>
 					<div>
 						<form:input path="hospitalName" pattern="^[a-z A-Z]+$"
-							title="Please Enter Charactor Only"
+							title="Please Enter Character Only"
 							placeholder="Enter Location" class="input-size"
 							style="margin-bottom: 10px;" />
 					</div>
@@ -74,8 +86,8 @@ body {
 						In Units</label>
 					<div>
 						<form:input path="quantityInUnits"
-							title="Please enter number only" pattern="^[0-5]+$"
-							required="true" max="5" class="input-size" />
+							title="Please enter the units from 1 to 5" pattern="^[0-5]+$"
+							required="true" min="1" max="5" class="input-size" />
 					</div>
 				</div>
 				<form:errors path="quantityInUnits" cssClass="text-danger" />

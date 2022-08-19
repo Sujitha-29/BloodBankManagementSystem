@@ -26,7 +26,11 @@ public class DonorAppointmentController
 {
 	public static final String LISTOFAPPOINTMENT = "redirect:/appointment/listappointment";
 	public static final String ADDAPOINTEMENT = "add-appointment-form";
-	public static final String UPDATEDONORAPPOINTMENT = "update-appointment-form";
+	public static final String DONORAPPOINTMENTUPDATE = "update-appointment-form";
+	public static final String RESULT="result";
+	public static final String ELIGIBLE="Succesfully submitted your Appointment";
+	public static final String NOTELIGIBLE="you are not eligible for Blood Donation";
+	
 	@Autowired
 	DonorAppointmentService donorAppointmentService;
 	@Autowired
@@ -57,22 +61,22 @@ public class DonorAppointmentController
 			bloodDonationDetailList=bloodDonationService.findBloodDonationDetailBypersonId(theappo.getPersonId());
 		}catch(Exception exp) {
 			donorAppointmentService.save(theappo);
-			model.addAttribute("result", "Succecfully submitted your Appointment");
+			model.addAttribute(RESULT, ELIGIBLE);
 			return ADDAPOINTEMENT;
 		}
 		try {
 			if(Logic.unEligibilityForDonation(theappo.getAppointmentDate(), bloodDonationDetailList.get(0).getDonationDate())) {
-				model.addAttribute("result", "you are not eligible for Blood Donation");
+				model.addAttribute(RESULT, NOTELIGIBLE);
 				return ADDAPOINTEMENT;
 			}
 		}catch(Exception exp) {
 			donorAppointmentService.save(theappo);
-			model.addAttribute("result", "Succecfully submitted your Appointment");
+			model.addAttribute(RESULT,ELIGIBLE);
 			return ADDAPOINTEMENT;
 			
 		}
 		donorAppointmentService.save(theappo);
-		model.addAttribute("result", "Succecfully submitted your Appointment");
+		model.addAttribute(RESULT, ELIGIBLE);
 		return ADDAPOINTEMENT;
 	}
 	@GetMapping("/updatedonorappointmentform")
@@ -80,14 +84,14 @@ public class DonorAppointmentController
 	{
 		DonorAppointment theappo=donorAppointmentService.findById(id);
 		model.addAttribute("updateappointment", theappo);
-		return UPDATEDONORAPPOINTMENT;	
+		return DONORAPPOINTMENTUPDATE;	
 	}
 	@PostMapping("/update")
 	public String updateDonorAppointments(@Valid@ModelAttribute("updateappointment") DonorAppointment donorAppointment,Errors errors)
 	{
 		if(errors.hasErrors())
 		{
-			return UPDATEDONORAPPOINTMENT;
+			return DONORAPPOINTMENTUPDATE;
 		}
 		
 		donorAppointmentService.save(donorAppointment);
