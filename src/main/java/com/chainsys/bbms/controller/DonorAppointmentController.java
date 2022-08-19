@@ -26,7 +26,7 @@ public class DonorAppointmentController
 {
 	public static final String LISTOFAPPOINTMENT = "redirect:/appointment/listappointment";
 	public static final String ADDAPOINTEMENT = "add-appointment-form";
-	public static final String UPDATEAPPOINTMENT = "update-appointment-form";
+	public static final String UPDATEDONORAPPOINTMENT = "update-appointment-form";
 	@Autowired
 	DonorAppointmentService donorAppointmentService;
 	@Autowired
@@ -43,10 +43,10 @@ public class DonorAppointmentController
 	{
 		DonorAppointment theappo=new DonorAppointment();
 		model.addAttribute("addappointment",theappo);
-		return "add-appointment-form";
+		return ADDAPOINTEMENT;
 	}
 	@PostMapping("/add")
-	public String addNewAppointment(@Valid@ModelAttribute("addappointment") DonorAppointment theappo,Errors errors,Model model)
+	public String addNewDonorAppointment(@Valid@ModelAttribute("addappointment") DonorAppointment theappo,Errors errors,Model model)
 	{
 		if(errors.hasErrors())
 		{
@@ -80,14 +80,14 @@ public class DonorAppointmentController
 	{
 		DonorAppointment theappo=donorAppointmentService.findById(id);
 		model.addAttribute("updateappointment", theappo);
-		return UPDATEAPPOINTMENT;	
+		return UPDATEDONORAPPOINTMENT;	
 	}
 	@PostMapping("/update")
-	public String updateAppointment(@Valid@ModelAttribute("updateappointment") DonorAppointment donorAppointment,Errors errors)
+	public String updateDonorAppointment(@Valid@ModelAttribute("updateappointment") DonorAppointment donorAppointment,Errors errors)
 	{
 		if(errors.hasErrors())
 		{
-			return UPDATEAPPOINTMENT;
+			return UPDATEDONORAPPOINTMENT;
 		}
 		
 		donorAppointmentService.save(donorAppointment);

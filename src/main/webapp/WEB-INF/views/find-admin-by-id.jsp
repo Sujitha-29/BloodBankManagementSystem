@@ -23,22 +23,26 @@ body {
 						<form:input path="adminId" class="input-size" />
 					</div>
 				</div>
+				
 				<div>
 					<label class="heading-text" for="adminName">AdminName</label>
 					<div>
 						<form:input path="adminName" class="input-size" />
 					</div>
 				</div>
+				
 				<div>
 					<label class="heading-text" for="adminPassword">AdminPassword</label>
 					<div>
 						<form:input type="password" path="adminPassword" class="input-size" />
 					</div>
 				</div>
+				
 				<div>
 					<label class="heading-text" for="dateOfJoining">Date Of Joining</label>
 					<div>
 						<form:input type="date" path="dateOfJoining" class="input-size" />
+					</div>
 					</div>
 				<div>
 					<label class="heading-text" for="designation">Designation</label>
@@ -53,7 +57,7 @@ body {
 					</div>
 				</div>
 				<form:button class="button-style">
-                            <a href="/admin/adminpage">BACK</a>
+                            <a href="/admin/listadmins">BACK</a>
                         </form:button>
 			</form:form>
 		</div>

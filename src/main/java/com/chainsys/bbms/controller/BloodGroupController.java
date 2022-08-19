@@ -59,7 +59,7 @@ public class BloodGroupController {
 	}
 
 	@PostMapping("/update")
-	public String updateBloodgroup(@Valid @ModelAttribute("updatebloodgroup") BloodGroupDetail thebg, Errors errors) {
+	public String updateBloodgroupDetails(@Valid @ModelAttribute("updatebloodgroup") BloodGroupDetail thebg, Errors errors) {
 		if (errors.hasErrors()) {
 			return UPDATEBLOODGROUP;
 		}

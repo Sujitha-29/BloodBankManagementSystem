@@ -25,7 +25,7 @@
 
         <div class="dropdown">
             <button class="dropbtn">
-               BloodGroupDetails <i class="fa fa-caret-down"></i>
+               BloodGroupDetails <em class="fa fa-caret-down"></em>
             </button>
             <div class="dropdown-content">
                 <a href="/bloodgroup/listbloodgroup">Blood Group List</a>
@@ -34,7 +34,7 @@
 
         <div class="dropdown">
             <button class="dropbtn">
-               Appointment <i class="fa fa-caret-down"></i>
+               Appointment <em class="fa fa-caret-down"></em>
             </button>
             <div class="dropdown-content">
                 <a href="/appointment/listappointment">DonorAppointment List</a> 
@@ -43,7 +43,7 @@
 
         <div class="dropdown">
             <button class="dropbtn">
-              BloodTransaction <i class="fa fa-caret-down"></i>
+              BloodTransaction <em class="fa fa-caret-down"></em>
             </button>
             <div class="dropdown-content">
                 <a href="/bloodtransaction/listbloodtransaction">Blood
@@ -53,7 +53,7 @@
         
         <div class="dropdown">
             <button class="dropbtn">
-               BloodRequest <i class="fa fa-caret-down"></i>
+               BloodRequest <em class="fa fa-caret-down"></em>
             </button>
             <div class="dropdown-content">
                 <a href="/bloodrequest/listbloodrequest">Blood Request List</a>
@@ -62,7 +62,7 @@
         
         <div class="dropdown">
             <button class="dropbtn">
-              PersonDetails <i class="fa fa-caret-down"></i>
+              PersonDetails <em class="fa fa-caret-down"></em>
             </button>
             <div class="dropdown-content">
                 <a href="/person/listpersondetails">Persons List</a>
@@ -71,7 +71,7 @@
         
         <div class="dropdown">
             <button class="dropbtn">
-              DonationDetails <i class="fa fa-caret-down"></i>
+              DonationDetails <em class="fa fa-caret-down"></em>
             </button>
             <div class="dropdown-content">
                 <a href="/blooddonation/listblooddonation">Donation List</a>

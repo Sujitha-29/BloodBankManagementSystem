@@ -46,7 +46,7 @@ public class PersonDetailsController {
 		model.addAttribute("addperson",theperson);
 		List<BloodGroupDetail>bloodGrouplist=bloodGroupService.getBloodGroup();
 		model.addAttribute("bloodGrouplist", bloodGrouplist);
-		return "add-persons-form";
+		return ADDPERSON;
 	}
 	@PostMapping("/add")
 	public String addNewPerson(@ModelAttribute("addperson") PersonDetail theperson)
@@ -60,7 +60,7 @@ public class PersonDetailsController {
 	{
 		PersonDetail theperson=personDetailService.findById(id);
 		model.addAttribute("updateperson", theperson);
-		return "update-persons-form";	
+		return UPDATEPERSONDETAILS;	
 	}
 	
 	@PostMapping("/update")
@@ -68,7 +68,7 @@ public class PersonDetailsController {
 	{
 		if(errors.hasErrors())
 		{
-			return "update-persons-form";
+			return UPDATEPERSONDETAILS;
 		}
 		personDetailService.save(theperson);
 		return LISTOFPERSONS;

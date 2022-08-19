@@ -33,6 +33,7 @@ body {
 					<label  class="heading-text" for="personId">Person Id</label>
 					<div>
 						<form:input path="personId" class="input-size" />
+					</div>
 					</div>			
 			</form:form>
 		</div>
