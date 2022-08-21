@@ -98,7 +98,7 @@ public class DonorAppointmentController
 		return LISTOFAPPOINTMENT;
 	}
 	@GetMapping("/deleteappointment")
-	public String deleteAppointment(@Valid @RequestParam("id") int id,Model model)
+	public String deleteAppointment(@RequestParam("id") int id,Model model)
 	{
 		donorAppointmentService.deleteById(id);
 		return LISTOFAPPOINTMENT;

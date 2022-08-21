@@ -17,17 +17,12 @@ body {
 </style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
 		<div id="root">
 			<div id="form" class="form">
 				<form:form action="add" method="post"
 					modelAttribute="addblooddonation">
-					<div>
-						<label class="heading-text" for="donationTransId">Donation Id</label>
-						<div>
-							<form:input path="donationTransId" required="true" class="input-size" />
-						</div>
-					</div>
-					<form:errors path="donationTransId" cssClass="text-danger" />
+					
 					<div>
 						<label class="heading-text" for="personId">Person Id</label>
 						<div>
@@ -44,7 +39,7 @@ body {
 					<div>
 						<label class="heading-text" for="healthCondition">Health Condition</label>
 						<div>
-							<form:input path="healthCondition" pattern="^[a-z A-Z]+$"
+							<form:input path="healthCondition" pattern="^[A-Za-z\s]*$"
 								title="Please Enter Charactor Only"
 								placeholder="Enter Health Condition" required="true" class="input-size" />
 						</div>

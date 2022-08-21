@@ -5,24 +5,21 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Admin Form</title>
+<title>UpdateAdminForm</title>
 <style><%@include file ="/WEB-INF/css/alljsp.css"%> 
-.text-danger {
-	color: #e80c4d;
-	font-size: 0.9em;
-}
 body {
 	background-color: #a5edf3;
 }
 </style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
 	<div id="root">
 		<div id="form" class="form">
 			<form:form action="updateadmin" method="post"
 				modelAttribute="updateadmins">
 				<div>
-					<label class="heading-text" for="adminId">Admin Id</label>
+					<label class="heading-text" for="adminId">AdminId</label>
 					<div>
 						<form:input path="adminId" title="Please enter number only"
 							pattern="^[0-9]+$" required="true" class="input-size" />
@@ -30,16 +27,16 @@ body {
 				</div>
 				<form:errors path="adminId" cssClass="text-danger" />
 				<div>
-					<label class="heading-text" for="adminName">Admin Name</label>
+					<label class="heading-text" for="adminName">AdminName</label>
 					<div>
-						<form:input path="adminName" pattern="^[a-z A-Z]+$"
+						<form:input path="adminName" pattern="^[A-Za-z\s]*$"
 							title="Please Enter Charactor Only"
 							placeholder="Enter Admin Name" required="true" class="input-size" />
 					</div>
 				</div>
 				<form:errors path="adminName" cssClass="text-danger" />
 				<div>
-					<label class="heading-text" for="adminPassword">Admin Password</label>
+					<label class="heading-text" for="adminPassword">AdminPassword</label>
 					<div>
 						<form:input type="password" path="adminPassword"
 							pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
@@ -57,7 +54,7 @@ body {
 				<div>
 					<label class="heading-text" for="designation">Designation</label>
 					<div>
-						<form:input path="designation" pattern="^[a-z A-Z]+$"
+						<form:input path="designation" pattern="^[A-Za-z\s]*$"
 							title="Please Enter Charactor Only"
 							placeholder="Enter Designation" required="true" class="input-size" />
 					</div>

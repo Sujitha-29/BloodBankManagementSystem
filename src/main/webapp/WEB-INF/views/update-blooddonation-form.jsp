@@ -7,10 +7,6 @@
 <meta charset="ISO-8859-1">
 <title>Update Donation</title>
 <style><%@include file ="/WEB-INF/css/alljsp.css"%> 
-.text-danger {
-	color: #e80c4d;
-	font-size: 0.9em;
-}
 body {
 	background-color: #a5edf3;
 }
@@ -18,12 +14,13 @@ body {
 </head>
 <body>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
 	<div id="root">
 		<div id="form" class="form">
 			<form:form action="update" method="post"
 				modelAttribute="updateblooddonation">
 				<div>
-					<label class="heading-text" for="donationTransId">Donation Id</label>
+					<label class="heading-text" for="donationTransId">DonationId</label>
 					<div>
 						<form:input path="donationTransId"
 							title="Please enter number only" pattern="^[0-9]+$"
@@ -32,7 +29,7 @@ body {
 				</div>
 				<form:errors path="donationTransId" cssClass="text-danger" />
 				<div>
-					<label class="heading-text" for="personId">Person Id </label>
+					<label class="heading-text" for="personId">PersonId </label>
 					<div>
 						<form:input path="personId" title="Please enter number only"
 							pattern="^[0-9]+$" required="true" class="input-size" />
@@ -40,22 +37,22 @@ body {
 				</div>
 				<form:errors path="personId" cssClass="text-danger" />
 				<div>
-					<label class="heading-text" for="donationDate">Donation Date</label>
+					<label class="heading-text" for="donationDate">DonationDate</label>
 					<div>
 						<form:input type="date" path="donationDate" required="true" class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label class="heading-text" for="healthCondition">Health Condition</label>
+					<label class="heading-text" for="healthCondition">HealthCondition</label>
 					<div>
-						<form:input path="healthCondition" pattern="^[a-z A-Z]+$"
+						<form:input path="healthCondition" pattern="^[A-Za-z\s]*$"
 							title="Please Enter Charactor Only"
 							placeholder="Enter Health Condition" class="input-size" />
 					</div>
 				</div>
 				<form:errors path="healthCondition" cssClass="text-danger" />
 				<div>
-					<label class="heading-text" for="quantityInUnits">Quantity In Units</label>
+					<label class="heading-text" for="quantityInUnits">QuantityInUnits</label>
 					<div>
 						<form:input path="quantityInUnits"
 							title="Please enter number only" pattern="^[0-9]+$"

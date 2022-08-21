@@ -17,27 +17,22 @@ body {
 </style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
 	<div id="root">
 		<div id="form" class="form">
 			<form:form action="add" method="post" modelAttribute="addbloodgroup">
-				<%-- <div>
-					<label for="bloodGroupId">Blood Group Id</label>
-					<div>
-						<form:input path="bloodGroupId" />
-					</div>
-				</div>
-				<form:errors path="bloodGroupId" cssClass="text-danger" /> --%>
+				
 				<div>
-					<label class="heading-text" for="bloodGroup">Blood Group Name</label>
+					<label class="heading-text" for="bloodGroup">BloodGroupName</label>
 					<div>
-						<form:input path="bloodGroup" pattern="^[a-z A-Z]+$"
+						<form:input path="bloodGroup" pattern="^[A-Za-z\s]*$"
 							title="Please Enter Charactor Only"
 							placeholder="Enter Blood Group Name" required="true" class="input-size" />
 					</div>
 				</div>
 				<form:errors path="bloodGroup" cssClass="text-danger" />
 				<div>
-					<label class="heading-text"  for="stockInUnits">Stock</label>
+					<label class="heading-text"  for="stockInUnits">StockInUnits</label>
 					<div>
 						<form:input path="stockInUnits" title="Please enter number only"
 							pattern="^[0-9]+$" required="true" class="input-size" />

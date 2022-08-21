@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page import="com.chainsys.bbms.businesslogic.Logic"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,18 +18,11 @@ body {
 </style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
 	<div id="root">
 		<div id="form" class="form">
 			<form:form action="add" method="post" modelAttribute="addtransaction">
-				<div>
-					<label class="heading-text" for="bloodTransactionId">Transaction Id</label>
-					<div>
-						<form:input path="bloodTransactionId"
-							title="Please enter number only" pattern="^[0-9]+$"
-							required="true" class="input-size" />
-					</div>
-				</div>
-				<form:errors path="bloodTransactionId" cssClass="text-danger" />
+				
 				<div>
 					<label class="heading-text" for="requestId">Request Id</label>
 					<div>
@@ -40,7 +34,7 @@ body {
 				<div>
 					<label class="heading-text" for="transactionDate">Transaction Date</label>
 					<div>
-						<form:input type="date" path="transactionDate" required="true" class="input-size" />
+						<form:input type="date" path="transactionDate" required="true" class="input-size" min="<%=Logic.getInstanceDate()%>" />
 					</div>
 				</div>
 				<div>
@@ -55,7 +49,7 @@ body {
 				<div>
 					<label class="heading-text" for="status">Status</label>
 					<div>
-						<form:input path="status" pattern="^[a-z A-Z]+$"
+						<form:input path="status" pattern="^[A-Za-z\s]*$"
 							title="Please Enter Charactor Only" placeholder="Enter status"
 							required="true"  class="input-size" />
 					</div>

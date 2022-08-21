@@ -24,8 +24,9 @@ body {
 </style>
 </head>
 <body>
-	<div id="root">
-		<div id="form" class="form">
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
+	<div id="root">	
+		<div id="form" class="form">		
 			<form:form action="add" method="post" modelAttribute="addappointment">
 				<form:errors path="appointmentId" cssClass="text-danger" />
 				<div>
@@ -38,7 +39,7 @@ body {
 					</div>
 				</div>
 				<div>
-					<label class="heading-text" for="personId">Person Id</label>
+					<label class="heading-text" for="personId">PersonId</label>
 					<div>
 						<form:input path="personId" title="Please enter number only"
 							pattern="^[0-9]+$" required="true" class="input-size"
@@ -57,7 +58,7 @@ body {
 			</div>
 			</form:form>			
 		</div>
-	</div>
+		</div>
 	<div>
 	<div id="div"><h2>${result}</h2></div>
 	</div>

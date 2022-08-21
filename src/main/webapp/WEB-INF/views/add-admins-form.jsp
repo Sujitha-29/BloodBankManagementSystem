@@ -10,7 +10,7 @@
 body {
 	background-image:
 		url(https://www.teahub.io/photos/full/164-1649703_pastel-pattern-desktop-background.jpg);
-	/* background-color: #a5edf3; */
+	
 	background-repeat: no-repeat;
 	background-size: 1366px 660px;
 	background-position: center top;
@@ -19,22 +19,16 @@ body {
 </style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
 	<div id="root">
 		<div id="form" class="form">
 			<form:form class="modelattribute" action="addadmin" method="post"
 				modelAttribute="addadmins">
-				<div>
-					<label class="heading-text" for="adminId">AdminId</label>
-					<div>
-						<form:input path="adminId" title="Please enter number only"
-							pattern="^[0-9]+$" required="true" class="input-size" />
-					</div>
-				</div>
-				<form:errors path="adminId" cssClass="text-danger" />
+				
 				<div>
 					<label class="heading-text" for="adminName">AdminName</label>
 					<div>
-						<form:input path="adminName" pattern="^[a-z A-Z]+$"
+						<form:input path="adminName" pattern="^^[A-Za-z\s]*$"
 							title="Please Enter Charactor Only"
 							placeholder="Enter Admin Name" class="input-size" />
 					</div>
@@ -61,7 +55,7 @@ body {
 				<div>
 					<label class="heading-text" for="designation">Designation</label>
 					<div>
-						<form:input path="designation" pattern="^[a-z A-Z]+$"
+						<form:input path="designation" pattern="^[A-Za-z\s]*$"
 							title="Please Enter Charactor Only"
 							placeholder="Enter Designation" class="input-size" />
 					</div>

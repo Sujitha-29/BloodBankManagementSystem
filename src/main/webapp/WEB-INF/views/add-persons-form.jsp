@@ -15,15 +15,16 @@ body {
 </style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
 	<div id="root">
 		<div id="form" class="form">
 			<form:form action="add" method="post" modelAttribute="addperson">
 				
-				<form:errors path="personId" cssClass="text-danger" />
+				
 				<div>
-					<label class="heading-text" for="personName">Person Name</label>
+					<label class="heading-text" for="personName">PersonName</label>
 					<div>
-						<form:input path="personName" pattern="^[a-z A-Z]+$"
+						<form:input path="personName" pattern="^[A-Za-z\s]*$"
 							title="Please Enter Charactor Only" placeholder="Enter Name"
 							required="true"  class="input-size" />
 					</div>
@@ -46,9 +47,9 @@ body {
 				</div>
 				<form:errors path="bloodGroupId" cssClass="text-danger" />
 				<div>
-					<label class="heading-text" for="phoneNo">Phone Number</label>
+					<label class="heading-text" for="phoneNo">PhoneNumber</label>
 					<div>
-						<form:input path="phoneNo" pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+						<form:input path="phoneNo" pattern="[1-9]{1}[0-9]{9}"
 							title="Enter 10 digits number" placeholder="Enter Phone Number"
 							required="true" class="input-size" />
 					</div>
@@ -69,7 +70,9 @@ body {
 				<div>
 					<label class="heading-text" for="address">Address</label>
 					<div>
-						<form:input path="address" required="true" class="input-size" />
+						<form:input path="address" pattern="^[A-Za-z\s]*$"
+							title="Please Enter Charactor Only" placeholder="Enter Address"
+							required="true"   class="input-size" />
 					</div>
 				</div>
 				<form:errors path="address" cssClass="text-danger" />

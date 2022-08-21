@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="com.chainsys.bbms.businesslogic.Logic"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,17 +27,16 @@ body {
     }
 </script>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
 	<div id="root">
 		<div id="form" style="text-align: center; margin-top: 9%;">
 			<form:form style="line-height: 20px;" action="addbloodrequest"
-				method="post" modelAttribute="addrequest" name="reg_form"  onsubmit="return validateform()">
-				
-				<form:errors path="requestId" cssClass="text-danger" />
+				method="post" modelAttribute="addrequest" name="reg_form"  onsubmit="return validateform()">			
 				<div>
 					<label class="heading-text" for="recipientName">Recipient
 						Name</label>
 					<div>
-						<form:input path="recipientName" pattern="^[a-z A-Z]+$"
+						<form:input path="recipientName" pattern="^[A-Za-z\s]*$"
 							title="Please Enter Charactor Only" placeholder="Enter Name"
 							class="input-size" />
 					</div>
@@ -47,7 +47,7 @@ body {
 						Phone Number</label>
 					<div>
 						<form:input path="recipientPhoneNo" max="10"
-							pattern="[0-9]{3}[0-9]{3}[0-9]{4}" title="Enter 10 digits number"
+							 pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digits number"
 							placeholder="Enter Phone Number" required="true"
 							class="input-size" />
 					</div>
@@ -56,7 +56,7 @@ body {
 				<div>
 					<label class="heading-text" for="hospitalName">Location</label>
 					<div>
-						<form:input path="hospitalName" pattern="^[a-z A-Z]+$"
+						<form:input path="hospitalName"  pattern="^[A-Za-z\s]*$"
 							title="Please Enter Character Only"
 							placeholder="Enter Location" class="input-size"
 							style="margin-bottom: 10px;" />
@@ -78,7 +78,7 @@ body {
 					<label class="heading-text" for="requestDate">Request Date</label>
 					<div>
 						<form:input type="date" path="requestDate" required="true"
-							class="input-size" />
+							class="input-size" min="<%=Logic.getInstanceDate()%>" />
 					</div>
 				</div>
 				<div>

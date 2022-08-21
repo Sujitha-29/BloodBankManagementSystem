@@ -27,3 +27,12 @@ margin-top: 9%;
 {
 	text-align:"center";
 }
+.container {
+    margin-top: 1%;
+    margin-left: 30%;
+    border-radius: 5px;
+    background-color: #EAEDED ;
+    padding: 30px;
+    width: 30%;
+    float: left;
+}

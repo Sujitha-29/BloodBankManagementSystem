@@ -4,15 +4,15 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Customer Access</title>
+<title>AdminAccess</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style><%@include file ="/WEB-INF/css/adminaccess.css"%>
 
 </style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
     <h1 align="center">Welcome</h1>
-
     <div class="navbar">
         <div class="dropdown">
             <button class="dropbtn">

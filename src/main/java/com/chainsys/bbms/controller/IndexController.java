@@ -44,10 +44,10 @@ public class IndexController
     {
     	return "demo-admin-login";
     }
-    @GetMapping("/boxdemo")
+    @GetMapping("/slidedemo")
     public String box(Model model)
     {
-    	return "boxstyle";
+    	return "slideshow";
     }
     
 }

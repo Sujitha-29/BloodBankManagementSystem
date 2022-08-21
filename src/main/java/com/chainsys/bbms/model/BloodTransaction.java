@@ -5,9 +5,12 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
@@ -18,6 +21,8 @@ public class BloodTransaction
 {
 	@Id
 	@Column(name="blood_transaction_id")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "bloodtrans_id")
+	@SequenceGenerator(name = "bloodtrans_id", sequenceName = "bloodtrans_id", allocationSize = 1)
 	private int bloodTransactionId;
 	
 	@Column(name="request_id")

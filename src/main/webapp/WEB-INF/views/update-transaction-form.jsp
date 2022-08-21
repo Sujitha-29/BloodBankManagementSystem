@@ -14,12 +14,13 @@ body {
 </style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
 	<div id="root">
 		<div id="form" class="form">
 			<form:form action="update" method="post"
 				modelAttribute="updatetransaction">
 				<div>
-					<label class="heading-text" for="bloodTransactionId">Transaction Id</label>
+					<label class="heading-text" for="bloodTransactionId">TransactionId</label>
 					<div>
 						<form:input path="bloodTransactionId"
 							title="Please enter number only" pattern="^[0-9]+$"
@@ -28,7 +29,7 @@ body {
 				</div>
 				<form:errors path="bloodTransactionId" cssClass="text-danger" />
 				<div>
-					<label class="heading-text" for="requestId">Transaction Id</label>
+					<label class="heading-text" for="requestId">RequestId</label>
 					<div>
 						<form:input path="requestId" title="Please enter number only"
 							pattern="^[0-9]+$" required="true"  class="input-size" />
@@ -36,13 +37,13 @@ body {
 				</div>
 				<form:errors path="requestId" cssClass="text-danger" />
 				<div>
-					<label class="heading-text" for="transactionDate">Transaction Date</label>
+					<label class="heading-text" for="transactionDate">TransactionDate</label>
 					<div>
 						<form:input type="date" path="transactionDate" required="true"  class="input-size" />
 					</div>
 				</div>
 				<div>
-					<label class="heading-text" for="quantityInUnits">Quantity In Units</label>
+					<label class="heading-text" for="quantityInUnits">QuantityInUnits</label>
 					<div>
 						<form:input path="quantityInUnits"
 							title="Please enter number only" pattern="^[0-9]+$"
@@ -53,7 +54,7 @@ body {
 				<div>
 					<label class="heading-text" for="status">Status</label>
 					<div>
-						<form:input path="status" pattern="^[a-z A-Z]+$"
+						<form:input path="status" pattern="^[A-Za-z\s]*$"
 							title="Please Enter Charactor Only" placeholder="Enter Status" class="input-size" />
 					</div>
 				</div>

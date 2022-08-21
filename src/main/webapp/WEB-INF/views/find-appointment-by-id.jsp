@@ -13,6 +13,7 @@ body {
 </style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
 <div id="root">
 		<div id="form" class="form">
 			<form:form action="getappointment" method="post"

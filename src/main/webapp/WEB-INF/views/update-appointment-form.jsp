@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Appointemnt</title>
+<title>UpdateAppointement</title>
 <style><%@include file ="/WEB-INF/css/alljsp.css"%> 
 .text-danger {
 	color: #e80c4d;
@@ -17,6 +17,7 @@ body {
 </style>
 </head>
 <body>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
 	<div id="root">
 		<div id="form" class="form">
 			<form:form action="update" method="post"
