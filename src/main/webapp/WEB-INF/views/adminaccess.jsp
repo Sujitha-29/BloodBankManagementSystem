@@ -7,11 +7,15 @@
 <title>AdminAccess</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style><%@include file ="/WEB-INF/css/adminaccess.css"%>
-
+.button
+{
+    margin-top: -160px;
+    float: right;
+    padding: 43px;
+}
 </style>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
     <h1 align="center">Welcome</h1>
     <div class="navbar">
         <div class="dropdown">
@@ -78,5 +82,10 @@
             </div>
         </div>       
     </div>
+    <div class="button">
+				        <button class="button-style">
+                            <a href="/home/loginuse">Logout</a>
+                        </button> 
+			</div>
 </body>
 </html>

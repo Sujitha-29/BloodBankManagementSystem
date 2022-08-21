@@ -14,7 +14,6 @@ body {
 </style>
 </head>
 <body>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
 	<section>
 		<div class="form-container">
 			<h1>AdminLogin</h1>

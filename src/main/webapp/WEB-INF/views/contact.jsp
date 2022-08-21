@@ -22,8 +22,8 @@ h1,h2,p,h4
 .top
 {
 text-align: center;
-       margin-right: -377px;
-    margin-top: 41px
+    margin-right: -389px;
+    margin-top: -44px;
 }
 </style>
 </head>
