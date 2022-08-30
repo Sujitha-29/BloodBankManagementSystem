@@ -7,23 +7,6 @@
 <meta charset="ISO-8859-1">
 <title>ListAdmin</title>
 <style><%@include file ="/WEB-INF/css/list.css"%> 
-body
-{
-background-image:url("https://b-static.besthdwallpaper.com/background-with-light-yellow-and-ocher-colors-with-flying-birds-wallpaper-1152x864-94923_19.jpg");
-background-position: center;
-	background-repeat: no-repeat; 
-	background-size: cover;
-    position: relative; 
-    background-attachment:fixed;
-}
-h1 {text-align: center;}
-div{text-align: center;}
-.table-size{
-border:2px;
-width:100%;
-cellpadding:2px;
-}
-
 </style>
 </head>
 <body>
