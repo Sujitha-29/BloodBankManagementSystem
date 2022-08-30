@@ -36,8 +36,6 @@ cellpadding:2px;
             </colgroup>
 			<thead>
 				<tr>
-					<!-- <th style="background-color:#87CEFA;font-size: larger;">Transaction Id</th> -->
-					<!-- <th style="background-color:#87CEFA;font-size: larger;">Request Id</th> -->
 					<th style="background-color:#87CEFA;font-size: larger;">Transaction Date</th>
 					<th style="background-color:#87CEFA;font-size: larger;">Quantity In Units</th>
 					<th style="background-color:#87CEFA;font-size: larger;">Status</th>
@@ -47,8 +45,6 @@ cellpadding:2px;
 			<tbody>
 				<c:forEach var="trans" items="${alltrans}">
 					<tr>
-						<%-- <td>${trans.bloodTransactionId}</td> --%>
-						<%-- <td>${trans.requestId}</td> --%>
 						<td>${trans.transactionDate}</td>
 						<td>${trans.quantityInUnits}</td>
 						<td>${trans.status}</td>

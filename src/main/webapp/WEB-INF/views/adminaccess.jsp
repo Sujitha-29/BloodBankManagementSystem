@@ -30,7 +30,7 @@ style="line-height:60px;padding: 0 50px;color: white;width:40%; letter-spacing:1
         </div>
         <ul>
           <li class="dropdown" onmouseover="hover(this);" onmouseout="out(this);">
-          <a href="#" class="input">Blood Bank Records &nbsp;<i class="fa fa-caret-down"></i></a>
+          <a href="#" class="input">Blood Bank Records &nbsp;<em class="fa fa-caret-down"></em></a>
             <div class="dd">
               <div id="up_arrow"></div>
             <ul>

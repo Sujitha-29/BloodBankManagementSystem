@@ -36,10 +36,8 @@ cellpadding:2px;
             </colgroup>
 			<thead>
 				<tr>
-					<!-- <th style="background-color:#87CEFA;font-size: larger;">Person Id</th> -->
 					<th style="background-color:#87CEFA;font-size: larger;">Person Name</th>
 					<th style="background-color:#87CEFA;font-size: larger;">Person DOB</th>
-					<!-- <th style="background-color:#87CEFA;font-size: larger;">Blood Group Id</th> -->			
 					<th style="background-color:#87CEFA;font-size: larger;">Phone Number</th>
 					<th style="background-color:#87CEFA;font-size: larger;">Gender</th>
 					<th style="background-color:#87CEFA;font-size: larger;">Address</th>
@@ -51,10 +49,8 @@ cellpadding:2px;
 			<tbody>
 				<c:forEach var="person" items="${allperson}">
 					<tr>
-						<%-- <td>${person.personId}</td> --%>
 						<td>${person.personName}</td>
 						<td>${person.dob}</td>
-						<%-- <td>${person.bloodGroupId}</td> --%>
 						<td>${person.phoneNo}</td>
 						<td>${person.gender}</td>
 						<td>${person.address}</td>

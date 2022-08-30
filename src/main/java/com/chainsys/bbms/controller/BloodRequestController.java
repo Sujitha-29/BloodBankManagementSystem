@@ -65,14 +65,6 @@ public class BloodRequestController
 		model.addAttribute("addrequest", thereq);
 		return "add-request-form";	
 	}
-	
-	/*
-	 * @PostMapping("/updatebloodrequest") public String
-	 * updateBloodRequest(@Valid@ModelAttribute("updaterequest") BloodRequest
-	 * thereq,Errors errors) { if(errors.hasErrors()) { return
-	 * "update-request-form"; } bloodRequestService.save(thereq); return
-	 * "redirect:/bloodrequest/listbloodrequest"; }
-	 */
 	@GetMapping("/deletebloodrequest")
 	public String deleteRequest(@RequestParam("id") int id,Model model)
 	{

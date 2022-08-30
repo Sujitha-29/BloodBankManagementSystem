@@ -93,14 +93,6 @@ public class PersonDetailsController {
 		model.addAttribute("bloodGrouplist", bloodGrouplist);
 		return ADDPERSON;
 	}
-
-	/*
-	 * @PostMapping("/update") public String
-	 * updatePerson(@Valid@ModelAttribute("updateperson") PersonDetail
-	 * theperson,Errors errors) { if(errors.hasErrors()) { return
-	 * UPDATEPERSONDETAILS; } personDetailService.save(theperson); return
-	 * LISTOFPERSONS; }
-	 */
 	@GetMapping("/deleteperson")
 	public String deletePerson(@RequestParam("id") int id, Model model) {
 		personDetailService.deleteById(id);

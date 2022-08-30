@@ -84,7 +84,6 @@ body {
 			<form:form style="line-height: 20px;" action="savebloodrequest"
 				method="post" modelAttribute="addrequest"   name="form">			
 				<div>
-					<!-- <label class="heading-text" for="requestId">RequestId</label> -->
 					<div>
 						<form:hidden path="requestId" title="Please enter number only"
 							pattern="^[0-9]+$" required="true" class="input-size" />

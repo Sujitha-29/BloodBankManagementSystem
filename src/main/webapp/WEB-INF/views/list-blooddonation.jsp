@@ -37,25 +37,19 @@ cellpadding:2px;
 			<thead>
 				<tr>
 				
-					<!-- <th style="background-color:#87CEFA;font-size": larger;>Donation Id</th> -->
-					<!-- <th style="background-color:#87CEFA;font-size: larger;">Person Id</th> -->
 					<th style="background-color:#87CEFA;font-size: larger;">Donation Date</th>
 					<th style="background-color:#87CEFA;font-size: larger;">Health Condition</th>
 					<th style="background-color:#87CEFA;font-size: larger;">Quantity In Units</th>
 					<th style="background-color:#87CEFA;font-size: larger;">View</th>
-					<!-- <th style="background-color:#87CEFA;font-size: larger;">Edit</th> -->
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="donation" items="${allblooddontaion}">
 					<tr>
-						<%-- <td>${donation.donationTransId}</td> --%>
-						<%-- <td>${donation.personId}</td> --%>
 						<td>${donation.donationDate}</td>
 						<td>${donation.healthCondition}</td>
 						<td>${donation.quantityInUnits}</td>
 						<td><button onclick="window.location.href='getblooddonation?id=${donation.donationTransId}'">View</button></td>
-						<%-- <td><a href="updateblooddonationform?blooddonationid=${donation.donationTransId}">Edit</a></td> --%>
 					</tr>
 				</c:forEach>
 			</tbody>

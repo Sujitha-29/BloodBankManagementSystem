@@ -86,15 +86,6 @@ public class DonorAppointmentController
 		model.addAttribute("addappointment", theappo);
 		return ADDAPOINTEMENT;	
 	}
-
-	/*
-	 * @PostMapping("/update") public String
-	 * updateDonorAppointments(@Valid@ModelAttribute("updateappointment")
-	 * DonorAppointment donorAppointment,Errors errors) { if(errors.hasErrors()) {
-	 * return DONORAPPOINTMENTUPDATE; }
-	 * 
-	 * donorAppointmentService.save(donorAppointment); return LISTOFAPPOINTMENT; }
-	 */
 	@GetMapping("/deleteappointment")
 	public String deleteAppointment(@RequestParam("id") int id,Model model)
 	{

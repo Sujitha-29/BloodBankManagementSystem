@@ -57,14 +57,6 @@ public class BloodDonationController
 		model.addAttribute("addblooddonation",thebd);
 		return ADDBLOODDONATION;	
 	}
-
-	/*
-	 * @PostMapping("/update") public String
-	 * updateblooddonationdetails(@Valid@ModelAttribute("updateblooddonation")
-	 * BloodDonationDetail thebd,Errors errors) { if(errors.hasErrors()) { return
-	 * UPDATEBLOODDONATION; } bloodDonationService.save(thebd); return
-	 * LISTOFBLOODDONATION; }
-	 */
 	@GetMapping("/deleteblooddontion")
 	public String deleteBloodDonationDetails(@RequestParam("id") int id,Model model)
 	{

@@ -19,7 +19,6 @@ body {
 </style>
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="document.location='/bloodgroup/listbloodgroup'">List

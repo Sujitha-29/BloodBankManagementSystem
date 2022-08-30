@@ -37,12 +37,9 @@ cellpadding:2px;
             </colgroup>
 			<thead>
 				<tr>
-					<!-- <th style="background-color:#87CEFA;font-size: larger;">AdminId</th> -->
 					<th style="background-color:#87CEFA;font-size: larger;">AdminName</th>
-					<!-- <th style="background-color:#87CEFA;font-size: larger;">AdminPassword</th> -->
 					<th style="background-color:#87CEFA;font-size: larger;">Date Of Joining</th>
 					<th style="background-color:#87CEFA;font-size: larger;">Designation</th>
-					<!-- <th style="background-color:#87CEFA;font-size: larger;">Password Modified Date</th> -->
 					<th style="background-color:#87CEFA;font-size: larger;">Edit</th>
 					<th style="background-color:#87CEFA;font-size: larger;">View</th>
 				</tr>
@@ -50,12 +47,9 @@ cellpadding:2px;
 			<tbody>
 				<c:forEach var="admin" items="${alladmins}">
 					<tr>
-						<%-- <td>${admin.adminId}</td> --%>
 						<td>${admin.adminName}</td>
-						<%-- <td>${admin.adminPassword}</td> --%>
 						<td>${admin.dateOfJoining}</td>
 						<td>${admin.designation}</td>
-						<%-- <td>${admin.passwordModifiedDate}</td> --%>
 						<td><button
 								onclick="window.location.href='updateadminform?adminid=${admin.adminId}'">Edit</button></td>
 						<td><button

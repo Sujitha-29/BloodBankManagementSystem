@@ -32,7 +32,6 @@ body {
 
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
-<!-- <button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="document.location='/appointment/listappointment'">List</button> -->
 
 	<div id="root">	
 		<div id="form" class="form">		

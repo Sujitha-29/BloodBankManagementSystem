@@ -28,7 +28,6 @@ body {
 		<div id="form" class="form">
 			<form:form action="savebloodgroup" method="post" modelAttribute="addbloodgroup">
 								<div>
-					<!-- <label class="heading-text" for="bloodGroupId">Blood Group Id</label> -->
 					<div>
 						<form:hidden path="bloodGroupId" title="Please enter number only"
 							pattern="^[0-9]+$" required="true" class="input-size" />

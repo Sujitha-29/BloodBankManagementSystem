@@ -21,6 +21,9 @@ import com.chainsys.bbms.service.AdminService;
 @RequestMapping("/admin")
 public class AdminController 
 {
+	public static final String ADDADMIN = "add-admins-form";
+	public static final String LISTADMIN = "redirect:/admin/listadmins";
+	
 	@Autowired
 	AdminService adminService;
 	@GetMapping("/listadmins")
@@ -36,7 +39,7 @@ public class AdminController
 	{
 		AdminDetail theadmin=new AdminDetail();
 		model.addAttribute("addadmins",theadmin);
-		return "add-admins-form";
+		return ADDADMIN;
 	}
 	
 	@PostMapping("/saveadmin")
@@ -47,7 +50,7 @@ public class AdminController
 			return "add-admins-form";
 		}
 		adminService.save(theadmin);
-		return "redirect:/admin/listadmins" ;
+		return LISTADMIN;
 		
 	}
 	
@@ -56,22 +59,14 @@ public class AdminController
 	{
 		AdminDetail theadmin=adminService.findById(id);
 		model.addAttribute("addadmins", theadmin);
-		return "add-admins-form";	
-	}
-	
-	/*
-	 * @PostMapping("/updateadmin") public String
-	 * updateadmin(@Valid@ModelAttribute("updateadmins") AdminDetail theadmin,Errors
-	 * errors) { if(errors.hasErrors()) { return "update-admin-form"; }
-	 * adminService.save(theadmin); return "redirect:/admin/listadmins"; }
-	 */
-	
+		return ADDADMIN;	
+	}	
 	@GetMapping("/deleteadmin")
 	public String deleteAdmin(@RequestParam("id") int id,Model model)
 	{
 		
 		adminService.deleteById(id);
-		return "redirect:/admin/listadmins";
+		return LISTADMIN;
 	}
 	
 	@GetMapping("/getadmin")

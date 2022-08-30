@@ -98,7 +98,7 @@ a {
 #container>nav>ul>li>div {
 	position: absolute;
 	padding: 0 10px;
-	background-color: black;
+	/* background-color: black; */
 	display: none;
 	background-color: aliceblue;
 	min-width: 100px;

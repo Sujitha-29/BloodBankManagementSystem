@@ -30,7 +30,6 @@ body {
 			<form:form action="getbloodrequest" method="post"
 				modelAttribute="getrequestbyid">
 				<div>
-					<!-- <label class="heading-text" for="requestId">Request Id</label> -->
 					<div>
 						<form:hidden path="requestId" class="input-size" />
 					</div>

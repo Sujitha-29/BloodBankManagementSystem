@@ -61,14 +61,6 @@ public class BloodTransactionController
 		model.addAttribute("addtransaction", thetrans);
 		return ADDTRANSACTION;	
 	}
-
-	/*
-	 * @PostMapping("/update") public String
-	 * updateBloodTransaction(@Valid@ModelAttribute("updatetransaction")
-	 * BloodTransaction thetrans,Errors errors) { if(errors.hasErrors()) { return
-	 * UPDATETRANSACTION; } bloodTransactionService.save(thetrans); return
-	 * LISTOFTRANSACTION; }
-	 */
 	@GetMapping("/deletebloodtransaction")
 	public String deleteTransaction(@RequestParam("id") int id,Model model)
 	{

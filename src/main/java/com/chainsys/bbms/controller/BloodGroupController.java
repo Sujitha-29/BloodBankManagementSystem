@@ -56,14 +56,6 @@ public class BloodGroupController {
 		model.addAttribute("addbloodgroup", thebg);
 		return ADDBLOODGROUP;
 	}
-
-	/*
-	 * @PostMapping("/update") public String
-	 * updateBloodgroupDetails(@Valid @ModelAttribute("updatebloodgroup")
-	 * BloodGroupDetail thebg, Errors errors) { if (errors.hasErrors()) { return
-	 * UPDATEBLOODGROUP; } bloodGroupService.save(thebg); return LISTOFBLOODGROUP; }
-	 */
-
 	@GetMapping("/deletebloodgroup")
 	public String deleteBloodGroup(@RequestParam("id") int id, Model model) {
 		bloodGroupService.deleteById(id);
