@@ -19,7 +19,6 @@ body {
 	<nav>
 		<label class="logo">Blood<span style="color:#ffe007;">Bank</span></label>
 		<ul>
-			<!-- <li><a class="active" href="#">Home</a></li> -->
 			<li><a href="/admin/adminpage">ADMIN</a></li>
 			<li><a href="/bloodrequest/addbloodrequestform">BLOOD
 					REQUEST</a></li>

@@ -47,7 +47,7 @@ public class AdminController
 	{
 		if(errors.hasErrors())
 		{
-			return "add-admins-form";
+			return ADDADMIN;
 		}
 		adminService.save(theadmin);
 		return LISTADMIN;

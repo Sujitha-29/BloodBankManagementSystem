@@ -26,6 +26,8 @@ import com.chainsys.bbms.validation.InvalidInputDataException;
 public class PersonDetailsController {
 	public static final String ADDPERSON = "add-persons-form";
 	public static final String LISTOFPERSONS = "redirect:/person/listpersondetails";
+	public static final String BLOODGROUPLIST = "bloodGrouplist";
+	
 	@Autowired
 	PersonDetailsService personDetailService;
 	@Autowired
@@ -43,7 +45,7 @@ public class PersonDetailsController {
 		PersonDetail theperson = new PersonDetail();
 		model.addAttribute("addperson", theperson);
 		List<BloodGroupDetail> bloodGrouplist = bloodGroupService.getBloodGroup();
-		model.addAttribute("bloodGrouplist", bloodGrouplist);
+		model.addAttribute(BLOODGROUPLIST, bloodGrouplist);
 		return ADDPERSON;
 	}
 
@@ -61,7 +63,7 @@ public class PersonDetailsController {
 			} catch (InvalidInputDataException exception) {
 				model.addAttribute("message", exception.getMessage());
 				List<BloodGroupDetail> bloodGrouplist = bloodGroupService.getBloodGroup();
-				model.addAttribute("bloodGrouplist", bloodGrouplist);
+				model.addAttribute(BLOODGROUPLIST, bloodGrouplist);
 				return ADDPERSON;
 			}
 			theperson1 = personDetailService.getByEmailId(theperson.getEmailId());
@@ -72,7 +74,7 @@ public class PersonDetailsController {
 			} catch (InvalidInputDataException exception) {
 				model.addAttribute("error", exception.getMessage());
 				List<BloodGroupDetail> bloodGrouplist = bloodGroupService.getBloodGroup();
-				model.addAttribute("bloodGrouplist", bloodGrouplist);
+				model.addAttribute(BLOODGROUPLIST, bloodGrouplist);
 				return ADDPERSON;
 			}
 
@@ -90,7 +92,7 @@ public class PersonDetailsController {
 		session.setAttribute("updatePersonId", theperson.getPersonId());
 		model.addAttribute("addperson", theperson);
 		List<BloodGroupDetail> bloodGrouplist = bloodGroupService.getBloodGroup();
-		model.addAttribute("bloodGrouplist", bloodGrouplist);
+		model.addAttribute(BLOODGROUPLIST, bloodGrouplist);
 		return ADDPERSON;
 	}
 	@GetMapping("/deleteperson")
