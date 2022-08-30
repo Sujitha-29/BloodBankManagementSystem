@@ -23,7 +23,6 @@ public class BloodDonationController
 {
 	public static final String LISTOFBLOODDONATION = "redirect:/blooddonation/listblooddonation";
 	public static final String ADDBLOODDONATION = "add-blooddonation-form";
-	public static final String UPDATEBLOODDONATION = "update-blooddonation-form";
 
 	@Autowired
 	BloodDonationService bloodDonationService;
@@ -41,7 +40,7 @@ public class BloodDonationController
 		model.addAttribute("addblooddonation", thebd);
 		return ADDBLOODDONATION;		
 	}
-	@PostMapping("/add")
+	@PostMapping("/saveblooddonation")
 	public String addNewBloodDonationDetails(@Valid@ModelAttribute("addblooddonation") BloodDonationDetail thebd,Errors errors)
 	{
 		if(errors.hasErrors())
@@ -55,19 +54,17 @@ public class BloodDonationController
 	public String updateBloodDonationForm(@RequestParam("blooddonationid") int id,Model model)
 	{
 		BloodDonationDetail thebd = bloodDonationService.findById(id);
-		model.addAttribute("updateblooddonation",thebd);
-		return UPDATEBLOODDONATION;	
+		model.addAttribute("addblooddonation",thebd);
+		return ADDBLOODDONATION;	
 	}
-	@PostMapping("/update")
-	public String updateblooddonationdetails(@Valid@ModelAttribute("updateblooddonation") BloodDonationDetail thebd,Errors errors)
-	{
-		if(errors.hasErrors())
-		{
-			return UPDATEBLOODDONATION;
-		}
-		bloodDonationService.save(thebd);
-		return LISTOFBLOODDONATION;
-	}
+
+	/*
+	 * @PostMapping("/update") public String
+	 * updateblooddonationdetails(@Valid@ModelAttribute("updateblooddonation")
+	 * BloodDonationDetail thebd,Errors errors) { if(errors.hasErrors()) { return
+	 * UPDATEBLOODDONATION; } bloodDonationService.save(thebd); return
+	 * LISTOFBLOODDONATION; }
+	 */
 	@GetMapping("/deleteblooddontion")
 	public String deleteBloodDonationDetails(@RequestParam("id") int id,Model model)
 	{

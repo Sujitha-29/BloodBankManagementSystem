@@ -9,16 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/home")
 public class IndexController 
 {
-    @GetMapping("/index")
-    public String getIndex(Model model) {
-        return "index";
-    }
-    @GetMapping("/demoindex")
-    public String getDemoIndex(Model model)
-    {
-    	return "demoindex";
-    }
-    
+   
     @GetMapping("/adminuse")
     public String adminAccess(Model model)
     {
@@ -29,25 +20,16 @@ public class IndexController
     {
     	return "homepage"; 	
     }
-    @GetMapping("/webpage")
-    public String webpageHome(Model model)
-    {
-    	return "demonavbar";
-    }
     @GetMapping("/contactus")
     public String contactUs(Model model)
     {
     	return "contact";
     }
-    @GetMapping("/adminlogindemo")
-    public String demoAdminLogin(Model model)
+    @GetMapping("/logout")
+    public String logout(Model model)
     {
-    	return "demo-admin-login";
+    	return "logoutdemo";
     }
-    @GetMapping("/slidedemo")
-    public String box(Model model)
-    {
-    	return "slideshow";
-    }
+    
     
 }

@@ -1,7 +1,8 @@
 @charset "ISO-8859-1";
 .heading-text {
 	font-weight: bold;
-	font-size: 20px;
+   font-size: 25px;
+    color: white;
 }
 
 
@@ -21,7 +22,9 @@
 .form
 {
 text-align: center; 
-margin-top: 9%;
+    margin-left: 100px;
+    margin-top: 41px;
+
 }
 .center
 {

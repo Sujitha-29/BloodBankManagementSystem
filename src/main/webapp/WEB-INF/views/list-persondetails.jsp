@@ -7,6 +7,15 @@
 <meta charset="ISO-8859-1">
 <title>List Persons Details</title>
 <style><%@include file ="/WEB-INF/css/list.css"%>
+body
+{
+background-image:url("https://b-static.besthdwallpaper.com/background-with-light-yellow-and-ocher-colors-with-flying-birds-wallpaper-1152x864-94923_19.jpg");
+background-position: center;
+	background-repeat: no-repeat; 
+	background-size: cover;
+    position: relative; 
+    background-attachment:fixed;
+}
 h1 {text-align: center;}
 div{text-align: center;}
 .table-size{
@@ -18,42 +27,40 @@ cellpadding:2px;
 </head>
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
-<div id="table root" class="person_top">
-		<table class="table-size">
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="document.location='/admin/adminuse'">AdminHome</button>
+<div id="table root">
+		<table class="table">
 		<caption></caption>
-		 <colgroup>
-                <col span="11" style="background-color:#01e3c9">
-                <col span="4" style="background-color:crimson">
+		<colgroup>
+                <col span="10" style="background-color:#01e3c9">
             </colgroup>
 			<thead>
 				<tr>
-					<th>Person Id</th>
-					<th>Person Name</th>
-					<th>Person DOB</th>
-					<th>Blood Group Id</th>			
-					<th>Phone Number</th>
-					<th>Gender</th>
-					<th>Address</th>
-					<th>Email Id</th>
-					<th>Edit</th>
-					<th>Delete</th>
-					<th>View</th>
+					<!-- <th style="background-color:#87CEFA;font-size: larger;">Person Id</th> -->
+					<th style="background-color:#87CEFA;font-size: larger;">Person Name</th>
+					<th style="background-color:#87CEFA;font-size: larger;">Person DOB</th>
+					<!-- <th style="background-color:#87CEFA;font-size: larger;">Blood Group Id</th> -->			
+					<th style="background-color:#87CEFA;font-size: larger;">Phone Number</th>
+					<th style="background-color:#87CEFA;font-size: larger;">Gender</th>
+					<th style="background-color:#87CEFA;font-size: larger;">Address</th>
+					<th style="background-color:#87CEFA;font-size: larger;">Email Id</th>
+					<th style="background-color:#87CEFA;font-size: larger;">Edit</th>
+					<th style="background-color:#87CEFA;font-size: larger;">View</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="person" items="${allperson}">
 					<tr>
-						<td>${person.personId}</td>
+						<%-- <td>${person.personId}</td> --%>
 						<td>${person.personName}</td>
 						<td>${person.dob}</td>
-						<td>${person.bloodGroupId}</td>
+						<%-- <td>${person.bloodGroupId}</td> --%>
 						<td>${person.phoneNo}</td>
 						<td>${person.gender}</td>
 						<td>${person.address}</td>
 						<td>${person.emailId}</td>
-						<td><a href="updatepersonform?personid=${person.personId}">Edit</a></td>
-						<td><a href="deleteperson?id=${person.personId}">Delete</a></td>
-						<td><a href="getperson?id=${person.personId}">View</a></td>
+						<td><button onclick="window.location.href='updatepersonform?personid=${person.personId}'">Edit</button></td>
+						<td><button onclick="window.location.href='getperson?id=${person.personId}'">View</button></td>
 					</tr>
 				</c:forEach>
 			</tbody>

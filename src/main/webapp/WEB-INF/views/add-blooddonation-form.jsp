@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page import="com.chainsys.bbms.businesslogic.Logic"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,17 +13,30 @@
 	font-size: 0.9em;
 }
 body {
-	background-color: #a5edf3;
+	
+	background-image: url("https://wallpapercave.com/wp/wp4323461.png");
+	background-position: center;
+	background-repeat: no-repeat; 
+	background-size: cover;
+    position: relative; 
+    background-attachment:fixed;
 }
 </style>
 </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="document.location='/blooddonation/listblooddonation'">List</button>
+
 		<div id="root">
 			<div id="form" class="form">
-				<form:form action="add" method="post"
+				<form:form action="saveblooddonation" method="post"
 					modelAttribute="addblooddonation">
-					
+									<div>
+					<div>
+						<form:hidden path="donationTransId" />
+					</div>
+				</div>			
 					<div>
 						<label class="heading-text" for="personId">Person Id</label>
 						<div>
@@ -33,15 +47,16 @@ body {
 					<div>
 						<label class="heading-text" for="donationDate">Donation Date</label>
 						<div>
-							<form:input type="date" path="donationDate" required="true" class="input-size" />
+							<form:input type="date" path="donationDate" required="true" value="<%=Logic.getInstanceDate() %>" readonly="true" class="input-size" />
 						</div>
 					</div>
 					<div>
 						<label class="heading-text" for="healthCondition">Health Condition</label>
 						<div>
-							<form:input path="healthCondition" pattern="^[A-Za-z\s]*$"
-								title="Please Enter Charactor Only"
-								placeholder="Enter Health Condition" required="true" class="input-size" />
+							<form:select path="healthCondition" 
+								 required="true" class="input-size" >
+								   <form:option value="Normal" label="Normal" />
+								   </form:select>
 						</div>
 					</div>
 					<form:errors path="healthCondition" cssClass="text-danger" />
@@ -53,7 +68,7 @@ body {
 					</div>
 					<form:errors path="quantityInUnits" cssClass="text-danger" />
 					<div>
-						<form:button class="button-style">ADD</form:button>
+						<form:button class="button-style">SAVE</form:button>
 					</div>
 				</form:form>
 			</div>

@@ -26,10 +26,10 @@ public class DonorAppointmentController
 {
 	public static final String LISTOFAPPOINTMENT = "redirect:/appointment/listappointment";
 	public static final String ADDAPOINTEMENT = "add-appointment-form";
-	public static final String DONORAPPOINTMENTUPDATE = "update-appointment-form";
 	public static final String RESULT="result";
-	public static final String ELIGIBLE="Succesfully submitted your Appointment";
-	public static final String NOTELIGIBLE="you are not eligible for Blood Donation";
+	public static final String ELIGIBLE="Succesfully submitted your Appointment!!!";
+	public static final String NOTELIGIBLE="you are not yet completed the duration for donating blood...Please come back later!!!";
+	
 	
 	@Autowired
 	DonorAppointmentService donorAppointmentService;
@@ -49,7 +49,7 @@ public class DonorAppointmentController
 		model.addAttribute("addappointment",theappo);
 		return ADDAPOINTEMENT;
 	}
-	@PostMapping("/add")
+	@PostMapping("/savedonorappointment")
 	public String addNewDonorAppointment(@Valid@ModelAttribute("addappointment") DonorAppointment theappo,Errors errors,Model model)
 	{
 		if(errors.hasErrors())
@@ -83,20 +83,18 @@ public class DonorAppointmentController
 	public String showAppointemntUpdateForm(@RequestParam("appoid") int id,Model model)
 	{
 		DonorAppointment theappo=donorAppointmentService.findById(id);
-		model.addAttribute("updateappointment", theappo);
-		return DONORAPPOINTMENTUPDATE;	
+		model.addAttribute("addappointment", theappo);
+		return ADDAPOINTEMENT;	
 	}
-	@PostMapping("/update")
-	public String updateDonorAppointments(@Valid@ModelAttribute("updateappointment") DonorAppointment donorAppointment,Errors errors)
-	{
-		if(errors.hasErrors())
-		{
-			return DONORAPPOINTMENTUPDATE;
-		}
-		
-		donorAppointmentService.save(donorAppointment);
-		return LISTOFAPPOINTMENT;
-	}
+
+	/*
+	 * @PostMapping("/update") public String
+	 * updateDonorAppointments(@Valid@ModelAttribute("updateappointment")
+	 * DonorAppointment donorAppointment,Errors errors) { if(errors.hasErrors()) {
+	 * return DONORAPPOINTMENTUPDATE; }
+	 * 
+	 * donorAppointmentService.save(donorAppointment); return LISTOFAPPOINTMENT; }
+	 */
 	@GetMapping("/deleteappointment")
 	public String deleteAppointment(@RequestParam("id") int id,Model model)
 	{

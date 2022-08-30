@@ -39,7 +39,7 @@ public class AdminController
 		return "add-admins-form";
 	}
 	
-	@PostMapping("/addadmin")
+	@PostMapping("/saveadmin")
 	public String addNewAdmin(@Valid@ModelAttribute("addadmins") AdminDetail theadmin,Errors errors)
 	{
 		if(errors.hasErrors())
@@ -47,7 +47,7 @@ public class AdminController
 			return "add-admins-form";
 		}
 		adminService.save(theadmin);
-		return "redirect:/admin/getadmin?id=" +theadmin.getAdminId() ;
+		return "redirect:/admin/listadmins" ;
 		
 	}
 	
@@ -55,20 +55,16 @@ public class AdminController
 	public String showAdminUpdateForm(@RequestParam("adminid") int id,Model model)
 	{
 		AdminDetail theadmin=adminService.findById(id);
-		model.addAttribute("updateadmins", theadmin);
-		return "update-admin-form";	
+		model.addAttribute("addadmins", theadmin);
+		return "add-admins-form";	
 	}
 	
-	@PostMapping("/updateadmin")
-	public String updateadmin(@Valid@ModelAttribute("updateadmins") AdminDetail theadmin,Errors errors)
-	{
-		if(errors.hasErrors())
-		{
-			return "update-admin-form";
-		}
-		adminService.save(theadmin);
-		return "redirect:/admin/listadmins";
-	}
+	/*
+	 * @PostMapping("/updateadmin") public String
+	 * updateadmin(@Valid@ModelAttribute("updateadmins") AdminDetail theadmin,Errors
+	 * errors) { if(errors.hasErrors()) { return "update-admin-form"; }
+	 * adminService.save(theadmin); return "redirect:/admin/listadmins"; }
+	 */
 	
 	@GetMapping("/deleteadmin")
 	public String deleteAdmin(@RequestParam("id") int id,Model model)
@@ -95,7 +91,7 @@ public class AdminController
 	}
 	
 	@PostMapping("/adminlogin")
-	public String checkingAccess(@ModelAttribute("login") AdminDetail admin)
+	public String checkingAccess(@ModelAttribute("login") AdminDetail admin,Model model)
 	{
 		AdminDetail adminDetail =adminService.getAdminNameAdminPassword(admin.getAdminName(),admin.getAdminPassword());
 		if(adminDetail !=null)
@@ -104,8 +100,9 @@ public class AdminController
 		}
 		else
 		{
-			return "invalid admin error";
+			model.addAttribute("result","Invalid AdminName or Password!!");
 		}
+		return "admin-login-form";
 	}
 	@GetMapping("/adminuse")
     public String adminAccess(Model model)

@@ -15,8 +15,8 @@ import javax.persistence.Table;
 public class AdminDetail {
 	@Id
 	@Column(name = "admin_id")
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "adminn_id")
-	@SequenceGenerator(name = "adminn_id", sequenceName = "adminn_id", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "adminns_id")
+	@SequenceGenerator(name = "adminns_id", sequenceName = "adminns_id", allocationSize = 1)
 	private int adminId;
 
 	@Column(name = "admin_name")
@@ -31,8 +31,7 @@ public class AdminDetail {
 	@Column(name = "designation")
 	private String designation;
 
-	@Column(name = "password_modified_date")
-	private Date passwordModifiedDate;
+	
 
 	public int getAdminId() {
 		return adminId;
@@ -74,11 +73,5 @@ public class AdminDetail {
 		this.designation = designation;
 	}
 
-	public Date getPasswordModifiedDate() {
-		return passwordModifiedDate;
-	}
-
-	public void setPasswordModifiedDate(Date passwordModifiedDate) {
-		this.passwordModifiedDate = passwordModifiedDate;
-	}
+	
 }

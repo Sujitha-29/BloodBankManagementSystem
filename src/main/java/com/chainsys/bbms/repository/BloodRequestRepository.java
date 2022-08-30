@@ -15,5 +15,6 @@ public interface BloodRequestRepository extends CrudRepository<BloodRequest,Inte
 	
 	List<BloodRequest> findByBloodgroupBloodGroupId(int id);
 	
-	
+	List<BloodRequest> findByRequestIdNotIn(List<Integer>transactionId);
+	BloodRequest findByRecipientPhoneNo(long recipientPhoneNo);
 }

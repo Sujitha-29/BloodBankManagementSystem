@@ -1,123 +1,65 @@
 @charset "ISO-8859-1";
-/* table, th, td {
-	border: 1px solid black;
-	padding: 10px;
-	text-align: left;
+body {
+	margin: 0;
+	padding: 20px;
+	font-family: sans-serif;
 }
 
-th, td {
-	border-color: #96D4D4;
+*{
+	box-sizing: border-box;
 }
 
-tr:hover {
-	background-color: #D6EEEE;
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 31px;
 }
 
-.button {
-	font-size: 19px;
-	background-color: #17c0cd5e;
-	border: 1px solid blue;
-	border-radius: 5px;
-}
-
-.top {
-	margin-top: 105px;
-	margin-left: 185px;
-}
-
-.btn_align {
-	margin-right: 181px;
-	margin-top: 25px;
+.table td, .table th {
+	padding: 12px 15px;
+	border: 1px solid #ddd;
 	text-align: center;
-}
-.bloodgrp_top
-{
-	margin-top: 45px;
-    margin-left: 364px;
-}
-.bloodgrp_btn
-{
-	margin-right: 47px;
-	margin-top: 25px;
-	text-align: center;
-}
-.person_top
-{
-	    margin-top: 69px;
-    margin-left: 184px;
-}
-.person_btn
-{
-	    margin-right: -21px;
-    margin-top: 25px;
-    text-align: center;
-}
-.donation_top
-{
-	margin-top: 105px;
-    margin-left: 280px;
+	font-size: 16px;
 }
 
-.request_top
+.table th {
+	background-color: #92c9e6;
+	color: #ffffff;
+}
+
+.table tbody tr:nth-child(even) {
+	background-color: #d1e8f5;
+}
+.btn_align
 {
-	    margin-top: 105px;
-    margin-left: 106px;
+	    margin-top: 18px;
+    padding: 6px;
 }
-.request_btn
-{
-	margin-right: 54px;
-    margin-top: 25px;
-    text-align: center;
-}
-.appo_top
-{
-	    margin-top: 108px;
-    margin-left: 288px;
-} */
-
-
-*
-body{
-    background-size: 1366px 768px;
-    background-attachment: fixed;
-}
-table, th, td {
-    border: 1px solid black;
-    padding: 10px;
-    text-align: left;
-}
-
-th, td {
-    border-color: #96D4D4;
-}
-
-tr:hover {
-    background-color: #D6EEEE;
-}
-
-
-.label-size {
-    font-size: 20px;
-}
-
-.text-box {
-    height: 20px;
-    width: 200px;
-}
-
-.button {
-	font-size: 19px;
-	background-color: #17c0cd5e;
-	border: 1px solid blue;
-	border-radius: 5px;
-}
-.text-danger {
-    color: red;
-    font-size: 0.9em;
-}
-.donation_btn
-{
-	margin-right: -17px;
-    margin-top: 25px;
-    text-align: center;
+/*responsive*/
+@media ( max-width : 500px) {
+	.table thead {
+		display: none;
+	}
+	.table, .table tbody, .table tr, .table td {
+		display: block;
+		width: 100%;
+	}
+	.table tr {
+		margin-bottom: 15px;
+	}
+	.table td {
+		padding-left: 50%;
+		text-align: left;
+		position: relative;
+	}
+	.table td::before {
+		content: attr(data-label);
+		position: absolute;
+		left: 0;
+		width: 50%;
+		padding-left: 15px;
+		font-size: 15px;
+		font-weight: bold;
+		text-align: left;
+	}
 }

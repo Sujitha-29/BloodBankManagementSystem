@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
@@ -8,7 +8,13 @@
 <title>Update Person Details</title>
 <style><%@include file ="/WEB-INF/css/alljsp.css"%> 
 body {
-	background-color: #a5edf3;
+	
+	background-image: url("https://cdn.wallpapersafari.com/78/7/JOGgC4.png");
+	background-position: center;
+	background-repeat: no-repeat; 
+	background-size: cover;
+    position: relative; 
+    background-attachment:fixed;
 }
 </style>
 </head>
@@ -96,4 +102,4 @@ body {
 		</div>
 	</div>
 </body>
-</html>
+</html> --%>

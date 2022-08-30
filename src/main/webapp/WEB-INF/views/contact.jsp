@@ -7,13 +7,12 @@
 <title>Contact</title>
 <style>
 body {
-	background-image: url("https://wallpapermemory.com/uploads/457/cool-flower-wallpaper-1366x768-laptop-75639.jpg");
-	height: 500px;
-	width: 970px;
-	background-position: center top;
-	background-repeat: no-repeat;
+	background-image: url("https://web-dev.imgix.net/image/admin/K1IN7zWIjFLjZzJ4Us3J.jpg?auto=format");
+	background-position: center;
+	background-repeat: no-repeat; 
 	background-size: cover;
-	position: relative;
+    position: relative; 
+    background-attachment:fixed;
 }
 h1,h2,p,h4
 {
@@ -21,9 +20,9 @@ h1,h2,p,h4
 }
 .top
 {
-text-align: center;
-    margin-right: -389px;
-    margin-top: -44px;
+    text-align: center;
+    margin-right: 307px;
+    margin-top: 66px;
 }
 </style>
 </head>

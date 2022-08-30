@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>DemoNavbar</title>
+<title>HomePage</title>
 <style><%@include file ="/WEB-INF/css/homepage.css"%>
 body {
 	background-image:
@@ -17,13 +17,13 @@ body {
 </head>
 <body>
 	<nav>
-		<label class="logo">BloodBank</label>
+		<label class="logo">Blood<span style="color:#ffe007;">Bank</span></label>
 		<ul>
-			<li><a class="active" href="#">Home</a></li>
+			<!-- <li><a class="active" href="#">Home</a></li> -->
 			<li><a href="/admin/adminpage">ADMIN</a></li>
 			<li><a href="/bloodrequest/addbloodrequestform">BLOOD
 					REQUEST</a></li>
-			<li><a href="/person/addpersonform">NEW DONOR</a></li>
+			<li><a href="/person/addpersonform">DONOR REGISTRATION</a></li>
 			<li><a href="/appointment/adddonorappointmentform">DONOR
 					APPOINTMENT</a></li>
 			<li><a href="/home/contactus">CONTACT</a></li>

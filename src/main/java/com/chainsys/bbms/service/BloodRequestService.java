@@ -1,6 +1,7 @@
 package com.chainsys.bbms.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,7 +36,11 @@ public class BloodRequestService
 	{
 		bloodRequestRepository.deleteById(id);
 	}
-	
+	public List<BloodRequest>getNotTransactionBloodRequest(){
+		List<BloodTransaction>transactionList=bloodTransactionRepository.findAll();
+		List<Integer>requestId=transactionList.stream().map(BloodTransaction::getRequestId).collect(Collectors.toList());
+		return bloodRequestRepository.findByRequestIdNotIn(requestId);
+	}
 	public  BloodRequestBloodTransactionDTO getBloodRequestAndTransactionDetail(int id)
 	{
 		BloodRequest bloodRequest=findById(id);
@@ -44,5 +49,8 @@ public class BloodRequestService
 		BloodTransaction bloodTransaction=bloodTransactionRepository.findByRequestId(id);
 		dto.setBloodTransaction(bloodTransaction);
 		return dto;	
+	}
+	public BloodRequest getByPhone(long recipientPhoneNo) {
+		return bloodRequestRepository.findByRecipientPhoneNo(recipientPhoneNo);
 	}
 }

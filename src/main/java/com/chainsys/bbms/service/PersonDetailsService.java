@@ -31,6 +31,16 @@ public class PersonDetailsService {
 	{
 		return  personDetailRepository.findById(id);
 	}
+	public PersonDetail getByEmailId(String email)
+	{
+		return  personDetailRepository.findByEmailId(email);
+	}
+	
+	public PersonDetail getByPhone(Long phone)
+	{
+		return  personDetailRepository.findByPhoneNo(phone);
+	}
+	
 	public void deleteById(int id)
 	{
 		 personDetailRepository.deleteById(id);

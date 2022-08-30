@@ -2,12 +2,10 @@ package com.chainsys.bbms.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,6 +34,13 @@ public class BloodRequestController
 		return "list-request";
 	}
 	
+	@GetMapping("/untransactionrequest")
+	public String getListOfrequest(Model model) {
+		List<BloodRequest> reqlist=bloodRequestService.getNotTransactionBloodRequest();
+		model.addAttribute("getallbloodrequest",reqlist);
+		return "untransaction-request";
+	}
+	
 	@GetMapping("/addbloodrequestform")
 	public String showAddBloodRequestForm(Model model)
 	{
@@ -46,7 +51,7 @@ public class BloodRequestController
 		return "add-request-form";
 	}
 	
-	@PostMapping("/addbloodrequest")
+	@PostMapping("/savebloodrequest")
 	public String addNewBloodRequest(@ModelAttribute("addrequest") BloodRequest theRequest)
 	{
 		bloodRequestService.save(theRequest);
@@ -57,20 +62,17 @@ public class BloodRequestController
 	public String showBloodRequestUpdateForm(@RequestParam("reqid") int id,Model model)
 	{
 		BloodRequest thereq=bloodRequestService.findById(id);
-		model.addAttribute("updaterequest", thereq);
-		return "update-request-form";	
+		model.addAttribute("addrequest", thereq);
+		return "add-request-form";	
 	}
 	
-	@PostMapping("/updatebloodrequest")
-	public String updateBloodRequest(@Valid@ModelAttribute("updaterequest") BloodRequest thereq,Errors errors)
-	{
-		if(errors.hasErrors())
-		{
-			return "update-request-form";
-		}
-		bloodRequestService.save(thereq);
-		return "redirect:/bloodrequest/listbloodrequest";
-	}
+	/*
+	 * @PostMapping("/updatebloodrequest") public String
+	 * updateBloodRequest(@Valid@ModelAttribute("updaterequest") BloodRequest
+	 * thereq,Errors errors) { if(errors.hasErrors()) { return
+	 * "update-request-form"; } bloodRequestService.save(thereq); return
+	 * "redirect:/bloodrequest/listbloodrequest"; }
+	 */
 	@GetMapping("/deletebloodrequest")
 	public String deleteRequest(@RequestParam("id") int id,Model model)
 	{

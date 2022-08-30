@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>List Request</title>
+<title>UnTransactionList</title>
 <style><%@include file ="/WEB-INF/css/list.css"%>
 body
 {
@@ -22,12 +22,12 @@ div{text-align: center;}
 border:2px;
 width:100%;
 cellpadding:2px;
-} 
+}
 </style>
 </head>
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
-<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="document.location='/admin/adminuse'">AdminHome</button>
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="document.location='/bloodtransaction/listbloodtransaction'">List</button>
 <div id="table root">
 		<table class="table">
 		<caption></caption>
@@ -39,11 +39,11 @@ cellpadding:2px;
 					<!-- <th style="background-color:#87CEFA;font-size: larger;">Request Id</th> -->
 					<th style="background-color:#87CEFA;font-size: larger;">Recipient Name</th>
 					<th style="background-color:#87CEFA;font-size: larger;">Recipient Phone No</th>
-					<th style="background-color:#87CEFA;font-size: larger;">Location</th>
-				<!-- 	<th style="background-color:#87CEFA;font-size: larger;">Blood Group Id</th> -->
+					<th style="background-color:#87CEFA;font-size: larger;">Hospital Name</th>
+					<!-- <th style="background-color:#87CEFA;font-size: larger;">Blood Group Id</th> -->
 					<th style="background-color:#87CEFA;font-size: larger;">Request Date</th>
 					<th style="background-color:#87CEFA;font-size: larger;">Quantity In Units</th>
-					<th style="background-color:#87CEFA;font-size: larger;">View</th>
+					<th style="background-color:#87CEFA;font-size: larger;">Edit</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -53,10 +53,11 @@ cellpadding:2px;
 						<td>${request.recipientName}</td>
 						<td>${request.recipientPhoneNo}</td>
 						<td>${request.hospitalName}</td>
-					<%-- 	<td>${request.bloodGroupId}</td> --%>
+						<%-- <td>${request.bloodGroupId}</td> --%>
 						<td>${request.requestDate}</td>
 						<td>${request.quantityInUnits}</td>
-						<td><button onclick="window.location.href='getbloodrequest?id=${request.requestId}'">View</button></td>
+						<td><button onclick="window.location.href='/bloodtransaction/addbloodtransactionform?requestId=${request.requestId}'">Edit</button></td>
+
 					</tr>
 				</c:forEach>
 			</tbody>

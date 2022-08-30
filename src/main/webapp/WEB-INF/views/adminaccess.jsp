@@ -13,79 +13,45 @@
     float: right;
     padding: 43px;
 }
+.input
+{
+style="line-height:60px;padding: 0 50px;color: white;width:40%; letter-spacing:1px;
+  text-shadow:2px 2px 5px;"
+}
 </style>
 </head>
 <body>
-    <h1 align="center">Welcome</h1>
-    <div class="navbar">
-        <div class="dropdown">
-            <button class="dropbtn">
-                AdminDetails<em class="fa fa-caret-down"></em>
-            </button>
-            <div class="dropdown-content">
-                <a href="/admin/listadmins">List</a> 
-            </div>
-        </div>
+         
+    
+    <div id="container">
 
-        <div class="dropdown">
-            <button class="dropbtn">
-               BloodGroupDetails <em class="fa fa-caret-down"></em>
-            </button>
-            <div class="dropdown-content">
-                <a href="/bloodgroup/listbloodgroup">Blood Group List</a>
-            </div>
+      <nav>
+        <div id="logo">Home
         </div>
-
-        <div class="dropdown">
-            <button class="dropbtn">
-               Appointment <em class="fa fa-caret-down"></em>
-            </button>
-            <div class="dropdown-content">
-                <a href="/appointment/listappointment">DonorAppointment List</a> 
+        <ul>
+          <li class="dropdown" onmouseover="hover(this);" onmouseout="out(this);">
+          <a href="#" class="input">Blood Bank Records &nbsp;<i class="fa fa-caret-down"></i></a>
+            <div class="dd">
+              <div id="up_arrow"></div>
+            <ul>
+              
+              <li><a href="/admin/listadmins" class="input">Admin List</a></li>
+              <li><a href="/bloodgroup/listbloodgroup" class="input">Blood Group List</a></li>
+              <li><a href="/person/listpersondetails" class="input">Persons List</a></li>
+              <li><a href="/blooddonation/listblooddonation" class="input">Blood Donation List</a></li>
+              <li><a href="/bloodrequest/listbloodrequest" class="input">Request List</a></li>
+              <li><a href="/bloodtransaction/listbloodtransaction" class="input">Transaction List</a></li>
+              <li><a href="/appointment/listappointment" class="input">DonorAppointment List</a></li>
+            </ul>
             </div>
-        </div>
-
-        <div class="dropdown">
-            <button class="dropbtn">
-              BloodTransaction <em class="fa fa-caret-down"></em>
-            </button>
-            <div class="dropdown-content">
-                <a href="/bloodtransaction/listbloodtransaction">Blood
-				Transaction List</a>              
-            </div>
-        </div>
-        
-        <div class="dropdown">
-            <button class="dropbtn">
-               BloodRequest <em class="fa fa-caret-down"></em>
-            </button>
-            <div class="dropdown-content">
-                <a href="/bloodrequest/listbloodrequest">Blood Request List</a>
-            </div>
-        </div>
-        
-        <div class="dropdown">
-            <button class="dropbtn">
-              PersonDetails <em class="fa fa-caret-down"></em>
-            </button>
-            <div class="dropdown-content">
-                <a href="/person/listpersondetails">Persons List</a>
-            </div>
-        </div>
-        
-        <div class="dropdown">
-            <button class="dropbtn">
-              DonationDetails <em class="fa fa-caret-down"></em>
-            </button>
-            <div class="dropdown-content">
-                <a href="/blooddonation/listblooddonation">Donation List</a>
-            </div>
-        </div>       
+          </li>
+          </ul>       
+      </nav>
     </div>
     <div class="button">
-				        <button class="button-style">
+				        <button class="logout">
                             <a href="/home/loginuse">Logout</a>
                         </button> 
 			</div>
-</body>
+  </body>
 </html>

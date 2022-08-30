@@ -7,6 +7,15 @@
 <meta charset="ISO-8859-1">
 <title>List Appointment</title>
 <style><%@include file ="/WEB-INF/css/list.css"%>
+body
+{
+background-image:url("https://b-static.besthdwallpaper.com/background-with-light-yellow-and-ocher-colors-with-flying-birds-wallpaper-1152x864-94923_19.jpg");
+background-position: center;
+	background-repeat: no-repeat; 
+	background-size: cover;
+    position: relative; 
+    background-attachment:fixed;
+}
 h1 {text-align: center;}
 div{text-align: center;}
 .table-size{
@@ -18,40 +27,32 @@ cellpadding:2px;
 </head>
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
-<div id="table root" class="appo_top">
-		<table class="table-size">
+<button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="document.location='/admin/adminuse'">AdminHome</button>
+<div id="table root">
+		<table class="table">
 		<caption></caption>
 		<colgroup>
                 <col span="10" style="background-color:#01e3c9">
-                <col span="4" style="background-color:crimson">
             </colgroup>
 			<thead>
 				<tr>
-					<th>Appointment Id</th>
-					<th>Appointment Date</th>
-					<th>Person Id</th>
-					<th>Edit</th>
-					<th>Delete</th>
-					<th>View</th>
+					<!-- <th style="background-color:#87CEFA;font-size: larger;">Appointment Id</th> -->
+					<th style="background-color:#87CEFA;font-size: larger;">Appointment Date</th>
+					<th style="background-color:#87CEFA;font-size: larger;">Person Id</th>
+					<th style="background-color:#87CEFA;font-size: larger;">View</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="appo" items="${allappointments}">
 					<tr>
-						<td>${appo.appointmentId}</td>
+						<%-- <td>${appo.appointmentId}</td> --%>
 						<td>${appo.appointmentDate}</td>
 						<td>${appo.personId}</td>
-						<td><a href="updatedonorappointmentform?appoid=${appo.appointmentId}">Edit</a></td>
-						<td><a href="deleteappointment?id=${appo.appointmentId}">Delete</a></td>
-						<td><a href="getappointment?id=${appo.appointmentId}">View</a></td>
+						<td><button onclick="window.location.href='getappointment?id=${appo.appointmentId}'">View</button></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-	<div class="btn_align">
-			<a href="adddonorappointmentform"><button class="button">ADD APPOINTMENT
-				</button></a>
-		</div>
 </body>
 </html>

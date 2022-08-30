@@ -24,7 +24,6 @@ import com.chainsys.bbms.service.BloodGroupService;
 public class BloodGroupController {
 	public static final String LISTOFBLOODGROUP = "redirect:/bloodgroup/listbloodgroup";
 	public static final String ADDBLOODGROUP = "add-blood-group-form";
-	public static final String UPDATEBLOODGROUP = "update-bloodgroup-form";
 	@Autowired
 	BloodGroupService bloodGroupService;
 
@@ -42,7 +41,7 @@ public class BloodGroupController {
 		return ADDBLOODGROUP;
 	}
 
-	@PostMapping("/add")
+	@PostMapping("/savebloodgroup")
 	public String addNewBloodGroup(@Valid @ModelAttribute("addbloodgroup") BloodGroupDetail thebg, Errors errors) {
 		if (errors.hasErrors()) {
 			return ADDBLOODGROUP;
@@ -54,18 +53,16 @@ public class BloodGroupController {
 	@GetMapping("/updatebloodgroupform")
 	public String showUpdateForm(@RequestParam("bloodgroupid") int id, Model model) {
 		BloodGroupDetail thebg = bloodGroupService.findById(id);
-		model.addAttribute("updatebloodgroup", thebg);
-		return UPDATEBLOODGROUP;
+		model.addAttribute("addbloodgroup", thebg);
+		return ADDBLOODGROUP;
 	}
 
-	@PostMapping("/update")
-	public String updateBloodgroupDetails(@Valid @ModelAttribute("updatebloodgroup") BloodGroupDetail thebg, Errors errors) {
-		if (errors.hasErrors()) {
-			return UPDATEBLOODGROUP;
-		}
-		bloodGroupService.save(thebg);
-		return LISTOFBLOODGROUP;
-	}
+	/*
+	 * @PostMapping("/update") public String
+	 * updateBloodgroupDetails(@Valid @ModelAttribute("updatebloodgroup")
+	 * BloodGroupDetail thebg, Errors errors) { if (errors.hasErrors()) { return
+	 * UPDATEBLOODGROUP; } bloodGroupService.save(thebg); return LISTOFBLOODGROUP; }
+	 */
 
 	@GetMapping("/deletebloodgroup")
 	public String deleteBloodGroup(@RequestParam("id") int id, Model model) {

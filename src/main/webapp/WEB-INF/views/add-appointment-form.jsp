@@ -10,25 +10,39 @@
 <title>Add Appointment</title>
 <style><%@include file ="/WEB-INF/css/addappointment.css"%>
 body {
-	background-color: #a5edf3;
+	
+	background-image: url("https://wallpapercave.com/wp/wp4323461.png");
+	background-position: center;
+	background-repeat: no-repeat; 
+	background-size: cover;
+    position: relative; 
+    background-attachment:fixed;
 }
-
 #div {
 	position: absolute;
-    /* left: 50px; */
-    bottom: 40%;
-    margin-top: 377px;
-    right: 470px;
-    margin-left: 30px;
+    bottom: -30%;
+    margin-top: 379px;
+    right: 438px;
+    margin-left: 454px;
+    color:white;
 }
 </style>
 </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <body>
 <button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="history.back()">Go Back</button>
+<!-- <button style="font-size: 12px; background-color: #e7e7e7; color: black;" onclick="document.location='/appointment/listappointment'">List</button> -->
+
 	<div id="root">	
 		<div id="form" class="form">		
-			<form:form action="add" method="post" modelAttribute="addappointment">
-				<form:errors path="appointmentId" cssClass="text-danger" />
+			<form:form action="savedonorappointment" method="post" modelAttribute="addappointment">
+				<div>
+					<div>
+						<form:hidden path="appointmentId"  title="Please enter number only"
+							pattern="^[0-9]+$" required="true" class="input-size" />
+					</div>
+				</div>
 				<div>
 					<label class="heading-text" for="appointmentDate">Appointment
 						Date</label>
@@ -39,7 +53,7 @@ body {
 					</div>
 				</div>
 				<div>
-					<label class="heading-text" for="personId">PersonId</label>
+					<label class="heading-text" for="personId">Person Id</label>
 					<div>
 						<form:input path="personId" title="Please enter number only"
 							pattern="^[0-9]+$" required="true" class="input-size"
@@ -48,14 +62,8 @@ body {
 				</div>
 				<form:errors path="personId" cssClass="text-danger" />
 				<div>
-					<form:button class="button-style">ADD</form:button>
+					<form:button class="button-style">SAVE</form:button>
 				</div>
-				
-				<div>
-				        <form:button class="button-style">
-                            <a href="/home/loginuse">Logout</a>
-                        </form:button> 
-			</div>
 			</form:form>			
 		</div>
 		</div>

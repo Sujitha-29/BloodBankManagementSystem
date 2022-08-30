@@ -1,5 +1,6 @@
 package com.chainsys.bbms.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.bbms.businesslogic.Logic;
 import com.chainsys.bbms.model.BloodTransaction;
 import com.chainsys.bbms.service.BloodTransactionService;
 
@@ -23,7 +25,6 @@ public class BloodTransactionController
 { 
 	public static final String LISTOFTRANSACTION = "redirect:/bloodtransaction/listbloodtransaction";
 	public static final String ADDTRANSACTION = "add-transaction-form";
-	public static final String UPDATETRANSACTION = "update-transaction-form";
 
 	@Autowired
 	BloodTransactionService bloodTransactionService;
@@ -35,13 +36,15 @@ public class BloodTransactionController
 			return "list-transaction";
 	}
 	@GetMapping("/addbloodtransactionform")
-	public String showbloodTransactionAddForm(Model model)
+	public String showbloodTransactionAddForm(@RequestParam("requestId")int requestid,Model model)
 	{
 		BloodTransaction thetrans=new BloodTransaction();
+		thetrans.setRequestId(requestid);
+		thetrans.setTransactionDate(Date.valueOf(Logic.getInstanceDate()));
 		model.addAttribute("addtransaction",thetrans);
 		return ADDTRANSACTION;
 	}
-	@PostMapping("/add")
+	@PostMapping("/savetransaction")
 	public String addNewBloodTransaction(@Valid@ModelAttribute("addtransaction") BloodTransaction thetrans,Errors errors)
 	{
 		if(errors.hasErrors())
@@ -55,19 +58,17 @@ public class BloodTransactionController
 	public String showBloodTransactionUpdateForm(@RequestParam("transid") int id,Model model)
 	{
 		BloodTransaction thetrans=bloodTransactionService.findById(id);
-		model.addAttribute("updatetransaction", thetrans);
-		return UPDATETRANSACTION;	
+		model.addAttribute("addtransaction", thetrans);
+		return ADDTRANSACTION;	
 	}
-	@PostMapping("/update")
-	public String updateBloodTransaction(@Valid@ModelAttribute("updatetransaction") BloodTransaction thetrans,Errors errors)
-	{
-		if(errors.hasErrors())
-		{
-			return UPDATETRANSACTION;
-		}
-		bloodTransactionService.save(thetrans);
-		return LISTOFTRANSACTION;
-	}
+
+	/*
+	 * @PostMapping("/update") public String
+	 * updateBloodTransaction(@Valid@ModelAttribute("updatetransaction")
+	 * BloodTransaction thetrans,Errors errors) { if(errors.hasErrors()) { return
+	 * UPDATETRANSACTION; } bloodTransactionService.save(thetrans); return
+	 * LISTOFTRANSACTION; }
+	 */
 	@GetMapping("/deletebloodtransaction")
 	public String deleteTransaction(@RequestParam("id") int id,Model model)
 	{

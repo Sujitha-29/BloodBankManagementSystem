@@ -13,4 +13,6 @@ public interface PersonDetailsRepository extends CrudRepository<PersonDetail,Int
 	void deleteById(int personId);
 	List<PersonDetail> findAll();
 	List<PersonDetail> findByBloodGroupId(int id);
+	PersonDetail findByEmailId(String email);
+	PersonDetail findByPhoneNo(Long phone);
 }

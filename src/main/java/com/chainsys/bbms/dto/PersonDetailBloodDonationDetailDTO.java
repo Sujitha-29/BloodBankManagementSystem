@@ -23,8 +23,6 @@ public class PersonDetailBloodDonationDetailDTO {
 	}
 	public void addPersonDetailAndBlooddonationDetail(BloodDonationDetail bloodDonation)
 	{
-		donationList.add(bloodDonation);
-		
+		donationList.add(bloodDonation);		
 	}
-
 }
